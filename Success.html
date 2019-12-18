@@ -40,7 +40,7 @@
                         <!-- Nav items -->
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html"> <i class="ni ni-shop text-primary"></i> <span class="nav-link-text">Dashboard</span> </a>
+                                <a class="nav-link active" href="index.html"> <i class="ni ni-shop text-primary"></i> <span class="nav-link-text">Dashboard</span> </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../widgets.html"> <i class="ni ni-briefcase-24 text-green"></i> <span class="nav-link-text">New Transaction</span> </a>
@@ -52,7 +52,7 @@
                                 <a class="nav-link" href="../calendar.html"> <i class="ni ni-bullet-list-67 text-red"></i> <span class="nav-link-text">Transaction Log</span> </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="../calendar.html"> <i class="ni ni-building text-red"></i> <span class="nav-link-text">Bank Details </span> </a>
+                                <a class="nav-link" href="../calendar.html"> <i class="ni ni-building text-red"></i> <span class="nav-link-text">Bank Details </span> </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../calendar.html"> <i class="ni ni-headphones text-green"></i> <span class="nav-link-text">Support </span> </a>
@@ -238,7 +238,7 @@
             </nav>
             <!-- Header -->
             <!-- Header -->
-            <div class="header bg-green pb-6">
+            <div class="header bg-success pb-6">
                 <div class="container-fluid">
                     <div class="header-body">
                         <div class="row align-items-center py-4">
@@ -258,7 +258,7 @@
                             </div>
                             <div class="col-lg-6 col-5 text-right">
                                 <a href="new_trans.html" class="btn btn-sm btn-neutral">New Transaction</a>
-                                <a href="bank_details.html" class="btn btn-sm btn-neutral">Add Account</a>
+                                <a href="bank_details.html" class="btn btn-sm btn-neutral">New Account</a>
                             </div>
                         </div>
                         <!-- Card stats -->
@@ -267,61 +267,94 @@
             </div>
             <!-- Page content -->
             <div class="container-fluid mt--6">
-                <div class="row card-wrapper">
-                    <div class="col-lg-4">
-                        <!-- Basic with card header -->
-                        <!-- Contact card -->
-                        <div class="card text-white bg-gradient-red">
-                            <!-- Card body -->
-                            <div class="card-body text-white">
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <!-- Avatar -->
-                                        <a href="#" class="avatar avatar-xl"> <img alt="Image placeholder" src="assets/img/banks/UBA.png"> </a>
-                                    </div>
-                                    <div class="col ml--2">
-                                        <h2 class="mb-1 text-white">Benjamin Emmanuel</h2>
-                                        <h3 class="mb-1 text-white"> 1018041933<small class="text-mute"> United Bank of Africa</small> </h3>
-                                        <span class="text-success">●</span>
-                                        <small>NGN Account</small>
-                                    </div>
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-6">
+                        <div class="card-wrapper">
+                            <!-- Input groups -->
+                            <div class="card">
+                                <!-- Card header -->
+                                <div class="card-header text-center">
+                                    <i class="fas fa-check-circle fa-8x text-success"></i>
+                                    <!-- Title -->
+                                    <h5 class="h3 mb-0">Payment Successful</h5>
                                 </div>
-                                <div class="row float-right pt-2">
-                                    <span class="fas fa-trash"></span>
+                                <!-- Card body -->
+                                <div class="card-body">
+                                    <!-- List group -->
+                                    <ul class="list-group list-group-flush list my--3">
+                                        <li class="list-group-item px-0">
+                                            <div class="row align-items-center">
+                                                <div class="col mr--2">
+                                                    <h3 class="mb-0"> Transaction ID </h3>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <span class="text-warning">12908945BDC</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item px-0">
+                                            <div class="row align-items-center">
+                                                <div class="col mr--2">
+                                                    <h3 class="mb-0"> Account No. </h3>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <span class="text-muted">2001004005</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item px-0">
+                                            <div class="row align-items-center">
+                                                <div class="col mr--2">
+                                                    <h3 class="mb-0"> Account Holder</h3>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <span class="text-muted">313DC  Nigeria Limited</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item px-0">
+                                            <div class="row align-items-center">
+                                                <div class="col mr--2">
+                                                    <h3 class="mb-0"> Bank Name </h3>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <span class="text-muted">Zenith Bank PLC</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item px-0">
+                                            <div class="row align-items-center">
+                                                <div class="col mr--2">
+                                                    <h3 class="mb-0"> Account to Pay </h3>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <span class="text-muted">200 USD</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item px-0">
+                                            <div class="row align-items-center">
+                                                <div class="col mr--2">
+                                                    <h3 class="mb-0"> You Will Recieve</h3>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <span class="text-success">71,100 NGN</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <div class="row ">
+                                            <p>
+                                        * Please use <span class="text-success">12908945BDC</span> as beneficiary reference - Rates are guaranteed for 15 mins - </p>
+                                        </div>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- Team member card -->
-                        <!-- Image-Text card -->
-                        <!-- Basic with blockquote -->
-                    </div>
-                    <div class="col-lg-4">
-                        <!-- Basic with card header -->
-                        <!-- Contact card -->
-                        <!-- Team member card -->
-                        <!-- Image-Text card -->
-                        <!-- Basic with blockquote -->
-                        <div class="card bg-gradient-default text-center">
-                            <div class="card-body">
-                                <h2 class="card-title text-white">Testimonial</h2>
-                                <i class="fas fa-plus-circle fa-5x mb-1"></i>
-                            </div>
+                        <div class="text-center">
+                            <button class="btn btn-success" data-toggle="modal" data-target="#xf-details">
+                                Finish
+</button>
                         </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <!-- Pricing -->
-                        <!-- Basic with action button -->
-                        <!-- Image overlay -->
-                        <div class="card bg-dark text-white border-0">
-                            <img class="card-img" src="assets/img/theme/img-1-1000x600.jpg" alt="Card image">
-                            <div class="card-img-overlay d-flex align-items-center">
-                                <div>
-                                    <h5 class="h2 card-title text-white mb-2">Card title</h5>
-                                    <i class="fas fa-plus-circle fa-5x"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pricing card -->
                     </div>
                 </div>
                 <!-- Footer -->
@@ -376,3 +409,15 @@
             });
         });
     </script>
+        <script>
+        function myFunction() {
+          var x = document.getElementById("myBank");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        }
+        </script>
+    </body>
+</html>

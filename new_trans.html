@@ -217,20 +217,19 @@
                                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <div class="media align-items-center">
                                         <span class="avatar avatar-sm rounded-circle"> <img alt="Image placeholder" src="assets/img/theme/team-4.jpg"> </span>
                                         <div class="media-body ml-2 d-none d-lg-block">
-                                            <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                                            <span class="mb-0 text-sm  font-weight-bold">Benjamin Emmanuel</span>
                                         </div>
                                     </div> </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <div class="dropdown-header noti-title">
                                         <h6 class="text-overflow m-0">Welcome!</h6>
                                     </div>
-                                    <a href="#!" class="dropdown-item"> <i class="ni ni-single-02"></i> <span>My
-                                        profile</span> </a>
+                                    <a href="profile.html" class="dropdown-item"> <i class="ni ni-single-02"></i> <span>My profile</span> </a>
                                     <a href="#!" class="dropdown-item"> <i class="ni ni-settings-gear-65"></i> <span>Settings</span> </a>
-                                    <a href="#!" class="dropdown-item"> <i class="ni ni-calendar-grid-58"></i> <span>Activity</span> </a>
-                                    <a href="#!" class="dropdown-item"> <i class="ni ni-support-16"></i> <span>Support</span> </a>
+                                    <a href="" class="dropdown-item"> <i class="ni ni-calendar-grid-58"></i> <span>Activity</span> </a>
+                                    <a href="support.html" class="dropdown-item"> <i class="ni ni-support-16"></i> <span>Support</span> </a>
                                     <div class="dropdown-divider"></div>
-                                    <a href="#!" class="dropdown-item"> <i class="ni ni-user-run"></i> <span>Logout</span> </a>
+                                    <a href="login.html" class="dropdown-item"> <i class="ni ni-user-run"></i> <span>Logout</span> </a>
                                 </div>
                             </li>
                         </ul>
@@ -258,8 +257,8 @@
                                 </nav>
                             </div>
                             <div class="col-lg-6 col-5 text-right">
-                                <a href="#" class="btn btn-sm btn-neutral">New</a>
-                                <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+                                <a href="new_trans.html" class="btn btn-sm btn-neutral">New Transaction</a>
+                                <a href="bank_details" class="btn btn-sm btn-neutral">Add Account</a>
                             </div>
                         </div>
                         <!-- Card stats -->
@@ -482,12 +481,153 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="modal fade" id="xf-details" tabindex="-1" role="dialog" aria-labelledby="xf-details" aria-hidden="true">
+                                            <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-body p-0">
+                                                        <div class="card">
+                                                            <!-- Card header -->
+                                                            <div class="card-header">
+                                                                <!-- Title -->
+                                                                <h5 class="h3 mb-0">Transaction Summary</h5>
+                                                            </div>
+                                                            <!-- Card body -->
+                                                            <div class="card-body">
+                                                                <!-- List group -->
+                                                                <ul class="list-group list-group-flush list my--3">
+                                                                    <li class="list-group-item px-0">
+                                                                        <div class="row align-items-center">
+                                                                            <div class="col mr--2">
+                                                                                <h3 class="mb-0"> You Pay </h3>
+                                                                            </div>
+                                                                            <div class="col-auto">
+                                                                                <span class="text-success">200 USD</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="list-group-item px-0">
+                                                                        <div class="row align-items-center">
+                                                                            <div class="col mr--2">
+                                                                                <h3 class="mb-0"> Transaction Fee</h3>
+                                                                            </div>
+                                                                            <div class="col-auto">
+                                                                                <span class="text-success">500 NGN</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="list-group-item px-0">
+                                                                        <div class="row align-items-center">
+                                                                            <div class="col mr--2">
+                                                                                <h3 class="mb-0"> Exchange Rate </h3>
+                                                                            </div>
+                                                                            <div class="col-auto">
+                                                                                <span class="text-success">358.25 NGN - 1 USD</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="list-group-item px-0">
+                                                                        <div class="row align-items-center">
+                                                                            <div class="col mr--2">
+                                                                                <h3 class="mb-0"> Account to Credit </h3>
+                                                                            </div>
+                                                                            <div class="col-auto">
+                                                                                <span class="text-success">1018041933 - BENJAMIN AMIN</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="list-group-item px-0">
+                                                                        <div class="row align-items-center">
+                                                                            <div class="col mr--2">
+                                                                                <h3 class="mb-0"> Reference </h3>
+                                                                            </div>
+                                                                            <div class="col-auto">
+                                                                                <span class="text-primary">UTILITIES</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                                <div class="mb-4">
+</div>
+                                                                <div class="row justify-content-center mt-5">
+                                                                    <button class="btn btn-icon btn-primary" href="#">
+                                                                        <span class="btn-inner--icon"><i class="fas fa-credit-card"></i></span>
+                                                                        <span class="btn-inner--text">Pay With Card</span>
+                                                                    </button>
+                                                                    <button class="btn btn-icon btn-primary" onclick="myFunction()">
+                                                                        <span class="btn-inner--icon"><i class="fas fa-share"></i></span>
+                                                                        <span class="btn-inner--text">Pay With Card</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="row" id="myBank">
+                                                                    <div class="card-header col">
+                                                                        <!-- Title -->
+                                                                        <h5 class="h3 mb-0">Bank Details</h5>
+                                                                    </div>
+                                                                    <form role="form">
+                                                                        <div class="form-group">
+                                                                            <label>Select Country</label>
+                                                                            <select class="custom-select">
+                                                                                <option label="Country"></option>
+                                                                                <option>Nigeria</option>
+                                                                                <option>United States of America</option>
+                                                                                <option>England</option>
+                                                                                <option>Germany</option>
+                                                                                <option>Canada</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="form-group"> 
+                                                                            <label for="formGroupExampleInput">Select Your Bank</label>                                                                             
+                                                                            <div class="form-group">
+                                                                                <input class=" form-control" list="banks" name="bank" placeholder="e.g Choose your Bank">
+                                                                                <datalist id="banks">
+                                                                                    <option value="Access Bank">Access Bank</option>
+                                                                                    <option value="Citibank">Citibank</option>
+                                                                                    <option value="Ecobank Bank">Ecobank</option>
+                                                                                    <option value="Fidelity Bank">Fidelity Bank</option>
+                                                                                    <option value="First City Monument Bank (FCMB)">First City Monument Bank (FCMB)</option>
+                                                                                    <option value="FSDH Merchant Bank">FSDH Merchant Bank</option>
+                                                                                    <option value="uarantee Trust Bank (GTB)">Guarantee Trust Bank (GTB)</option>
+                                                                                    <option value="Heritage Bank">Heritage Bank</option>
+                                                                                    <option value="Keystone Bank">Keystone</option>                                                                                     
+                                                                                    <option value="Keystone Bank">Keystone Bank</option>
+                                                                                    <option value="stanbic">Stanbic IBTC Bank</option>
+                                                                                    <option value="standard">Standard Chartered Bank</option>
+                                                                                    <option value="Stanbic IBTC Bank">Sterling Bank</option>
+                                                                                    <option value="Union Bank">Union Bank</option>
+                                                                                    <option value="United Bank for Africa (UBA)">United Bank for Africa (UBA)</option>
+                                                                                    <option value="Unity Bank">Unity Bank</option>
+                                                                                    <option value="Wema Bank">Wema Bank</option>
+                                                                                    <option value="Zenith Bank">Zenith Bank</option>
+                                                                                </datalist>
+                                                                            </div>                                                                             
+                                                                        </div>
+                                                                        <div class="form-group mb-3">
+                                                                            <label>Re-Enter Your PIN</label>
+                                                                            <div class="input-group input-group-merge input-group-alternative">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text"><i class="fas fa-credit-card"></i></span>
+                                                                                </div>
+                                                                                <input class="form-control" placeholder="Enter Your 4 Digit PIN " type="number">
+                                                                            </div>
+                                                                        </div>
+                                                                        <p class="blocquote">* Note: Settlement mostly occur within 15 mins of our receipt of payment from your Bank</p>
+                                                                        <div class="text-center">
+                                                                            <button type="button" class="btn btn-primary my-4">Pay Now</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
                         <div class="text-right">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#modal-form">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#xf-details">
                                 Proceed
 </button>
                         </div>
@@ -545,3 +685,15 @@
             });
         });
     </script>
+        <script>
+        function myFunction() {
+          var x = document.getElementById("myBank");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        }
+        </script>
+    </body>
+</html>
