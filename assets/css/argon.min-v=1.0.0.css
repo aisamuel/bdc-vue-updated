@@ -1,19 +1,5 @@
 @charset 'UTF-8';
 
-/* !
-
-=========================================================
-* Argon Dashboard PRO - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-* Copyright 2018 Creative Tim (https://www.creative-tim.com)
-
-* Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. */
 :root {
     --blue: #5e72e4;
     --indigo: #5603ad;
@@ -6933,6 +6919,12 @@ button.close {
 
 .bg-primary {
     background-color: #5e72e4!important;
+}
+.bg-landing{
+    background: url('../img/theme/login2.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 a.bg-primary:focus,

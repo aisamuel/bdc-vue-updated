@@ -313,15 +313,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </form>
-                                            <div class="mb-3">
-                                                <h3>
+                                                <div class="mb-3 col-md-12">
+                                                    <h3>
                                                 Transaction Details </h3>
-                                            </div>
-                                            <form class="row justify-content-center">
-                                                <div class="col-md-10">
+                                                </div>
+                                                <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label>Select Credit Account</label>
+                                                        <label>Select account to Debit</label>
                                                         <select class="custom-select" id="myaccount">
                                                             <option label="Select Account"></option>
                                                             <option>1018041933 (UBA) Benjamin Emmanuel</option>
@@ -330,20 +328,22 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-10">
+                                                <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label>Select Reference</label>
+                                                        <label>Select redit Account</label>
                                                         <select class="custom-select" id="myaccount">
                                                             <option label="Select Account"></option>
-                                                            <option>School Fees</option>
-                                                            <option>Utilities</option>
-                                                            <option>Transfer to relative</option>
-                                                            <option>Salaries</option>
-                                                            <option>Gifts & Donations</option>
-                                                            <option>Sponsorship</option>
+                                                            <option>1018041933 (UBA) Benjamin Emmanuel</option>
+                                                            <option>1018041933 (Zenith Bank) Benjamin Emmanuel</option>
+                                                            <option value="newaccount">Add a new Account</option>
                                                         </select>
                                                     </div>
                                                 </div>
+                                                <div class="text-right col-md-12">
+                                                    <h4>
+                                                Transaction Rate 1 USD = 360 NGN </h4>
+                                                </div>
+                                                <!-- MOdal starts here -->
                                                 <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
                                                     <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
                                                         <div class="modal-content">
@@ -352,10 +352,9 @@
                                                                     <div class="card-header bg-transparent pb-5">
                                                                         <div class="text-center text-muted mb-4">
                                                                             <small>Or sign in with credentials</small>
-                                                                        </div> 
+                                                                        </div>                                                                         
                                                                     </div>
                                                                     <div class="card-body px-lg-5 py-lg-5">
-                                                                        
                                                                         <form role="form">
                                                                             <div class="form-group">
                                                                                 <label>Select Country</label>
@@ -379,7 +378,7 @@
                                                                                 </select>
                                                                             </div>
                                                                             <div class="form-group"> 
-                                                                                <label for="formGroupExampleInput">Select Your Bank</label>                                                                         
+                                                                                <label for="formGroupExampleInput">Select Your Bank</label>                                                                                 
                                                                                 <div class="form-group">
                                                                                     <input class=" form-control" list="banks" name="bank" placeholder="e.g Choose your Bank">
                                                                                     <datalist id="banks">
@@ -391,18 +390,17 @@
                                                                                         <option value="FSDH Merchant Bank">FSDH Merchant Bank</option>
                                                                                         <option value="uarantee Trust Bank (GTB)">Guarantee Trust Bank (GTB)</option>
                                                                                         <option value="Heritage Bank">Heritage Bank</option>
-                                                                                        <option value="Keystone Bank">Keystone 
-                                                                                            <option value="Keystone Bank">Keystone Bank</option>
-                                                                                            <option value="stanbic">Stanbic IBTC Bank</option>
-                                                                                            <option value="standard">Standard Chartered Bank</option>
-                                                                                            <option value="Stanbic IBTC Bank">Sterling Bank</option>
-                                                                                            <option value="Union Bank">Union Bank</option>
-                                                                                            <option value="United Bank for Africa (UBA)">United Bank for Africa (UBA)</option>
-                                                                                            <option value="Unity Bank">Unity Bank</option>
-                                                                                            <option value="Wema Bank">Wema Bank</option>
-                                                                                            <option value="Zenith Bank">Zenith Bank</option>
+                                                                                        <option value="Keystone Bank">Keystone Bank</option>
+                                                                                        <option value="stanbic">Stanbic IBTC Bank</option>
+                                                                                        <option value="standard">Standard Chartered Bank</option>
+                                                                                        <option value="Stanbic IBTC Bank">Sterling Bank</option>
+                                                                                        <option value="Union Bank">Union Bank</option>
+                                                                                        <option value="United Bank for Africa (UBA)">United Bank for Africa (UBA)</option>
+                                                                                        <option value="Unity Bank">Unity Bank</option>
+                                                                                        <option value="Wema Bank">Wema Bank</option>
+                                                                                        <option value="Zenith Bank">Zenith Bank</option>
                                                                                     </datalist>
-                                                                                </div>                                                                         
+                                                                                </div>                                                                                 
                                                                             </div>
                                                                             <div class="form-group mb-3">
                                                                                 <label>Account Number</label>
@@ -438,6 +436,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <!-- MOdal-2 starts here -->
                                                 <div class="modal fade" id="xf-details" tabindex="-1" role="dialog" aria-labelledby="xf-details" aria-hidden="true">
                                                     <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
                                                         <div class="modal-content">
@@ -504,7 +503,7 @@
                                                                             </li>
                                                                         </ul>
                                                                         <div class="mb-4">
-        </div>
+</div>
                                                                         <div class="row justify-content-center mt-5">
                                                                             <button class="btn btn-icon btn-primary" href="#">
                                                                                 <span class="btn-inner--icon"><i class="fas fa-credit-card"></i></span>
@@ -533,7 +532,7 @@
                                                                                     </select>
                                                                                 </div>
                                                                                 <div class="form-group"> 
-                                                                                    <label for="formGroupExampleInput">Select Your Bank</label>                                                                             
+                                                                                    <label for="formGroupExampleInput">Select Your Bank</label>                                                                                     
                                                                                     <div class="form-group">
                                                                                         <input class=" form-control" list="banks" name="bank" placeholder="e.g Choose your Bank">
                                                                                         <datalist id="banks">
@@ -545,7 +544,7 @@
                                                                                             <option value="FSDH Merchant Bank">FSDH Merchant Bank</option>
                                                                                             <option value="uarantee Trust Bank (GTB)">Guarantee Trust Bank (GTB)</option>
                                                                                             <option value="Heritage Bank">Heritage Bank</option>
-                                                                                            <option value="Keystone Bank">Keystone</option>                                                                                     
+                                                                                            <option value="Keystone Bank">Keystone</option>                                                                                             
                                                                                             <option value="Keystone Bank">Keystone Bank</option>
                                                                                             <option value="stanbic">Stanbic IBTC Bank</option>
                                                                                             <option value="standard">Standard Chartered Bank</option>
@@ -556,7 +555,7 @@
                                                                                             <option value="Wema Bank">Wema Bank</option>
                                                                                             <option value="Zenith Bank">Zenith Bank</option>
                                                                                         </datalist>
-                                                                                    </div>                                                                             
+                                                                                    </div>                                                                                     
                                                                                 </div>
                                                                                 <div class="form-group mb-3">
                                                                                     <label>Re-Enter Your PIN</label>
@@ -579,13 +578,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="mt-5">
-                                                    <hr>
-                                                </div>
                                                 <div class="text-right">
                                                     <button class="btn btn-primary" data-toggle="modal" data-target="#xf-details">
                                                         Proceed
-                        </button>
+</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -619,13 +615,11 @@
                                                         <input type="text" class="form-control">
                                                     </div>
                                                 </div>
-                                            </form>
-                                            <div class="mb-3">
-                                                <h3>
+                                                <div class="mb-3 col-md-12">
+                                                    <h3>
                                                 Transaction Details </h3>
-                                            </div>
-                                            <form class="row justify-content-center">
-                                                <div class="col-md-10">
+                                                </div>
+                                                <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Select Credit Account</label>
                                                         <select class="custom-select" id="myaccount-1">
@@ -636,7 +630,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-10">
+                                                <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Select Reference</label>
                                                         <select class="custom-select" id="myaccount">
@@ -650,12 +644,11 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                
+                                                <div class="text-right col-md-12">
+                                                    <h4>
+                                                Transaction Rate 1 USD = 360 NGN </h4>
+                                                </div>
                                             </form>
-                                            <div class="float-right">
-                                                <h3>
-                                                Transaction Rate 1 USD = 360 NGN </h3>
-                                            </div>
                                             <div class="modal fade" id="modal-form-2" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
                                                 <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
                                                     <div class="modal-content">
@@ -664,10 +657,9 @@
                                                                 <div class="card-header bg-transparent pb-5">
                                                                     <div class="text-center text-muted mb-4">
                                                                         <small>Or sign in with credentials</small>
-                                                                    </div> 
+                                                                    </div>                                                                     
                                                                 </div>
                                                                 <div class="card-body px-lg-5 py-lg-5">
-                                                                    
                                                                     <form role="form">
                                                                         <div class="form-group">
                                                                             <label>Select Country</label>
@@ -691,7 +683,7 @@
                                                                             </select>
                                                                         </div>
                                                                         <div class="form-group"> 
-                                                                            <label for="formGroupExampleInput">Select Your Bank</label>                                                                         
+                                                                            <label for="formGroupExampleInput">Select Your Bank</label>                                                                             
                                                                             <div class="form-group">
                                                                                 <input class=" form-control" list="banks" name="bank" placeholder="e.g Choose your Bank">
                                                                                 <datalist id="banks">
@@ -714,7 +706,7 @@
                                                                                         <option value="Wema Bank">Wema Bank</option>
                                                                                         <option value="Zenith Bank">Zenith Bank</option>
                                                                                 </datalist>
-                                                                            </div>                                                                         
+                                                                            </div>                                                                             
                                                                         </div>
                                                                         <div class="form-group mb-3">
                                                                             <label>Account Number</label>
@@ -816,7 +808,7 @@
                                                                         </li>
                                                                     </ul>
                                                                     <div class="mb-4">
-    </div>
+</div>
                                                                     <div class="row justify-content-center mt-5">
                                                                         <button class="btn btn-icon btn-primary" href="#">
                                                                             <span class="btn-inner--icon"><i class="fas fa-credit-card"></i></span>
@@ -845,7 +837,7 @@
                                                                                 </select>
                                                                             </div>
                                                                             <div class="form-group"> 
-                                                                                <label for="formGroupExampleInput">Select Your Bank</label>                                                                             
+                                                                                <label for="formGroupExampleInput">Select Your Bank</label>                                                                                 
                                                                                 <div class="form-group">
                                                                                     <input class=" form-control" list="banks" name="bank" placeholder="e.g Choose your Bank">
                                                                                     <datalist id="banks">
@@ -857,7 +849,7 @@
                                                                                         <option value="FSDH Merchant Bank">FSDH Merchant Bank</option>
                                                                                         <option value="uarantee Trust Bank (GTB)">Guarantee Trust Bank (GTB)</option>
                                                                                         <option value="Heritage Bank">Heritage Bank</option>
-                                                                                        <option value="Keystone Bank">Keystone</option>                                                                                     
+                                                                                        <option value="Keystone Bank">Keystone</option>                                                                                         
                                                                                         <option value="Keystone Bank">Keystone Bank</option>
                                                                                         <option value="stanbic">Stanbic IBTC Bank</option>
                                                                                         <option value="standard">Standard Chartered Bank</option>
@@ -868,7 +860,7 @@
                                                                                         <option value="Wema Bank">Wema Bank</option>
                                                                                         <option value="Zenith Bank">Zenith Bank</option>
                                                                                     </datalist>
-                                                                                </div>                                                                             
+                                                                                </div>                                                                                 
                                                                             </div>
                                                                             <div class="form-group mb-3">
                                                                                 <label>Re-Enter Your PIN</label>
@@ -891,19 +883,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="mt-5">
-                                                <hr>
-                                            </div>
                                             <div class="text-right">
                                                 <button class="btn btn-primary" data-toggle="modal" data-target="#xf-details-2">
                                                     Proceed
-                    </button>
+</button>
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    
-                                    
                                 </div>
                             </div>
                         </div>
@@ -966,7 +952,7 @@
             });
         });
     </script>
-            <script>
+        <script>
                 $(document).ready(function () { //Make script DOM ready
                     $('#myaccount-1').change(function () { //jQuery Change Function
                         var opval = $(this).val(); //Get value from select element
