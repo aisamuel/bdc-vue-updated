@@ -2009,7 +2009,7 @@ pre code {
 
 .form-control:focus {
     color: #8898aa;
-    border-color: #5e72e4;
+    border-color:#2dce89;
     outline: 0;
     background-color: #fff;
     box-shadow: 0 3px 9px rgba(50,50,9,0),3px 4px 8px rgba(94,114,228,.1);
@@ -6920,7 +6920,8 @@ button.close {
 .bg-primary {
     background-color: #5e72e4!important;
 }
-.bg-landing{
+
+.bg-landing {
     background: url('../img/theme/login2.jpg');
     background-repeat: no-repeat;
     background-position: center center;
@@ -12934,42 +12935,42 @@ a.text-darker:hover {
     box-shadow: none,0 0 0 0 rgba(205,32,31,.5);
 }
 
-.btn-slack {
+.btn-whatsapp {
     color: #fff;
     border-color: #3aaf85;
     background-color: #3aaf85;
     box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
 }
 
-.btn-slack:hover {
+.btn-whatsapp:hover {
     color: #fff;
     border-color: #3aaf85;
     background-color: #3aaf85;
 }
 
-.btn-slack.focus,
-.btn-slack:focus {
+.btn-whatsapp.focus,
+.btn-whatsapp:focus {
     box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08),0 0 0 0 rgba(58,175,133,.5);
 }
 
-.btn-slack.disabled,
-.btn-slack:disabled {
+.btn-whatsapp.disabled,
+.btn-whatsapp:disabled {
     color: #fff;
     border-color: #3aaf85;
     background-color: #3aaf85;
 }
 
-.btn-slack:not(:disabled):not(.disabled).active,
-.btn-slack:not(:disabled):not(.disabled):active,
-.show>.btn-slack.dropdown-toggle {
+.btn-whatsappp:not(:disabled):not(.disabled).active,
+.btn-whatsappp:not(:disabled):not(.disabled):active,
+.show>.btn-whatsappp.dropdown-toggle {
     color: #fff;
     border-color: #3aaf85;
     background-color: #2d8968;
 }
 
-.btn-slack:not(:disabled):not(.disabled).active:focus,
-.btn-slack:not(:disabled):not(.disabled):active:focus,
-.show>.btn-slack.dropdown-toggle:focus {
+.btn-whatsappp:not(:disabled):not(.disabled).active:focus,
+.btn-whatsappp:not(:disabled):not(.disabled):active:focus,
+.show>.btn-whatsappp.dropdown-toggle:focus {
     box-shadow: none,0 0 0 0 rgba(58,175,133,.5);
 }
 
@@ -14418,12 +14419,12 @@ textarea[resize=horizontal] {
 
 .focused .input-group-text {
     color: #8898aa;
-    border-color: #5e72e4;
+    border-color: #2dce89;
     background-color: #fff;
 }
 
 .focused .form-control {
-    border-color: #5e72e4;
+    border-color: #2dce89;
 }
 
 .focused .input-group-flush {

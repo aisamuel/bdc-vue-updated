@@ -408,7 +408,7 @@ var Layout = (function() {
         })
         .trigger("blur");
   })(),
-  color = "#5e72e4";
+  color = "#2dce89";
 function initMap() {
   (map = document.getElementById("map-default")),
     (lat = map.getAttribute("data-lat")),
@@ -1420,3 +1420,34 @@ var DatatableBasic = (function() {
         $(this).tagsinput({ tagClass: "badge badge-primary" });
       });
   })();
+
+   //=======================================
+        //   Owl carousel
+        //========================================
+        var testimonialCarousel = $('.testimonial-slider');
+        testimonialCarousel.owlCarousel({
+            loop: true,
+            dots: true,
+            nav: false, 
+            margin: 30,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 1
+                },
+                960: {
+                    items: 1
+                },
+                1200: {
+                    items: 1
+                },
+                1920: {
+                    items: 1
+                }
+            }
+        }); 
