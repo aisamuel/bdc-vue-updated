@@ -29,6 +29,9 @@ app.get("/profile", function (req, res) {
 app.get("/support", function (req, res) {
   res.send(pug.renderFile("project/support.pug"));
 });
+app.get("/success", function (req, res) {
+  res.send(pug.renderFile("project/success.pug"));
+});
 app.get("/new-transaction", function (req, res) {
   res.send(pug.renderFile("project/new-trans.pug"));
 });

@@ -4,8 +4,7 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(cors())
-
+app.use(cors());
 
 const port = process.env.PORT || "8855";
 
@@ -30,12 +29,16 @@ app.get("/signup", (req, res) => {
 app.get("/profile", (req, res) => {
   //   res.sendFile(__dirname + "/project/profile.html");
   res.send(pug.renderFile("project/profile.pug"));
-// res.send("hello profile")
+  // res.send("hello profile")
 });
 
 app.get("/support", (req, res) => {
-    res.send(pug.renderFile("project/support.pug"));
-  });
+  res.send(pug.renderFile("project/support.pug"));
+});
+
+app.get("/success", (req, res) => {
+  res.send(pug.renderFile("project/success.pug"));
+});
 
 app.get("/new-transaction", (req, res) => {
   res.send(pug.renderFile("project/new-trans.pug"));

@@ -58,49 +58,25 @@
               </div>
               <form role="form">
                 <div class="form-group">
-                  <label>Debit Account</label>
-                  <select class="custom-select" id="myaccount-1">
-                    <option label="Select your account to debited"></option>
-                    <option v-for="acct in userBankAccounts">{{acct.accountNumber}} ({{acct.bankName}}) {{acct.accountName}}</option>
+                  <label>Your Account</label>
+                  <select class="custom-select" id="myaccount-1" v-model="userSelectedBankAccount">
+                    <option label="Select your account"></option>
+                    <option v-for="acct in userBankAccounts" :value="acct">{{acct.accountNumber}} ({{acct.bankName}}) {{acct.accountName}}</option>
                     <option value="newaccount-1">Add a new Account</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="formGroupExampleInput">BDC account to credit</label>
+                  <label for="formGroupExampleInput">BDC account</label>
                   <div class="form-group">
-                    <input class="form-control" list="banks" name="bank" placeholder="e.g Choose your Bank"/>
-                    <datalist id="banks">
-                      <option value="Access Bank">Access Bank</option>
-                      <option value="Citibank">Citibank</option>
-                      <option value="Ecobank Bank">Ecobank</option>
-                      <option value="Fidelity Bank">Fidelity Bank</option>
-                      <option value="First City Monument Bank (FCMB)">First City Monument Bank (FCMB)</option>
-                      <option value="FSDH Merchant Bank">FSDH Merchant Bank</option>
-                      <option value="uarantee Trust Bank (GTB)">Guarantee Trust Bank (GTB)</option>
-                      <option value="Heritage Bank">Heritage Bank</option>
-                      <option value="Keystone Bank">Keystone</option>
-                      <option value="Keystone Bank">Keystone Bank</option>
-                      <option value="stanbic">Stanbic IBTC Bank</option>
-                      <option value="standard">Standard Chartered Bank</option>
-                      <option value="Stanbic IBTC Bank">Sterling Bank</option>
-                      <option value="Union Bank">Union Bank</option>
-                      <option value="United Bank for Africa (UBA)">United Bank for Africa (UBA)</option>
-                      <option value="Unity Bank">Unity Bank</option>
-                      <option value="Wema Bank">Wema Bank</option>
-                      <option value="Zenith Bank">Zenith Bank</option>
-                    </datalist>
-                  </div>
-                </div>
-                <div class="form-group mb-3">
-                  <label>Enter Your Login PIN</label>
-                  <div class="input-group input-group-merge input-group-alternative">
-                    <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-credit-card"></i></span></div>
-                    <input class="form-control" placeholder="Enter Your 4 Digit PIN " type="number"/>
+                    <select class="custom-select" id="myaccount-1" v-model="bdcSelectedBankAccount">
+                      <option label="Select BDC account"></option>
+                      <option v-for="bdcAcct in bdcBankAccounts" :value="bdcAcct">{{bdcAcct.accountNumber}} ({{bdcAcct.bankName}}) {{bdcAcct.accountName}}</option>
+                    </select>
                   </div>
                 </div>
                 <p class="blocquote">* Note: Settlement mostly occur within 15 mins of our receipt of payment from your Bank</p>
                 <p class="blocquote">* 313BDC will not be held liable if wrong denominated currency is inserted</p>
-                <div class="text-center"><a class="btn btn-primary my-4" a="" href="success.html">Pay Now</a></div>
+                <div class="text-center"><a class="btn btn-primary my-4" a="" @click="checkoutBankTransaction()">Pay Now</a></div>
               </form>
             </div>
           </div>
@@ -166,7 +142,7 @@
                 <label class="custom-control-label" for="customCheckLogin"><span class="text-muted">I agree to the <a href="#">Terms &amp; Conditions</a> of 313BDC</span></label>
               </div>
               <div class="text-center">
-                <button class="btn btn-primary my-4" type="button" @click="addBankAccount()" :disabled="!acceptAgreement || !accountIsUnique">Sign in</button>
+                <button class="btn btn-primary my-4" type="button" @click="addBankAccount()" :disabled="!acceptAgreement || !accountIsUnique">Add Account</button>
               </div>
             </form>
           </div>

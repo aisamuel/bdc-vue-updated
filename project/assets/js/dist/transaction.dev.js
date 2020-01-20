@@ -3,12 +3,21 @@
 var transactionApp = new Vue({
   el: "#transactionApp",
   data: {
-    bankAccounts: [],
+    bdcBankAccounts: [{
+      accountName: "Test Account",
+      accountNumber: "24373284322",
+      bankName: "Zenith Bank"
+    }],
     userBankAccounts: [],
     exchangeRates: [],
     sellingRates: [],
     buyingRates: [],
     userSelectedBankAccount: {
+      accountNumber: "",
+      accountName: "",
+      bankName: ""
+    },
+    bdcSelectedBankAccount: {
       accountNumber: "",
       accountName: "",
       bankName: ""
@@ -229,6 +238,23 @@ var transactionApp = new Vue({
     }(function () {
       payWithPaystack(this.userProfile, this.amountInNaira, this.randomString, this.generateRandomString);
     }),
+    checkoutBankTransaction: function checkoutBankTransaction() {
+      var transaction = {
+        refference: this.randomString,
+        giveCurrency: "NGN",
+        giveAmount: this.amountInNaira,
+        recieveCurrency: this.selectedCurrency.currency,
+        recieveAmount: this.amountInCurrency,
+        creditAccount: this.bdcSelectedBankAccount.accountNumber,
+        debitAccount: this.userSelectedBankAccount.accountNumber,
+        userId: this.userProfile._id,
+        transactionId: this.randomString,
+        isDelivered: false,
+        bankName: this.bdcSelectedBankAccount.accountName
+      };
+      localStorage.setItem("transaction", JSON.stringify(transaction));
+      window.location.href = "/success";
+    },
     switchPaymentMethod: function switchPaymentMethod() {}
   },
   mounted: function mounted() {

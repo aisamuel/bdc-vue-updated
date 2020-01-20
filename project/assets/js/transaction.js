@@ -1,12 +1,21 @@
 const transactionApp = new Vue({
   el: "#transactionApp",
   data: {
-    bankAccounts: [],
+    bdcBankAccounts: [{
+        accountName: "Test Account",
+        accountNumber: "24373284322",
+        bankName: "Zenith Bank"
+    }],
     userBankAccounts: [],
     exchangeRates: [],
     sellingRates: [],
     buyingRates: [],
     userSelectedBankAccount: {
+      accountNumber: "",
+      accountName: "",
+      bankName: ""
+    },
+    bdcSelectedBankAccount: {
       accountNumber: "",
       accountName: "",
       bankName: ""
@@ -135,7 +144,23 @@ const transactionApp = new Vue({
         this.generateRandomString
       );
     },
-
+    checkoutBankTransaction() {
+      const transaction = {
+        refference: this.randomString,
+        giveCurrency: "NGN",
+        giveAmount: this.amountInNaira,
+        recieveCurrency: this.selectedCurrency.currency,
+        recieveAmount: this.amountInCurrency,
+        creditAccount: this.bdcSelectedBankAccount.accountNumber,
+        debitAccount: this.userSelectedBankAccount.accountNumber,
+        userId: this.userProfile._id,
+        transactionId: this.randomString,
+        isDelivered: false,
+        bankName: this.bdcSelectedBankAccount.accountName
+      };
+      localStorage.setItem("transaction", JSON.stringify(transaction));
+      window.location.href = "/success";
+    },
     switchPaymentMethod() {}
   },
   mounted: function() {
