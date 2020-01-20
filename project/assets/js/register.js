@@ -17,5 +17,8 @@ const registerApp = new Vue({
   mounted: function() {
     this.getUserProfile = getUserProfile;
     this.setUserProfile = setUserProfile;
+    if(this.getUserProfile) {
+        window.location.href = "/profile";
+    }
   }
 });

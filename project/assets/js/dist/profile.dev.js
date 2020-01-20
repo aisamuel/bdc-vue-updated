@@ -1,13 +1,14 @@
-// console.log("Vue app runs")
+"use strict";
 
-const profileApp = new Vue({
+// console.log("Vue app runs")
+var profileApp = new Vue({
   el: "#profileApp",
   data: {
     userData: {},
-    updateURL: `${baseURL}reg/update-user/`
+    updateURL: "".concat(baseURL, "reg/update-user/")
   },
   methods: {
-    updateProfile: function() {
+    updateProfile: function updateProfile() {
       fetch(this.updateURL, {
         method: "PUT",
         headers: {
@@ -26,14 +27,15 @@ const profileApp = new Vue({
       console.log(this.userData);
     }
   },
-  mounted: function() {
+  mounted: function mounted() {
     console.log("Vue app mounted");
     this.setUserProfile = setUserProfile;
     this.getUserProfile = getUserProfile;
     this.logout = logout;
     this.userData = getUserProfile();
-    if(!this.userData) {
-        window.location.href = "/login"
+
+    if (!this.userData) {
+      window.location.href = "/login";
     }
   }
 });

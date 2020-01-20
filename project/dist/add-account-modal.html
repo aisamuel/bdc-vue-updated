@@ -1,0 +1,70 @@
+
+<div class="modal fade" id="modal-form-2" tabindex="-1" role="dialog" aria-labelledby="modal-form-2" aria-hidden="true">
+  <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+    <div class="modal-content"></div>
+    <div class="modal-body p-0">
+      <div class="card bg-secondary border-0 mb-0"></div>
+      <div class="card-header bg-transparent pb-5">
+        <div class="text-center text-muted mb-4"></div>
+        <h3>Add a New Account</h3>
+      </div>
+      <div class="card-body px-lg-5 py-lg-5">
+        <form role="form"></form>
+        <div class="form-group">
+          <label>Select Account Currency</label>
+          <select class="custom-select"></select>
+          <option label="Currency"></option>
+          <option>NGN</option>
+          <option>USD</option>
+          <option>EUROS</option>
+          <option>POUNDS</option>
+          <option>RIYAHGS</option>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Select Your Bank</label>
+          <div class="form-group"></div>
+          <input class="form-control" list="banks" name="bank" placeholder="e.g Choose your Bank" v-model="userSelectedBankAccount.bankName"/>
+          <datalist id="banks">
+            <option value="Access Bank">Access Bank</option>
+            <option value="Citibank">Citibank</option>
+            <option value="Ecobank Bank">Ecobank</option>
+            <option value="Fidelity Bank">Fidelity Bank</option>
+            <option value="First City Monument Bank (FCMB)">First City Monument Bank (FCMB)</option>
+            <option value="FSDH Merchant Bank">FSDH Merchant Bank</option>
+            <option value="uarantee Trust Bank (GTB)">Guarantee Trust Bank (GTB)</option>
+            <option value="Heritage Bank">Heritage Bank</option>
+            <option value="Keystone Bank">Keystone Bank</option>
+            <option value="stanbic">Stanbic IBTC Bank</option>
+            <option value="standard">Standard Chartered Bank</option>
+            <option value="Stanbic IBTC Bank">Sterling Bank</option>
+            <option value="Union Bank">Union Bank</option>
+            <option value="United Bank for Africa (UBA)">United Bank for Africa (UBA)</option>
+            <option value="Unity Bank">Unity Bank</option>
+            <option value="Wema Bank">Wema Bank</option>
+            <option value="Zenith Bank">Zenith Bank</option>
+          </datalist>
+        </div>
+        <div class="form-group mb-3">
+          <label>Account Number</label>
+          <div class="input-group input-group-merge input-group-alternative"></div>
+          <div class="input-group-prepend"><span class="input-group-text"></span><i class="fas fa-credit-card"></i></div>
+          <input class="form-control" placeholder="1018041933" type="number"/>
+        </div>
+        <div class="form-group">
+          <label>Account Name</label>
+          <div class="input-group input-group-merge input-group-alternative"></div>
+          <div class="input-group-prepend"><span class="input-group-text"></span><i class="fas fa-user-circle"></i></div>
+          <input class="form-control" placeholder="Benjamin Emmanuel" type="text"/>
+        </div>
+        <p class="blocquote">* 313BDC will not be held liable if wrong denominated currency is inserted</p>
+        <div class="custom-control custom-control-alternative custom-checkbox">
+          <input class="custom-control-input" id="customCheckLogin" type="checkbox"/>
+          <label class="custom-control-label" for="customCheckLogin"></label><span class="text-muted">I agree to the <a href="#">Terms &amp; Conditions</a> of 313BDC</span>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary my-4" type="button">Sign in</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

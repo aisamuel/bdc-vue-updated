@@ -1,0 +1,371 @@
+doctype html
+include head.pug
+// Navabr
+
+nav#navbar-main.navbar.navbar-horizontal.navbar-main.navbar-expand-lg.navbar-transparent
+  .container
+    a.navbar-brand(href='pages/dashboards/dashboard.html')
+      img(src='assets/img/brand/logo.png')
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbar-collapse.navbar-collapse.navbar-custom-collapse.collapse
+      .navbar-collapse-header
+        .row
+          .col-6.collapse-brand
+            a(href='pages/dashboards/dashboard.html')
+              img(src='assets/img/brand/blue.png')
+          .col-6.collapse-close
+            button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
+              span
+              span
+      ul.navbar-nav.mr-auto
+        li.nav-item
+          a.nav-link(href='index.html')
+            span.nav-link-inner--text Dashboard
+        li.nav-item
+          a.nav-link(href='fxrates.html')
+            span.nav-link-inner--text FX Rates
+        li.nav-item
+          a.nav-link(href='pages/examples/login.html')
+            span.nav-link-inner--text About
+        li.nav-item
+          a.nav-link(href='pages/examples/register.html')
+            span.nav-link-inner--text FAQ
+        li.nav-item
+          a.nav-link(href='#contact')
+            span.nav-link-inner--text Conatct
+      hr.d-lg-none
+      ul.navbar-nav.align-items-lg-center.ml-lg-auto
+        li
+          a.btn.btn-default(href='login.html')  Login 
+        li.nav-item.d-none.d-lg-block.ml-lg-4
+          a.btn.btn-neutral.btn-icon(href='signup.html' target='_blank') Create Account 
+// Main content
+#landingApp.main-content
+  // Header
+  .header.bg-landing.pt-5.pb-7
+    .container.mt-7
+      .header-body
+        .row.align-items-center
+          .col-lg-6
+            .pr-5
+              h1.display-2.text-white.font-weight-bold.mb-0 Best Rate for Currency
+              // <h2 class="display-4 text-white font-weight-light">A beautiful premium dashboard for Bootstrap 4.</h2>
+          .col-lg-6.d-none
+            .row.pt-5
+              .col-md-6
+                .card
+                  .card-body
+                    .icon.icon-shape.bg-gradient-red.text-white.rounded-circle.shadow.mb-4
+                      i.ni.ni-active-40
+                    h5.h3 Components
+                    p Argon comes with over 70 handcrafted components.
+                .card
+                  .card-body
+                    .icon.icon-shape.bg-gradient-info.text-white.rounded-circle.shadow.mb-4
+                      i.ni.ni-active-40
+                    h5.h3 Plugins
+                    p Fully integrated and extendable third-party plugins that you will love.
+              .col-md-6.pt-lg-5.pt-4.hidden
+                .card.mb-4
+                  .card-body
+                    .icon.icon-shape.bg-gradient-success.text-white.rounded-circle.shadow.mb-4
+                      i.ni.ni-active-40
+                    h5.h3 Pages
+                    p From simple to complex, you get a beautiful set of 15+ page examples.
+                .card.mb-4
+                  .card-body
+                    .icon.icon-shape.bg-gradient-warning.text-white.rounded-circle.shadow.mb-4
+                      i.ni.ni-active-40
+                    h5.h3 Documentation
+                    p You will love how easy is to to work with Argon.
+  section.section.section-lg.pt-lg-0.mt--6
+    include new-transaction-form.pug
+    //- .container
+      .row.justify-content-md-center
+        .col-lg-10
+          .card-wrapper
+            // Input groups
+            .card
+              // Card header
+              .card-header
+                h3.mb-0 New Transaction
+              // Card body
+              .card-body
+                ul#pills-tab.nav.nav-pills.mb-3.nav-justified(role='tablist')
+                  li.nav-item
+                    a#pills-home-tab.nav-link.tab-link.active(data-toggle='pill' href='#pills-sell' role='tab' aria-controls='pills-home' aria-selected='true') Sell
+                  li.nav-item
+                    a#pills-profile-tab.nav-link.tab-link(data-toggle='pill' href='#pills-buy' role='tab' aria-controls='pills-profile' aria-selected='false') Buy
+                #pills-tabContent.tab-content
+                  #pills-sell.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='pills-sell-tab')
+                    form.row
+                      .col-md-6
+                        label You Pay
+                        .input-group.mb-3
+                          .input-group-prepend
+                            select.custom-select
+                              option USD
+                              option(value='1') EUR
+                              option(value='2') POUNDS
+                          input.form-control(type='text')
+                      .col-md-6
+                        label You Recieve
+                        .form-group
+                          .input-group.input-group-merge
+                            input.form-control(placeholder='Payment method' type='text')
+                            .input-group-append
+                              span.input-group-text.bg-success.text-white
+                                small.font-weight-bold NGN
+                    .float-right
+                      h3
+                        | Transaction Rate 1 USD = 360 NGN
+                    .float-left
+                      small.text-muted
+                        | Transaction Limit USD 10,000
+                    #xf-details.modal.fade(tabindex='-1' role='dialog' aria-labelledby='xf-details' aria-hidden='true')
+                      .modal-dialog.modal-.modal-dialog-centered.modal-md(role='document')
+                        .modal-content
+                          .modal-body.p-0
+                            .card
+                              // Card header
+                              .card-header
+                                // Title
+                                h5.h3.mb-0 Transaction ID
+                              // Card body
+                              .card-body
+                                // List group
+                                .row.align-items-center
+                                  .col-8
+                                    h3.text-success  200BDC2hik01 
+                                  .col-4.text-right
+                                    i.ni.ni-single-copy-04
+                                .row.mt-4
+                                  .mb-4.col.text-right
+                                    a.btn.btn-success(href='login.html')
+                                      | proceed
+                    .mt-5
+                      hr
+                    .text-right
+                      button.btn.btn-primary(data-toggle='modal' data-target='#xf-details')
+                        | Proceed
+                  #pills-buy.tab-pane.fade(role='tabpanel' aria-labelledby='pills-buy-tab')
+                    form.row
+                      .col-md-6
+                        label You Give
+                        .input-group.mb-3
+                          .input-group-prepend
+                            select.custom-select
+                              option USD
+                              option(value='1') EUR
+                              option(value='2') POUNDS
+                              option(selected='' value='3') NAIRA
+                          input.form-control(type='text')
+                      .col-md-6
+                        label You Recieve
+                        .input-group.mb-3
+                          .input-group-prepend
+                            select.custom-select
+                              option USD
+                              option(value='1') EUR
+                              option(value='2') POUNDS
+                              option(selected='' value='3') NAIRA
+                          input.form-control(type='text')
+                    .float-right
+                      h3
+                        | Transaction Rate 1 USD = 360 NGN
+                    #xf-details-2.modal.fade(tabindex='-1' role='dialog' aria-labelledby='xf-details' aria-hidden='true')
+                      .modal-dialog.modal-.modal-dialog-centered.modal-md(role='document')
+                        .modal-content
+                          .modal-body.p-0
+                            .card
+                              // Card header
+                              .card-header
+                                // Title
+                                h5.h3.mb-0 Transaction ID
+                              // Card body
+                              .card-body
+                                // List group
+                                .row.align-items-center
+                                  .col-8
+                                    h3.text-success  200BDC2hik01 
+                                  .col-4.text-right
+                                    i.ni.ni-single-copy-04
+                                .row.mt-4
+                                  .mb-4.col.text-right
+                                    a.btn.btn-success(href='login.html')
+                                      | proceed
+                    .mt-5
+                      hr
+                    .text-right
+                      button.btn.btn-primary(data-toggle='modal' data-target='#xf-details-2')
+                        | Proceed
+          //
+            <div class="text-right">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#xf-details">
+            Proceed
+            </button>
+            </div>
+  section.py-6
+    .container
+      .row.row-grid.align-items-center
+        .col-md-6.order-md-2.text-center
+          img.img-fluid(src='assets/img/theme/mobile.png' width='300')
+        .col-md-6.order-md-1
+          .pr-md-5
+            h1 Awesome features
+            p
+              | This dashboard comes with super cool features that are meant to help in the process. Handcrafted components, page examples and functional widgets are just a few things you will see and love at first sight.
+          .mt-5
+            a(href='#')
+              img(src='assets/img/icons/apple.png')
+            a(href='#')
+              img(src='assets/img/icons/google.png')
+  .section.fx-currency
+    .container
+      .row
+        .col-xl-6.col-lg-6.col-md-12.col-sm-12
+          .testimonial-area
+            .testimonial-slider
+              .single-testimonial
+                h4.user_name Our Fx-Rates Today
+                img(src='assets/img/svg/trust-icon-1.png' alt='')
+                h1.title
+                  | NGN 360.00 
+                  br
+                  |  $ 1 US Dollars
+                p 3% higher than bank Rates
+                a.position(href='#')
+                  | See our Fx-rates 
+                  i.fa.fa-long-arrow-alt-right
+              .single-testimonial
+                h4.user_name Our Fx-Rates Today
+                img(src='assets/img/svg/trust-icon-1.png' alt='')
+                h1.title
+                  | NGN 450.00 
+                  br
+                  |  &pound; 1 British Pound
+                p 2% higher than bank Rates
+                a.position(href='rates.html')
+                  | See our Fx-rates 
+                  i.fa.fa-long-arrow-alt-right
+              .single-testimonial
+                h4.user_name Our Fx-Rates Today
+                img(src='assets/img/svg/trust-icon-1.png' alt='')
+                h1.title
+                  | NGN 427.00 
+                  br
+                  |  &euro; 1 Euros
+                p
+                  span.fa.fa-chart-bar
+                  |  3% higher than bank Rates
+                a.position(href='#')
+                  | See our Fx-rates 
+                  i.fa.fa-long-arrow-alt-right
+        .col-xl-6.col-lg-6.col-md-12.col-sm-12.d-xl-flex.d-lg-flex.d-block.align-items-center
+          .convert-currency
+            h3 Convert Currency&nbsp;
+            form
+              .form-group
+                label(for='formGroupExampleInput') You Send
+                .d-flex
+                  input#formGroupExampleInput.form-control(type='text' placeholder='$2546')
+                  select#inlineFormCustomSelect.custom-select.mr-sm-2
+                    option(selected='') USD
+                    option(value='1') EUR
+                    option(value='2') POUNDS
+                    option(value='3') NAIAR
+              .form-group
+                label(for='formGroupExampleInput2') You Received
+                .d-flex
+                  input#formGroupExampleInput2.form-control(type='text' placeholder='2454.21')
+                  select#inlineFormCustomSelect2.custom-select.mr-sm-2
+                    option USD
+                    option(value='1') EUR
+                    option(value='2') POUNDS
+                    option(selected='' value='3') NAIRA
+              a.btn.btn-success(href='signup.html') Exchange Now
+  section.py-6
+    .container
+      .row.row-grid.align-items-center
+        .col-md-6
+          img.img-fluid(src='assets/img/theme/landing-2.png')
+        .col-md-6
+          .pr-md-5
+            h1 Example pages
+            p
+              | If you want to get inspiration or just show something directly to your clients, you can jump start your development with our pre-built example pages.
+            a.font-weight-bold.text-warning.mt-5(href='pages/examples/profile.html') Explore pages
+  section.py-6
+    .container
+      .row.row-grid.align-items-center
+        .col-md-6.order-md-2
+          img.img-fluid(src='assets/img/theme/landing-3.png')
+        .col-md-6.order-md-1
+          .pr-md-5
+            h1 Lovable widgets and cards
+            p
+              | We love cards and everybody on the web seems to. We have gone above and beyond with options for you to organise your information. From cards designed for content, to pricing cards or user profiles, you will have many options to choose from.
+            a.font-weight-bold.text-info.mt-5(href='pages/widgets.html') Explore widgets
+  section.py-6
+    .container
+      .row.row-grid.align-items-center
+        .col-md-6.order-md-2
+          .card
+            .card-header
+              h3
+                | Send Us a Message
+            .card-body
+              form
+                .form-group
+                  label.form-control-label(for='exampleFormControlInput1') Your Name
+                  input#exampleFormControlInput1.form-control(type='email' placeholder='name@example.com')
+                .form-group
+                  label.form-control-label(for='exampleFormControlInput1') Email address
+                  input#exampleFormControlInput1.form-control(type='email' placeholder='name@example.com')
+                .form-group
+                  label.form-control-label(for='exampleFormControlSelect1') Subject
+                  select#exampleFormControlSelect1.form-control
+                    option Non-Payment
+                    option Delayed Payment 
+                    option Refund
+                    option General
+                .form-group
+                  label.form-control-label(for='exampleFormControlTextarea1') Message
+                  textarea#exampleFormControlTextarea1.form-control(rows='3')
+        .col-md-6.order-md-1
+          .pr-md-5
+            h1 You can reach Us
+            h4.text-light
+              | Locate Us
+            p.font-weight-bold Suite E16 Emab Plaza Aminu Kano Crescent, Wuse 2, Abuja
+            div
+              h4.text-light Call for support : 
+              span.font-weight-bold (234) 9030621787
+            .mt-2.mb-2
+              a.font-weight-bold.text-success.mt-5(href='mailto:info@313bdc.com')
+                span.ni.ni-email-83
+                |  We respond to Emails Promptly
+            div
+              ul.nav.nav-footer.justify-content-left
+                li.nav-item
+                  a.nav-link.nav-link-icon(href='#' target='_blank' data-toggle='tooltip' title='' data-original-title='Like us on Facebook')
+                    i.fab.fa-whatsapp.fa-2x
+                    span.nav-link-inner--text.d-lg-none Whatsapp
+                li.nav-item
+                  a.nav-link.nav-link-icon(href='#' target='_blank' data-toggle='tooltip' title='' data-original-title='Like us on Facebook')
+                    i.fab.fa-facebook-square.fa-2x
+                    span.nav-link-inner--text.d-lg-none Facebook
+                li.nav-item
+                  a.nav-link.nav-link-icon(href='https://www.instagram.com/creativetimofficial' target='_blank' data-toggle='tooltip' title='' data-original-title='Follow us on Instagram')
+                    i.fab.fa-instagram.fa-2x
+                    span.nav-link-inner--text.d-lg-none Instagram
+                li.nav-item
+                  a.nav-link.nav-link-icon(href='https://twitter.com/creativetim' target='_blank' data-toggle='tooltip' title='' data-original-title='Follow us on Twitter')
+                    i.fab.fa-twitter.fa-2x
+                    span.nav-link-inner--text.d-lg-none Twitter
+                li
+// Footer
+include footer.pug
+include js-imports.pug
+script(src="assets/js/landing.js")

@@ -27,7 +27,7 @@ const loginApp = new Vue({
           if (data && data.token) {
             this.setToken(data.token);
             this.setUserProfile(JSON.stringify(data.user));
-            window.location.href = "/profile"
+            window.location.href = "/new-transaction"
           } else if (data) {
             this.errorMessage = data.message;
             this.clearError();
@@ -54,5 +54,8 @@ const loginApp = new Vue({
     this.setUserProfile = setUserProfile;
     this.setToken = setToken;
     this.getToken = getToken;
+    if (this.getUserProfile()) {
+        window.location.href = "/new-transaction"
+    }
   }
 });

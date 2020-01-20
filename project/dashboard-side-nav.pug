@@ -1,0 +1,56 @@
+nav#sidenav-main.sidenav.navbar.navbar-vertical.fixed-left.navbar-expand-xs.navbar-light.bg-white
+  .scrollbar-inner
+    // Brand
+    .sidenav-header.d-flex.align-items-center
+      a.navbar-brand(href='/landing')
+        img.navbar-brand-img(src='assets/img/brand/logo.png' alt='...')
+      .ml-auto
+        // Sidenav toggler
+        .sidenav-toggler.d-none.d-xl-block(data-action='sidenav-unpin' data-target='#sidenav-main')
+          .sidenav-toggler-inner
+            i.sidenav-toggler-line
+            i.sidenav-toggler-line
+            i.sidenav-toggler-line
+    .navbar-inner
+      // Collapse
+      #sidenav-collapse-main.collapse.navbar-collapse
+        // Nav items
+        ul.navbar-nav
+          //
+            <li class="nav-item">
+            <a class="nav-link" href="index.html"> <i class="ni ni-shop text-primary"></i> <span class="nav-link-text">Dashboard</span> </a>
+            </li>
+          li.nav-item
+            a.nav-link.active(href='/new-transaction')
+              i.ni.ni-briefcase-24.text-green
+              span.nav-link-text New Transaction
+          //
+            <li class="nav-item">
+            <a class="nav-link" href="wallet.html"> <i class="fa fa-wallet text-info"></i> <span class="nav-link-text">Wallet</span> </a>
+            </li>
+          //
+            <li class="nav-item">
+            <a class="nav-link" href="history.html"> <i class="ni ni-bullet-list-67 text-red"></i> <span class="nav-link-text">Transaction Log</span> </a>
+            </li>
+          //
+            <li class="nav-item">
+            <a class="nav-link" href="bank_details.html"> <i class="ni ni-building text-red"></i> <span class="nav-link-text">Bank Details </span> </a>
+            </li>
+          li.nav-item
+            a.nav-link(href='/profile')
+              i.ni.ni-circle-08.text-primary
+              span.nav-link-text Profile 
+          li.nav-item
+            a.nav-link(href='/support')
+              i.ni.ni-headphones.text-green
+              span.nav-link-text Support 
+        // Divider
+        hr.my-3
+        // Heading
+        // <h6 class="navbar-heading p-0 text-muted"></h6>
+        // Navigation
+        ul.navbar-nav.mb-md-3
+          li.nav-item
+            a.nav-link(href='login.html' target='_blank')
+              i.ni.ni-spaceship
+              span.nav-link-text Log Out

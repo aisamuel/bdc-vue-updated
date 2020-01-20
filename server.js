@@ -1,43 +1,50 @@
 const express = require("express");
+const pug = require("pug");
+const cors = require("cors");
 
 const app = express();
 
-const port = process.env.PORT || "8855"
+app.use(cors())
 
-app.use(express.static("project"))
+
+const port = process.env.PORT || "8855";
+
+app.use(express.static("project"));
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/project/landing.html");
-})
+  res.sendFile(__dirname + "/project/landing.html");
+});
 
 app.get("/dashboard", (req, res) => {
-    res.sendFile(__dirname + "/project/index.html")
-})
+  res.sendFile(__dirname + "/project/index.html");
+});
 
 app.get("/login", (req, res) => {
-    res.sendFile(__dirname + "/project/login.html")
-})
+  res.send(pug.renderFile("project/login.pug"));
+});
 
 app.get("/signup", (req, res) => {
-    res.sendFile(__dirname + "/project/signup.html")
-})
+  res.send(pug.renderFile("project/signup.pug"));
+});
 
 app.get("/profile", (req, res) => {
-    res.sendFile(__dirname + "/project/profile.html")
-})
+  //   res.sendFile(__dirname + "/project/profile.html");
+  res.send(pug.renderFile("project/profile.pug"));
+// res.send("hello profile")
+});
 
 app.get("/support", (req, res) => {
-    res.sendFile(__dirname + "/project/support.html")
-})
+    res.send(pug.renderFile("project/support.pug"));
+  });
 
 app.get("/new-transaction", (req, res) => {
-    res.sendFile(__dirname + "/project/new_trans.html")
-})
+  res.send(pug.renderFile("project/new-trans.pug"));
+});
 
 app.get("*", (req, res) => {
-    res.sendFile(__dirname + "/project/landing.html")
-})
+  res.send(pug.renderFile("project/landing.pug"));
+});
 
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`)
+  console.log(`Server running on port ${port}`);
 });

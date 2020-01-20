@@ -33,6 +33,11 @@
     />
     <script src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        link {
+            color: orange;
+        }
+    </style>
   </head>
   <body>
     <div id="profileApp">
@@ -228,7 +233,7 @@
                       <i class="ni ni-support-16"></i> <span>Support</span>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="login.html" class="dropdown-item">
+                    <a @click="logout()" class="dropdown-item">
                       <i class="ni ni-user-run"></i> <span>Logout</span>
                     </a>
                   </div>
@@ -356,6 +361,7 @@
                             <input
                               v-model="userData.email"
                               type="email"
+                              disabled
                               id="input-email"
                               class="form-control"
                               placeholder="jesse@example.com"
