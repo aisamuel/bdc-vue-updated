@@ -1,17 +1,59 @@
 const registerApp = new Vue({
   el: "#registerApp",
   data: {
+    errors: [],
     userData: {
       fname: "",
       lname: "",
-      email: "",
+      userName: "",
+      address: "",
+      Dob: "",
       phone: "",
-      password: ""
+      email: "",
+      password: "",
+      confirmPassword: "",
+      acctType: "",
+      rcNumber: "",
+      busPhoneNum: "",
+      busEmail: "",
+      aboutMe: "",
+      bank: [
+        {
+          accountNumber: "",
+          accountName: "",
+          bankName: ""
+        }
+      ]
     }
   },
   methods: {
-    register: function() {
-      console.log(this.userData);
+    register: async function() {
+      if(this.userData.password !== this.userData.confirmPassword){
+        alert("Passwords must match!")
+        return
+      }
+      const res = await fetch(`${baseURL}reg/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(this.userData)
+      })
+
+      if(res) {
+        const result = await res.json();
+
+        if(result && result.message === "success") {
+          setTimeout(() => {
+            window.location.href = "/login";
+          }, 4000)
+        } else if(result.message === "error"){
+          this.errors = result.errors;
+        } else {
+          alert(result.message);
+        }
+      }
+
     }
   },
   mounted: function() {

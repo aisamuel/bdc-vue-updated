@@ -52,11 +52,12 @@
                                 h5.h3.mb-0 Bank Details
                             form(role='form')
                                 .form-group
+                                    #addAcct
+                                        a.btn.btn-sm.btn-neutral(data-toggle='modal' data-target='#modal-form-2') Add a new Account
                                     label Your Account
                                     select#myaccount-1.custom-select(v-model="userSelectedBankAccount")
                                         option(label='Select your account')
                                         option(v-for="acct in userBankAccounts" :value="acct") {{acct.accountNumber}} ({{acct.bankName}}) {{acct.accountName}}
-                                        option(value='newaccount-1') Add a new Account
                                 .form-group
                                     label(for='formGroupExampleInput') BDC account
                                     .form-group

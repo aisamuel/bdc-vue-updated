@@ -54,6 +54,7 @@ head
           .card.bg-secondary.border-0
             .card-body.px-lg-5.py-lg-5
               .text-center.text-muted.mb-4
+                small.errorMsg(v-for="err in errors" v-cloak) * {{err}}
                 small Create your account
               // FORM STARTS HERE
               // PERSONAL DETAILS
@@ -106,7 +107,7 @@ head
                     .input-group-prepend
                       span.input-group-text
                         i.ni.ni-briefcase-24
-                    select.custom-select(v-model='userData.accountType')
+                    select.custom-select(v-model='userData.acctType')
                       option(selected='' value='Account Type') Account Type
                       option(value='1') Personal
                       option(value='2') Business
@@ -118,14 +119,14 @@ head
                         .input-group-prepend
                           span.input-group-text
                             i.ni.ni-briefcase-24
-                        input.form-control(v-model='userData.businessName' placeholder='Business Name' type='text')
+                        input.form-control(v-model='userData.username' placeholder='Business Name' type='text')
                   .col-6
                     .form-group
                       .input-group.input-group-merge.input-group-alternative
                         .input-group-prepend
                           span.input-group-text
                             i.ni.ni-briefcase-24
-                        select.custom-select(v-model='userData.businessDescription')
+                        select.custom-select(v-model='userData.aboutMe')
                           option(selected='' value='Business Description')
                             | Business
                             | Description
@@ -175,7 +176,7 @@ head
                         .input-group-prepend
                           span.input-group-text
                             i.fas.fa-mobile-alt
-                        input.form-control(v-model='userData.businessPhoneNumber' placeholder='Business Phone Number' type='text')
+                        input.form-control(v-model='userData.busPhoneNum' placeholder='Business Phone Number' type='text')
                 .row
                   .col-6
                     .form-group
@@ -183,14 +184,14 @@ head
                         .input-group-prepend
                           span.input-group-text
                             i.ni.ni-email-83
-                        input.form-control(v-model='userData.businessEmail' placeholder='Business Email' type='text')
+                        input.form-control(v-model='userData.busEmail' placeholder='Business Email' type='text')
                   .col-6
                     .form-group
                       .input-group.input-group-merge.input-group-alternative.mb-3
                         .input-group-prepend
                           span.input-group-text
                             i.fas.fa-map
-                        input.form-control(v-model='userData.businessAddress' placeholder='Business Address' type='text')
+                        input.form-control(v-model='userData.busAddress' placeholder='Business Address' type='text')
                 .row.my-4
                   .col-12
                     .custom-control.custom-control-alternative.custom-checkbox
@@ -202,7 +203,7 @@ head
                             | Terms and
                             | Conditions
                 .text-center
-                  button.btn.btn-primary.mt-4(type='button' @click='register()') Create account
+                  button.btn.btn-primary.mt-4(type='button' @click='register()' :disabled="!userData.acceptance") Create account
               .row.mt-3
                 .col-6
                   a.text-light(href='#')
