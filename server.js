@@ -8,7 +8,7 @@ app.use(cors());
 
 const port = process.env.PORT || "8855";
 
-app.use(express.static("project"));
+app.use("/bdc/*", express.static("project"));
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/project/landing.html");
