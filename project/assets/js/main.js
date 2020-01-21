@@ -1,5 +1,5 @@
 // const baseURL = "https://bcd-backend.herokuapp.com/";
-const baseURL = "http://localhost:2194/"
+const baseURL = "https://smartapps.com.ng/bdc-back/";
 
 const getUserProfile = () => {
   try {
