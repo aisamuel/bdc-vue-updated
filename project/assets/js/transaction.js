@@ -148,6 +148,8 @@ const transactionApp = new Vue({
         this.getUserProfile = getUserProfile;
         if (this.getUserProfile()) {
             this.userProfile = this.getUserProfile();
+        } else {
+          window.location.href = "login"
         }
         this.fetchExchangeRates();
         this.fetchUserAccounts();

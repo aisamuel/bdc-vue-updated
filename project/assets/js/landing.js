@@ -1,12 +1,22 @@
 const transactionApp = new Vue({
     el: "#landingApp",
     data: {
+        bdcBankAccounts: [{
+            accountName: "Test Account",
+            accountNumber: "24373284322",
+            bankName: "Zenith Bank"
+        }],
         bankAccounts: [],
         userBankAccounts: [],
         exchangeRates: [],
         sellingRates: [],
         buyingRates: [],
         userSelectedBankAccount: {
+            accountNumber: "",
+            accountName: "",
+            bankName: ""
+        },
+        bdcSelectedBankAccount: {
             accountNumber: "",
             accountName: "",
             bankName: ""

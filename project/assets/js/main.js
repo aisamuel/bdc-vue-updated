@@ -17,7 +17,7 @@ const setUserProfile = userProfile => {
 
 const logout = () => {
     localStorage.removeItem("userProfile")
-    window.location.href = "/login"
+    window.location.href = "/landing"
 }
 
 const getToken = () => {
@@ -33,7 +33,7 @@ const payWithPaystack = (userProfile, amountInNaira, ref, callback) => {
   var handler = PaystackPop.setup({
     key: "pk_test_8bfb374a7ff4b8054250f5aa7b6b3fef8d9f7a2a",
     email: userProfile.email,
-    amount: amountInNaira,
+    amount: amountInNaira * 1000,
     currency: "NGN",
     ref: ref,
     metadata: {
@@ -57,3 +57,22 @@ const payWithPaystack = (userProfile, amountInNaira, ref, callback) => {
   });
   handler.openIframe();
 };
+
+
+const landingNav = new Vue({
+  el: "#landingNavbar",
+  data: {
+    userProfile: getUserProfile()
+  },
+  methods: {
+    logInOrOut() {
+      if(this.userProfile) {
+        logout()
+      } else {
+        window.location.href = "login"
+      }
+    }
+  },
+  mounted: function () {
+  }
+})
