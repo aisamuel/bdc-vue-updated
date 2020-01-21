@@ -3,5 +3,11 @@
     font-size: 8px;
 }
 [v-cloak] {
-	display: none;
+    display: none;
+}
+#xf-details-2 {
+    overflow-y: auto;
+}
+#modal-form-2 {
+    overflow-y: auto;
 }

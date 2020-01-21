@@ -53,7 +53,7 @@
                             form(role='form')
                                 .form-group
                                     #addAcct
-                                        a.btn.btn-sm.btn-neutral(data-toggle='modal' data-target='#modal-form-2') Add a new Account
+                                        a.btn.btn-sm.btn-neutral(data-dismiss="modal" data-toggle='modal' data-target='#modal-form-2') Add a new Account
                                     label Your Account
                                     select#myaccount-1.custom-select(v-model="userSelectedBankAccount")
                                         option(label='Select your account')
@@ -163,4 +163,4 @@
                                         |  of 313BDC
                             .text-center
                                 button.btn.btn-primary.my-4(type='button' data-dismiss="modal" @click="addBankAccount()" :disabled="!acceptAgreement || !accountIsUnique") Add Account
-                                button.btn.btn-danger.my-4(type='button' data-dismiss="modal") Cancel
+                                button.btn.btn-danger.my-4(type='button' data-dismiss="modal" data-toggle='modal' data-target='#xf-details-2') Cancel
