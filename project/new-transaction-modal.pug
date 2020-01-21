@@ -96,6 +96,7 @@
                                 p.blocquote * 313BDC will not be held liable if wrong denominated currency is inserted
                                 .text-center
                                     a.btn.btn-primary.my-4(a='' @click="checkoutBankTransaction()") Pay Now
+                                    button.btn.btn-danger.my-4(type='button' data-dismiss="modal") Cancel
 #modal-form-2.modal.fade(tabindex='-1' role='dialog' aria-labelledby='modal-form-2' aria-hidden='true')
     .modal-dialog.modal-.modal-dialog-centered.modal-md(role='document')
         .modal-content
@@ -161,4 +162,5 @@
                                         a(href='#') Terms &amp; Conditions
                                         |  of 313BDC
                             .text-center
-                                button.btn.btn-primary.my-4(type='button' @click="addBankAccount()" :disabled="!acceptAgreement || !accountIsUnique") Add Account
+                                button.btn.btn-primary.my-4(type='button' data-dismiss="modal" @click="addBankAccount()" :disabled="!acceptAgreement || !accountIsUnique") Add Account
+                                button.btn.btn-danger.my-4(type='button' data-dismiss="modal") Cancel
