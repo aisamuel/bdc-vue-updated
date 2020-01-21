@@ -33,7 +33,7 @@ const payWithPaystack = (userProfile, amountInNaira, ref, callback) => {
   var handler = PaystackPop.setup({
     key: "pk_test_8bfb374a7ff4b8054250f5aa7b6b3fef8d9f7a2a",
     email: userProfile.email,
-    amount: amountInNaira * 1000,
+    amount: amountInNaira * 100,
     currency: "NGN",
     ref: ref,
     metadata: {
