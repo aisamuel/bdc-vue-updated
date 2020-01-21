@@ -8,14 +8,14 @@ app.use(cors());
 
 const port = process.env.PORT || "8855";
 
-app.use("/bdc/*", express.static("project"));
+app.use(express.static("project"));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/project/landing.html");
+  res.send(pug.renderFile("project/landing.pug"));
 });
 
 app.get("/dashboard", (req, res) => {
-  res.sendFile(__dirname + "/project/index.html");
+  res.send(pug.renderFile("project/new-trans.pug"));
 });
 
 app.get("/login", (req, res) => {
