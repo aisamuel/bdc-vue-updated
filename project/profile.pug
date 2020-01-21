@@ -102,7 +102,7 @@ include dashboard-side-nav.pug
                                         .col-lg-6
                                             .form-group
                                                 label.form-control-label(for='input-username') Username
-                                                input#input-username.form-control(v-model='userData.username' type='text' placeholder='Username' value='lucky.jesse')
+                                                input#input-username.form-control(v-model='userData.userName' type='text' placeholder='Username' value='lucky.jesse')
                                         .col-lg-6
                                             .form-group
                                                 label.form-control-label(for='input-email') Email address
@@ -144,7 +144,7 @@ include dashboard-side-nav.pug
                                         textarea.form-control(v-model='userData.aboutMe' rows='4' placeholder='A few words about you ...')
                                             | A beautiful premium dashboard for Bootstrap 4.
                     .text-right
-                        button.btn.btn-primary(type='button' @click="updateProfile();setUserProfile('profile is set')")
+                        button.btn.btn-primary(type='button' @click="updateProfile()")
                             | Update Profile
             include footer.pug
 include js-imports.pug
