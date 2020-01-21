@@ -25,14 +25,11 @@ head
                 span
         ul.navbar-nav.mr-auto
           li.nav-item
-            a.nav-link(href='index.html')
-              span.nav-link-inner--text Dashboard
+            a.nav-link(href='landing')
+              span.nav-link-inner--text Home
           li.nav-item
-            a.nav-link(href='login.html')
+            a.nav-link(href='login')
               span.nav-link-inner--text Login
-          li.nav-item
-            a.nav-link(href='register.html')
-              span.nav-link-inner--text Register
         hr.d-lg-none
   // Main content
   .main-content
@@ -206,6 +203,13 @@ head
                             | Conditions
                 .text-center
                   button.btn.btn-primary.mt-4(type='button' @click='register()') Create account
+              .row.mt-3
+                .col-6
+                  a.text-light(href='#')
+                    small
+                .col-6.text-right
+                  a.text-light(href='login')
+                    small Login
   // Footer
   footer#footer-main.py-5
     .container

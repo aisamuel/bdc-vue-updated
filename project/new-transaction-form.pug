@@ -21,7 +21,7 @@
                       label Amount
                       .input-group.mb-3
                         .input-group-prepend
-                          select.custom-select(v-model="selectedCurrency" @change="convertCurrency(true)")
+                          select.custom-select(v-model="selectedCurrency" @change="convertCurrency(true)" v-cloak)
                             option(selected :value='exchangeRate' v-for="(exchangeRate, index) in exchangeRates") {{exchangeRate.currency}}
                             //- option(value='EUR') EUR
                             //- option(value='POUNDS') POUNDS
@@ -37,11 +37,13 @@
                             span.input-group-text.bg-success.text-white
                               small.font-weight-bold NGN
                     .text-right.col-md-12
-                      h4
+                      h4(v-cloak)
                         | Transaction Rate 1 {{selectedCurrency.currency}} = {{selectedCurrency.rateToNaira}} NGN
                     // MOdal starts here
                     // MOdal-2 starts here
                   .text-right
-                    button.btn.btn-primary(data-toggle='modal' data-target='#xf-details-2' :disabled="amountInNaira<1000")
+                    button.btn.btn-primary(v-if="!userProfile._id" @click="routeToRegister()" :disabled="amountInNaira<1000" v-cloak)
+                      | {{activeMode === 'buy' ? "Buy Now" : "Sell Now"}}
+                    button.btn.btn-primary(v-if="userProfile._id" data-toggle='modal' data-target='#xf-details-2' :disabled="amountInNaira<1000" v-cloak)
                       | {{activeMode === 'buy' ? "Buy Now" : "Sell Now"}}
                   include new-transaction-modal.pug

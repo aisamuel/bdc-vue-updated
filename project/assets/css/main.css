@@ -2,3 +2,6 @@
     color: red;
     font-size: 8px;
 }
+[v-cloak] {
+	display: none;
+}
