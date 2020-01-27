@@ -121,13 +121,13 @@ include dashboard-side-nav.pug
                     .col.mr--2
                       h3.mb-0  Transaction ID 
                     .col-auto
-                      span.text-warning 12908945BDC
+                      span.text-warning {{transactionData.refference}}
                 li.list-group-item.px-0
                   .row.align-items-center
                     .col.mr--2
                       h3.mb-0  BDC Account No. 
                     .col-auto
-                      span.text-muted 2001004005
+                      span.text-muted {{transactionData.creditAccount}}
                 li.list-group-item.px-0
                   .row.align-items-center
                     .col.mr--2
@@ -139,19 +139,19 @@ include dashboard-side-nav.pug
                     .col.mr--2
                       h3.mb-0  Bank Name 
                     .col-auto
-                      span.text-muted Zenith Bank PLC
+                      span.text-muted {{transactionData.bankName}}
                 li.list-group-item.px-0
                   .row.align-items-center
                     .col.mr--2
                       h3.mb-0  Amount to Pay 
                     .col-auto
-                      span.text-muted 200 USD
+                      span.text-muted {{transactionData.giveAmount + ' '}} NGN
                 li.list-group-item.px-0
                   .row.align-items-center
                     .col.mr--2
                       h3.mb-0  Amount to Recieve
                     .col-auto
-                      span.text-success 71,100 NGN
+                      span.text-success {{transactionData.recieveAmount + ' ' + transactionData.recieveCurrency}}
                 .row
                   p
                     | * Please use 

@@ -107,91 +107,92 @@ head
                     .input-group-prepend
                       span.input-group-text
                         i.ni.ni-briefcase-24
-                    select.custom-select(v-model='userData.acctType')
+                    select.custom-select(v-model='userData.acctType' @change='businessOrPersonal()')
                       option(selected='' value='Account Type') Account Type
-                      option(value='1') Personal
-                      option(value='2') Business
+                      option(value='personal') Personal
+                      option(value='business') Business
                 // BUSINESS
-                .row
-                  .col-6
-                    .form-group
-                      .input-group.input-group-merge.input-group-alternative.mb-3
-                        .input-group-prepend
-                          span.input-group-text
-                            i.ni.ni-briefcase-24
-                        input.form-control(v-model='userData.userName' placeholder='Business Name' type='text')
-                  .col-6
-                    .form-group
-                      .input-group.input-group-merge.input-group-alternative
-                        .input-group-prepend
-                          span.input-group-text
-                            i.ni.ni-briefcase-24
-                        select.custom-select(v-model='userData.aboutMe')
-                          option(selected='' value='Business Description')
-                            | Business
-                            | Description
-                          option(value='1') Personal
-                          option(value='2') Business
-                          option(value='Airlines/Aviation') Airlines/Aviation
-                          option(value='Banking') Banking
-                          option(value='Blogging')  Blogging
-                          option(value='Computer Software/Hardware') Computer Software/Hardware
-                          option(value='Construction') Construction
-                          option(value='Engineering') Engineering
-                          option(value='Entertainment') Entertainment
-                          option(value='Environmental Services') Environmental Services 
-                          option(value='Fashion, Hairstyling and Makeup') Fashion, Hairstyling and Makeup 
-                          option(value='Financial Services and Accounting') Financial Services and Accounting 
-                          option(value='Food and Beverages') Food and Beverages
-                          option(value='Health, Wellness, and Fitness') Health, Wellness, and Fitness
-                          option(value='Human Resources') Human Resources
-                          option(value='Information Technology') Information Technology 
-                          option(value='Insurance') Insurance
-                          option(value='International Trade and Development') International Trade and Development 
-                          option(value='Legal Practice') Legal Practice
-                          option(value='Manufacturing') Manufacturing
-                          option(value='Medical Practice') Medical Practice
-                          option(value='Military')  Military
-                          option(value='Oil and Gas') Oil and Gas
-                          option(value='Public Relations, Marketing and Communications') Public Relations, Marketing and Communications
-                          option(value='Publishing') Publishing
-                          option(value='Real Estate') Real Estate
-                          option(value='Religious Institutions') Religious Institutions
-                          option(value='Sports') Sports
-                          option(value='Telecommunications') Telecommunications
-                          option(value='Transportation') Transportation
-                          option(value='Travel and Tourism') Travel and Tourism
-                          option(value='Warehousing and Retail') Warehousing and Retail 
-                          option(value='Others') Others
-                  .col-6
-                    .form-group
-                      .input-group.input-group-merge.input-group-alternative.mb-3
-                        .input-group-prepend
-                          span.input-group-text
-                            i.ni.ni-email-83
-                        input.form-control(v-model='userData.rcNumber' placeholder='RC Number' type='text')
-                  .col-6
-                    .form-group
-                      .input-group.input-group-merge.input-group-alternative.mb-3
-                        .input-group-prepend
-                          span.input-group-text
-                            i.fas.fa-mobile-alt
-                        input.form-control(v-model='userData.busPhoneNum' placeholder='Business Phone Number' type='text')
-                .row
-                  .col-6
-                    .form-group
-                      .input-group.input-group-merge.input-group-alternative.mb-3
-                        .input-group-prepend
-                          span.input-group-text
-                            i.ni.ni-email-83
-                        input.form-control(v-model='userData.busEmail' placeholder='Business Email' type='text')
-                  .col-6
-                    .form-group
-                      .input-group.input-group-merge.input-group-alternative.mb-3
-                        .input-group-prepend
-                          span.input-group-text
-                            i.fas.fa-map
-                        input.form-control(v-model='userData.busAddress' placeholder='Business Address' type='text')
+                template(v-if='business')
+                  .row
+                    .col-6
+                      .form-group
+                        .input-group.input-group-merge.input-group-alternative.mb-3
+                          .input-group-prepend
+                            span.input-group-text
+                              i.ni.ni-briefcase-24
+                          input.form-control(v-model='userData.userName' placeholder='Business Name' type='text')
+                    .col-6
+                      .form-group
+                        .input-group.input-group-merge.input-group-alternative
+                          .input-group-prepend
+                            span.input-group-text
+                              i.ni.ni-briefcase-24
+                          select.custom-select(v-model='userData.aboutMe')
+                            option(selected='' value='Business Description')
+                              | Business
+                              | Description
+                            option(value='1') Personal
+                            option(value='2') Business
+                            option(value='Airlines/Aviation') Airlines/Aviation
+                            option(value='Banking') Banking
+                            option(value='Blogging')  Blogging
+                            option(value='Computer Software/Hardware') Computer Software/Hardware
+                            option(value='Construction') Construction
+                            option(value='Engineering') Engineering
+                            option(value='Entertainment') Entertainment
+                            option(value='Environmental Services') Environmental Services 
+                            option(value='Fashion, Hairstyling and Makeup') Fashion, Hairstyling and Makeup 
+                            option(value='Financial Services and Accounting') Financial Services and Accounting 
+                            option(value='Food and Beverages') Food and Beverages
+                            option(value='Health, Wellness, and Fitness') Health, Wellness, and Fitness
+                            option(value='Human Resources') Human Resources
+                            option(value='Information Technology') Information Technology 
+                            option(value='Insurance') Insurance
+                            option(value='International Trade and Development') International Trade and Development 
+                            option(value='Legal Practice') Legal Practice
+                            option(value='Manufacturing') Manufacturing
+                            option(value='Medical Practice') Medical Practice
+                            option(value='Military')  Military
+                            option(value='Oil and Gas') Oil and Gas
+                            option(value='Public Relations, Marketing and Communications') Public Relations, Marketing and Communications
+                            option(value='Publishing') Publishing
+                            option(value='Real Estate') Real Estate
+                            option(value='Religious Institutions') Religious Institutions
+                            option(value='Sports') Sports
+                            option(value='Telecommunications') Telecommunications
+                            option(value='Transportation') Transportation
+                            option(value='Travel and Tourism') Travel and Tourism
+                            option(value='Warehousing and Retail') Warehousing and Retail 
+                            option(value='Others') Others
+                    .col-6
+                      .form-group
+                        .input-group.input-group-merge.input-group-alternative.mb-3
+                          .input-group-prepend
+                            span.input-group-text
+                              i.ni.ni-email-83
+                          input.form-control(v-model='userData.rcNumber' placeholder='RC Number' type='text')
+                    .col-6
+                      .form-group
+                        .input-group.input-group-merge.input-group-alternative.mb-3
+                          .input-group-prepend
+                            span.input-group-text
+                              i.fas.fa-mobile-alt
+                          input.form-control(v-model='userData.busPhoneNum' placeholder='Business Phone Number' type='text')
+                  .row
+                    .col-6
+                      .form-group
+                        .input-group.input-group-merge.input-group-alternative.mb-3
+                          .input-group-prepend
+                            span.input-group-text
+                              i.ni.ni-email-83
+                          input.form-control(v-model='userData.busEmail' placeholder='Business Email' type='text')
+                    .col-6
+                      .form-group
+                        .input-group.input-group-merge.input-group-alternative.mb-3
+                          .input-group-prepend
+                            span.input-group-text
+                              i.fas.fa-map
+                          input.form-control(v-model='userData.busAddress' placeholder='Business Address' type='text')
                 .row.my-4
                   .col-12
                     .custom-control.custom-control-alternative.custom-checkbox

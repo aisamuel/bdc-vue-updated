@@ -1,11 +1,129 @@
 const transactionApp = new Vue({
     el: "#transactionApp",
     data: {
-        bdcBankAccounts: [{
-            accountName: "Test Account",
-            accountNumber: "24373284322",
-            bankName: "Zenith Bank"
-        }],
+        bdcBankAccounts: [
+            {
+                currency: "NGN",
+                accountName: "313 BDC LTD",
+                accountNumber: "1227771089",
+                bankName: "Access Bank"
+            },
+            {
+                currency: "USD",
+                accountName: "313 BDC LTD",
+                accountNumber: "1232616218",
+                bankName: "Access Bank"
+            },
+            {
+                currency: "POUNDS",
+                accountName: "313 BDC LTD",
+                accountNumber: "1232777090",
+                bankName: "Access Bank"
+            },
+            {
+                currency: "EUROS",
+                accountName: "313 BDC LTD",
+                accountNumber: "1232614135",
+                bankName: "Access Bank"
+            },
+            {
+                currency: "NGN",
+                accountName: "313 BDC LTD",
+                accountNumber: "4011356047",
+                bankName: "Fidelity Bank"
+            },
+            {
+                currency: "USD",
+                accountName: "313 BDC LTD",
+                accountNumber: "5250207095",
+                bankName: "Fidelity Bank"
+            },
+            {
+                currency: "POUNDS",
+                accountName: "313 BDC LTD",
+                accountNumber: "5250207112",
+                bankName: "Fidelity Bank"
+            },
+            {
+                currency: "EUROS",
+                accountName: "313 BDC LTD",
+                accountNumber: "5250207105",
+                bankName: "Fidelity Bank"
+            },
+            {
+                currency: "NGN",
+                accountName: "313 BDC LTD(PROJECT)",
+                accountNumber: "1009064840",
+                bankName: "Keystone Bank"
+            },
+            {
+                currency: "USD",
+                accountName: "313 BDC LTD(PROJECT)",
+                accountNumber: "1009064888",
+                bankName: "Keystone Bank"
+            },
+            {
+                currency: "POUNDS",
+                accountName: "313 BDC LTD(PROJECT)",
+                accountNumber: "1009064895",
+                bankName: "Keystone Bank"
+            },
+            {
+                currency: "EUROS",
+                accountName: "313 BDC LTD(PROJECT)",
+                accountNumber: "1009064905",
+                bankName: "Keystone Bank"
+            },
+            {
+                currency: "NGN",
+                accountName: "313 BDC LTD",
+                accountNumber: "1022361766",
+                bankName: "United Bank for Africa (UBA)"
+            },
+            {
+                currency: "USD",
+                accountName: "313 BDC LTD",
+                accountNumber: "3002781762",
+                bankName: "United Bank for Africa (UBA)"
+            },
+            {
+                currency: "POUNDS",
+                accountName: "313 BDC LTD",
+                accountNumber: "3002781779",
+                bankName: "United Bank for Africa (UBA)"
+            },
+            {
+                currency: "EUROS",
+                accountName: "313 BDC LTD",
+                accountNumber: "3002781810",
+                bankName: "United Bank for Africa (UBA)"
+            },
+            {
+                currency: "NGN",
+                accountName: "313 BDC LTD",
+                accountNumber: "1016787752",
+                bankName: "Zenith Bank"
+            },
+            {
+                currency: "USD",
+                accountName: "313 BDC LTD",
+                accountNumber: "5071226935",
+                bankName: "Zenith Bank"
+            },
+            {
+                currency: "POUNDS",
+                accountName: "313 BDC LTD",
+                accountNumber: "5080305944",
+                bankName: "Zenith Bank"
+            },
+            {
+                currency: "EUROS",
+                accountName: "313 BDC LTD",
+                accountNumber: "5060312654",
+                bankName: "Zenith Bank"
+            },
+        ],
+        bdcFilteredAccount: [],
         userBankAccounts: [],
         exchangeRates: [],
         sellingRates: [],
@@ -87,6 +205,14 @@ const transactionApp = new Vue({
                 this.userBankAccounts = result.bank;
             }
         },
+        filterbdc() {
+            this.bdcBankAccounts.forEach((element) => {
+                if (element.bankName == this.userSelectedBankAccount.bankName) {
+                    console.log(element);
+                    this.bdcFilteredAccount.push(element);
+                }
+        });
+        },
         generateRandomString() {
             return (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
         },
@@ -119,6 +245,10 @@ const transactionApp = new Vue({
                     console.log("Account is unique");
                 }
             });
+        },
+        selectbdcAccount() {
+
+
         },
         payWithPaystack() {
             payWithPaystack(this.userProfile, this.amountInNaira, this.randomString, this.generateRandomString);

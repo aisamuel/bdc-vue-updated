@@ -1,6 +1,7 @@
 const registerApp = new Vue({
   el: "#registerApp",
   data: {
+    business: true,
     errors: [],
     userData: {
       fname: "",
@@ -24,7 +25,7 @@ const registerApp = new Vue({
           bankName: ""
         }
       ]
-    }
+    },
   },
   methods: {
     register: async function() {
@@ -54,6 +55,14 @@ const registerApp = new Vue({
         }
       }
 
+    },
+    businessOrPersonal() {
+      console.log('HERE');
+      if (this.userData.acctType === 'business') {
+          this.business = true;
+      } else {
+        this.business = false;
+      }
     }
   },
   mounted: function() {
