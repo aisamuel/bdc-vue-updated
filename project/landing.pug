@@ -68,7 +68,7 @@ include head.pug
                         th(scope='col') Currency
                         th(scope='col') Buy
                         th(scope='col') Sell
-                        th(scope='col') Date
+                        //- th(scope='col') Date
                     tbody.list.text-center
                       tr(v-for='exchangeRate in exchangeRates')
                         td
@@ -76,8 +76,8 @@ include head.pug
                         td
                           | {{exchangeRate.rateToNaira}}
                         td {{exchangeRate.rateToNaira}}
-                        td
-                          | {{exchangeRate.updated | fullDate}}
+                        //- td
+                        //-   | {{exchangeRate.updated | dateFormat('YYYY.MM.DD')}}
                       //- tr
                       //-   td
                       //-     | GBP

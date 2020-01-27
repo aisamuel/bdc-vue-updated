@@ -206,6 +206,7 @@ const transactionApp = new Vue({
             }
         },
         filterbdc() {
+            this.bdcFilteredAccount = [];
             this.bdcBankAccounts.forEach((element) => {
                 if (element.bankName == this.userSelectedBankAccount.bankName) {
                     console.log(element);

@@ -1,7 +1,7 @@
 const registerApp = new Vue({
   el: "#registerApp",
   data: {
-    business: true,
+    business: false,
     errors: [],
     userData: {
       fname: "",
