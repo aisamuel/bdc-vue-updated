@@ -1,45 +1,45 @@
 doctype html
 include head.pug
 // Navabr
-
-nav#navbar-main.navbar.navbar-horizontal.navbar-main.navbar-expand-lg.navbar-transparent
-  .container
-    a.navbar-brand(href='pages/dashboards/dashboard.html')
-      img(src='assets/img/brand/logo.png')
-    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
-      span.navbar-toggler-icon
-    #navbar-collapse.navbar-collapse.navbar-custom-collapse.collapse
-      .navbar-collapse-header
-        .row
-          .col-6.collapse-brand
-            a(href='pages/dashboards/dashboard.html')
-              img(src='assets/img/brand/blue.png')
-          .col-6.collapse-close
-            button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
-              span
-              span
-      ul.navbar-nav.mr-auto
-        li.nav-item
-          a.nav-link(href='index.html')
-            span.nav-link-inner--text Dashboard
-        li.nav-item
-          a.nav-link(href='fxrates.html')
-            span.nav-link-inner--text FX Rates
-        li.nav-item
-          a.nav-link(href='pages/examples/login.html')
-            span.nav-link-inner--text About
-        li.nav-item
-          a.nav-link(href='pages/examples/register.html')
-            span.nav-link-inner--text FAQ
-        li.nav-item
-          a.nav-link(href='#contact')
-            span.nav-link-inner--text Conatct
-      hr.d-lg-none
-      ul.navbar-nav.align-items-lg-center.ml-lg-auto
-        li
-          a.btn.btn-default(href='login.html')  Login 
-        li.nav-item.d-none.d-lg-block.ml-lg-4
-          a.btn.btn-neutral.btn-icon(href='signup.html' target='_blank') Create Account 
+#landingNavbar
+  nav#navbar-main.navbar.navbar-horizontal.navbar-main.navbar-expand-lg.navbar-transparent
+    .container
+      a.navbar-brand(href='pages/dashboards/dashboard.html')
+        img(src='assets/img/brand/logo.png')
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbar-collapse.navbar-collapse.navbar-custom-collapse.collapse
+        .navbar-collapse-header
+          .row
+            .col-6.collapse-brand
+              a(href='pages/dashboards/dashboard.html')
+                img(src='assets/img/brand/blue.png')
+            .col-6.collapse-close
+              button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
+                span
+                span
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href='/new-transaction')
+              span.nav-link-inner--text Dashboard
+          //- li.nav-item
+          //-   a.nav-link(href='fxrates.html')
+          //-     span.nav-link-inner--text FX Rates
+          //- li.nav-item
+          //-   a.nav-link(href='pages/examples/login.html')
+          //-     span.nav-link-inner--text About
+          //- li.nav-item
+          //-   a.nav-link(href='pages/examples/register.html')
+          //-     span.nav-link-inner--text FAQ
+          li.nav-item
+            a.nav-link(href='#contact')
+              span.nav-link-inner--text Conatct
+        hr.d-lg-none
+        ul.navbar-nav.align-items-lg-center.ml-lg-auto
+          li
+            a.btn.btn-default(@click="logInOrOut()" v-cloak)  {{ !userProfile ? 'Login' : 'Logout'}} 
+          li.nav-item.d-none.d-lg-block.ml-lg-4
+            a.btn.btn-neutral.btn-icon(href='signup' v-if="!userProfile" v-cloak) Create Account 
 // Main content
 #landingApp.main-content
   // Header
@@ -81,131 +81,6 @@ nav#navbar-main.navbar.navbar-horizontal.navbar-main.navbar-expand-lg.navbar-tra
                     p You will love how easy is to to work with Argon.
   section.section.section-lg.pt-lg-0.mt--6
     include new-transaction-form.pug
-    //- .container
-      .row.justify-content-md-center
-        .col-lg-10
-          .card-wrapper
-            // Input groups
-            .card
-              // Card header
-              .card-header
-                h3.mb-0 New Transaction
-              // Card body
-              .card-body
-                ul#pills-tab.nav.nav-pills.mb-3.nav-justified(role='tablist')
-                  li.nav-item
-                    a#pills-home-tab.nav-link.tab-link.active(data-toggle='pill' href='#pills-sell' role='tab' aria-controls='pills-home' aria-selected='true') Sell
-                  li.nav-item
-                    a#pills-profile-tab.nav-link.tab-link(data-toggle='pill' href='#pills-buy' role='tab' aria-controls='pills-profile' aria-selected='false') Buy
-                #pills-tabContent.tab-content
-                  #pills-sell.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='pills-sell-tab')
-                    form.row
-                      .col-md-6
-                        label You Pay
-                        .input-group.mb-3
-                          .input-group-prepend
-                            select.custom-select
-                              option USD
-                              option(value='1') EUR
-                              option(value='2') POUNDS
-                          input.form-control(type='text')
-                      .col-md-6
-                        label You Recieve
-                        .form-group
-                          .input-group.input-group-merge
-                            input.form-control(placeholder='Payment method' type='text')
-                            .input-group-append
-                              span.input-group-text.bg-success.text-white
-                                small.font-weight-bold NGN
-                    .float-right
-                      h3
-                        | Transaction Rate 1 USD = 360 NGN
-                    .float-left
-                      small.text-muted
-                        | Transaction Limit USD 10,000
-                    #xf-details.modal.fade(tabindex='-1' role='dialog' aria-labelledby='xf-details' aria-hidden='true')
-                      .modal-dialog.modal-.modal-dialog-centered.modal-md(role='document')
-                        .modal-content
-                          .modal-body.p-0
-                            .card
-                              // Card header
-                              .card-header
-                                // Title
-                                h5.h3.mb-0 Transaction ID
-                              // Card body
-                              .card-body
-                                // List group
-                                .row.align-items-center
-                                  .col-8
-                                    h3.text-success  200BDC2hik01 
-                                  .col-4.text-right
-                                    i.ni.ni-single-copy-04
-                                .row.mt-4
-                                  .mb-4.col.text-right
-                                    a.btn.btn-success(href='login.html')
-                                      | proceed
-                    .mt-5
-                      hr
-                    .text-right
-                      button.btn.btn-primary(data-toggle='modal' data-target='#xf-details')
-                        | Proceed
-                  #pills-buy.tab-pane.fade(role='tabpanel' aria-labelledby='pills-buy-tab')
-                    form.row
-                      .col-md-6
-                        label You Give
-                        .input-group.mb-3
-                          .input-group-prepend
-                            select.custom-select
-                              option USD
-                              option(value='1') EUR
-                              option(value='2') POUNDS
-                              option(selected='' value='3') NAIRA
-                          input.form-control(type='text')
-                      .col-md-6
-                        label You Recieve
-                        .input-group.mb-3
-                          .input-group-prepend
-                            select.custom-select
-                              option USD
-                              option(value='1') EUR
-                              option(value='2') POUNDS
-                              option(selected='' value='3') NAIRA
-                          input.form-control(type='text')
-                    .float-right
-                      h3
-                        | Transaction Rate 1 USD = 360 NGN
-                    #xf-details-2.modal.fade(tabindex='-1' role='dialog' aria-labelledby='xf-details' aria-hidden='true')
-                      .modal-dialog.modal-.modal-dialog-centered.modal-md(role='document')
-                        .modal-content
-                          .modal-body.p-0
-                            .card
-                              // Card header
-                              .card-header
-                                // Title
-                                h5.h3.mb-0 Transaction ID
-                              // Card body
-                              .card-body
-                                // List group
-                                .row.align-items-center
-                                  .col-8
-                                    h3.text-success  200BDC2hik01 
-                                  .col-4.text-right
-                                    i.ni.ni-single-copy-04
-                                .row.mt-4
-                                  .mb-4.col.text-right
-                                    a.btn.btn-success(href='login.html')
-                                      | proceed
-                    .mt-5
-                      hr
-                    .text-right
-                      button.btn.btn-primary(data-toggle='modal' data-target='#xf-details-2')
-                        | Proceed
-          //
-            <div class="text-right">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#xf-details">
-            Proceed
-            </button>
-            </div>
   section.py-6
     .container
       .row.row-grid.align-items-center

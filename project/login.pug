@@ -21,14 +21,11 @@ head
                 span
         ul.navbar-nav.mr-auto
           li.nav-item
-            a.nav-link(href='index.html')
-              span.nav-link-inner--text Dashboard
+            a.nav-link(href='landing')
+              span.nav-link-inner--text Home
           li.nav-item
-            a.nav-link(href='login.html')
-              span.nav-link-inner--text Login
-          li.nav-item
-            a.nav-link(href='signup.html')
-              span.nav-link-inner--text Register
+            a.nav-link(href='signup')
+              span.nav-link-inner--text Sign Up
         hr.d-lg-none
   // Main content
   .main-content
@@ -54,7 +51,7 @@ head
                 small(v-if='!errorMessage')
                   | Enter your Email / Phone Number and PIN to access your
                   | Dashboard
-                small.alert-danger(v-if='errorMessage') {{errorMessage}}
+                small.alert-danger(v-if='errorMessage' v-cloak) {{errorMessage}}
               form(role='form')
                 .form-group.mb-3
                   .input-group.input-group-merge.input-group-alternative
@@ -73,14 +70,14 @@ head
                   label.custom-control-label(for='customCheckLogin')
                     span.text-muted Remember me
                 .text-center
-                  button.btn.btn-primary.my-4(:disabled='isLoading' type='button' @click='login()')
+                  button.btn.btn-primary.my-4(:disabled='isLoading' type='button' @click='login()' v-cloak)
                     | {{isLoading? &quot;Please wait...&quot; : &quot;Sign in&quot;}}
           .row.mt-3
             .col-6
               a.text-light(href='#')
                 small Forgot password?
             .col-6.text-right
-              a.text-light(href='signup.html')
+              a.text-light(href='signup')
                 small Create new account
   // Footer
   footer#footer-main.py-5
