@@ -263,6 +263,7 @@ const transactionApp = new Vue({
                 recieveAmount: this.amountInCurrency,
                 creditAccount: this.bdcSelectedBankAccount.accountNumber,
                 debitAccount: this.userSelectedBankAccount.accountNumber,
+                user: this.userProfile,
                 userId: this.userProfile._id,
                 transactionId: this.randomString,
                 isDelivered: false,

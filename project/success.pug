@@ -103,10 +103,11 @@ include dashboard-side-nav.pug
                       small Trans. ID: 
                       |  tgg600ngn4321
                   div
-                    small Benjamin Emmanuel 
-                    span.text-muted.small mail@mail.com 
+                    small {{transactionData.user.fname + ' ' + transactionData.user.lname}}
                     br
-                    span.text-muted.small business address 
+                    span.text-muted.small {{transactionData.user.email}} 
+                    br
+                    span.text-muted.small {{transactionData.user.acctType + ' '}} Account
               .row.ml-0.mt-4
                 small
                   span.font-weight-bold Date:
@@ -121,7 +122,7 @@ include dashboard-side-nav.pug
                     .col.mr--2
                       h3.mb-0  Transaction ID 
                     .col-auto
-                      span.text-warning {{transactionData.refference}}
+                      span.text-warning {{transactionData.transactionId}}
                 li.list-group-item.px-0
                   .row.align-items-center
                     .col.mr--2

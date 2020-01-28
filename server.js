@@ -44,6 +44,22 @@ app.get("/new-transaction", (req, res) => {
   res.send(pug.renderFile("project/new-trans.pug"));
 });
 
+app.get("/fxrates", (req, res) => {
+  res.send(pug.renderFile("project/fxrates.pug"));
+});
+
+app.get("/about", (req, res) => {
+  res.send(pug.renderFile("project/about.pug"));
+});
+
+app.get("/contact", (req, res) => {
+  res.send(pug.renderFile("project/contact.pug"));
+});
+
+app.get("/faq", (req, res) => {
+  res.send(pug.renderFile("project/faq.pug"));
+});
+
 app.get("*", (req, res) => {
   res.send(pug.renderFile("project/landing.pug"));
 });

@@ -1,0 +1,53 @@
+doctype html
+include head.pug
+// Navabr
+#FxRateNavbar
+    nav#navbar-main.navbar.navbar-horizontal.navbar-main.navbar-expand-lg.navbar-transparent
+    .container
+        a.navbar-brand(href='index.html')
+        img(src='assets/img/brand/logo.png')
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+        #navbar-collapse.navbar-collapse.navbar-custom-collapse.collapse
+        .navbar-collapse-header
+            .row
+            .col-6.collapse-brand
+                a(href='index.html')
+                img(src='assets/img/brand/logo.png')
+            .col-6.collapse-close
+                button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
+                span
+                span
+        ul.navbar-nav.mr-auto
+            li.nav-item
+            a.nav-link(href='index.html')
+                span.nav-link-inner--text Dashboard
+            li.nav-item
+            a.nav-link(href='fxrates.html')
+                span.nav-link-inner--text Our FX Rates
+            li.nav-item
+            a.nav-link(href='pages/examples/login.html')
+                span.nav-link-inner--text About
+            li.nav-item
+            a.nav-link(href='pages/examples/register.html')
+                span.nav-link-inner--text FAQ
+            li.nav-item
+            a.nav-link(href='#contact')
+                span.nav-link-inner--text Conatct
+        hr.d-lg-none
+        ul.navbar-nav.align-items-lg-center.ml-lg-auto
+            li
+            a.btn.btn-default(href='login.html')  Login 
+            li.nav-item.d-none.d-lg-block.ml-lg-4
+            a.btn.btn-neutral.btn-icon(href='signup.html' target='_blank') Create Account 
+    // Main content
+    .main-content
+    // Header
+    .header.bg-landing.pt-5.pb-7
+        .container.mt-7
+        .header-body
+            .row.text-center
+            .col-lg-12
+                .pr-4
+                h1.display-2.text-white.font-weight-bold.mb-0 Our Fx-Rates 
+                h4.display-6.text-white.font-weight-light Making Forex services easy and accessible to all.
