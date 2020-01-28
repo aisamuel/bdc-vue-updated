@@ -24,7 +24,7 @@
                           .input-group-append
                             span.input-group-text.bg-success.text-white
                               small.font-weight-bold NGN
-                          input.form-control(placeholder='Amount you get' type='number' v-model="amountInNaira" @keyup="convertCurrency(false)")
+                          input.form-control(placeholder='Amount you give' type='number' v-model="amountInNaira" @keyup="convertCurrency(false)")
                     .col-md-6(v-if="activeMode==='buy'" v-cloak)
                       label You Recieve
                       .input-group.mb-3
