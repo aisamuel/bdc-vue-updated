@@ -60,10 +60,10 @@
                                         option(v-for="acct in userBankAccounts" :value="acct") {{acct.accountNumber}} ({{acct.bankName}}) {{acct.accountName}}
                                 .form-group
                                     label(for='formGroupExampleInput') BDC account
-                                    .form-group
+                                    .form-group                            
                                         select#myaccount-1.custom-select(v-model="bdcSelectedBankAccount")
                                             option(label='Select BDC account')
-                                            option(v-for="bdcAcct in bdcFilteredAccount" :value="bdcAcct") {{bdcAcct.accountNumber}} ({{bdcAcct.bankName}}) {{bdcAcct.accountName}}
+                                            option(selected v-for="bdcAcct in bdcFilteredAccount" :value="bdcAcct") {{bdcAcct.accountNumber}} ({{bdcAcct.bankName}}) {{bdcAcct.accountName}}
                                 //- .form-group
                                 //-     #addAcct
                                 //-         a.btn.btn-sm.btn-neutral(data-dismiss="modal" data-toggle='modal' data-target='#modal-form-2') Add a new Account

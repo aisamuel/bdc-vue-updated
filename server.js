@@ -45,6 +45,7 @@ app.get("/new-transaction", (req, res) => {
 });
 
 app.get("/fxrates", (req, res) => {
+  console.log("fxrates")
   res.send(pug.renderFile("project/fxrates.pug"));
 });
 

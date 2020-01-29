@@ -1,53 +1,145 @@
 doctype html
 include head.pug
 // Navabr
-#FxRateNavbar
-    nav#navbar-main.navbar.navbar-horizontal.navbar-main.navbar-expand-lg.navbar-transparent
+#landingNavbar
+  nav#navbar-main.navbar.navbar-horizontal.navbar-main.navbar-expand-lg.navbar-transparent
     .container
-        a.navbar-brand(href='index.html')
+      a.navbar-brand(href='index.html')
         img(src='assets/img/brand/logo.png')
-        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
-        #navbar-collapse.navbar-collapse.navbar-custom-collapse.collapse
+      #navbar-collapse.navbar-collapse.navbar-custom-collapse.collapse
         .navbar-collapse-header
-            .row
+          .row
             .col-6.collapse-brand
-                a(href='index.html')
+              a(href='index.html')
                 img(src='assets/img/brand/logo.png')
             .col-6.collapse-close
-                button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
+              button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
                 span
                 span
         ul.navbar-nav.mr-auto
-            li.nav-item
-            a.nav-link(href='index.html')
-                span.nav-link-inner--text Dashboard
-            li.nav-item
-            a.nav-link(href='fxrates.html')
-                span.nav-link-inner--text Our FX Rates
-            li.nav-item
-            a.nav-link(href='pages/examples/login.html')
-                span.nav-link-inner--text About
-            li.nav-item
-            a.nav-link(href='pages/examples/register.html')
-                span.nav-link-inner--text FAQ
-            li.nav-item
-            a.nav-link(href='#contact')
-                span.nav-link-inner--text Conatct
+          li.nav-item
+            a.nav-link(href='/new-transaction')
+              span.nav-link-inner--text Dashboard
+          li.nav-item
+            a.nav-link(href='/fxrates')
+              span.nav-link-inner--text FX Rates
+          li.nav-item
+            a.nav-link(href='/about')
+              span.nav-link-inner--text About
+          li.nav-item
+            a.nav-link(href='/faq')
+              span.nav-link-inner--text FAQ
+          li.nav-item
+            a.nav-link(href='/contact')
+              span.nav-link-inner--text Conatct
         hr.d-lg-none
         ul.navbar-nav.align-items-lg-center.ml-lg-auto
-            li
-            a.btn.btn-default(href='login.html')  Login 
-            li.nav-item.d-none.d-lg-block.ml-lg-4
-            a.btn.btn-neutral.btn-icon(href='signup.html' target='_blank') Create Account 
-    // Main content
-    .main-content
+          li
+            a.btn.btn-default(@click="logInOrOut()" v-cloak)  {{ !userProfile ? 'Login' : 'Logout'}} 
+          li.nav-item.d-none.d-lg-block.ml-lg-4
+            a.btn.btn-neutral.btn-icon(href='signup' v-if="!userProfile" v-cloak) Create Account 
+  // Main content
+#landingApp.main-content
+  .main-content
     // Header
     .header.bg-landing.pt-5.pb-7
-        .container.mt-7
+      .container.mt-7
         .header-body
-            .row.text-center
+          .row.text-center
             .col-lg-12
-                .pr-4
+              .pr-4
                 h1.display-2.text-white.font-weight-bold.mb-0 Our Fx-Rates 
                 h4.display-6.text-white.font-weight-light Making Forex services easy and accessible to all.
+    // Buy and Sell Zone
+
+    section.section.section-lg.pt-lg-0.mt--5
+      .container
+        .row.justify-content-md-center
+          .col-xl-12
+            .card.bg-default.shadows
+              .card-header.bg-transparent.border-0
+                .row.align-items-center
+                  .col
+                    h3.mb-0.text-white 313BDC Current Rates
+              .table-responsive
+                // Projects table
+                .table-responsive
+                  table.table.align-items-center.table-dark.table-flush
+                    thead.thead-dark.text-center
+                      tr
+                        th(scope='col') Currency
+                        th(scope='col') Buy
+                        th(scope='col') Sell
+                    //-   th(scope='col') Date
+                    tbody.list.text-center
+                        tr(v-for='exchangeRate in selectedexchangeRates')
+                          td
+                            | {{exchangeRate.currency}}
+                          td
+                            | {{exchangeRate.rateToNaira}}
+                          td {{exchangeRate.rateToNaira}}
+  // Mobile App Download
+  section#contact.py-6
+    .container
+      h1.text-center.pb-4 You can reach Us
+      .row.row-grid.align-items-center
+        .col-md-6.order-md-2
+          .card
+            .card-header
+              h3
+                | Send Us a Message
+            .card-body
+              form
+                .form-group
+                  label.form-control-label(for='exampleFormControlInput1') Your Name
+                  input#exampleFormControlInput1.form-control(type='email' placeholder='name@example.com')
+                .form-group
+                  label.form-control-label(for='exampleFormControlInput1') Email address
+                  input#exampleFormControlInput1.form-control(type='email' placeholder='name@example.com')
+                .form-group
+                  label.form-control-label(for='exampleFormControlSelect1') Subject
+                  select#exampleFormControlSelect1.form-control
+                    option Non-Payment
+                    option Delayed Payment 
+                    option Refund
+                    option General
+                .form-group
+                  label.form-control-label(for='exampleFormControlTextarea1') Message
+                  textarea#exampleFormControlTextarea1.form-control(rows='3')
+        .col-md-6.order-md-1.mb-9
+          .pr-md-5
+            h3.text-light
+              | Main Office
+            p.font-weight-bold
+              | No 3, Oshakati Close, Off Constantine Street, by Zone 4 Plaza, off Sheraton Hotel, Wuse Zone 4, Abuja
+            h3.text-light
+              | Branch office
+            p
+              | Zone 4 Plaza, Plot 2249, Addis Ababa Cresent, Off Ladi Kwali Street, Wuse Zone 4, Abuja
+            div
+              h3.text-light Phone : 
+              span.font-weight-bold 08031230313, 08099936398, 07058890313
+            .mt-2.mb-2
+              a.font-weight-bold.text-success.mt-5(href='mailto:info@313bdc.com')
+                span.ni.ni-email-83
+                |  Send us a Mail
+            div
+              ul.nav.nav-footer.justify-content-left
+                li.nav-item
+                  a.nav-link.nav-link-icon(href='#' target='_blank' data-toggle='tooltip' title='' data-original-title='we are Whatsapp')
+                    i.fab.fa-whatsapp.fa-2x
+                    span.nav-link-inner--text.d-lg-none Whatsapp
+                li.nav-item
+                  a.nav-link.nav-link-icon(href='https://www.facebook.com/313-Bureau-De-Change-436412349767568/' target='_blank' data-toggle='tooltip' title='' data-original-title='Like us on Facebook')
+                    i.fab.fa-facebook-square.fa-2x
+                    span.nav-link-inner--text.d-lg-none Facebook
+                li.nav-item
+                  a.nav-link.nav-link-icon(href='https://twitter.com/313bdc313?lang=en' target='_blank' data-toggle='tooltip' title='' data-original-title='Follow us on Twitter')
+                    i.fab.fa-twitter.fa-2x
+                    span.nav-link-inner--text.d-lg-none Twitter
+                li
+include footer.pug
+include js-imports.pug
+script(src="assets/js/landing.js")

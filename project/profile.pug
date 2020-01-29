@@ -57,6 +57,7 @@ include dashboard-side-nav.pug
                     .col-lg-7.col-md-10
                         //- a.btn.btn-neutral(href='#!') Edit profile
         // Page content
+
         .container-fluid.mt--6
             .row
                 .col-xl-4.order-xl-2
@@ -66,14 +67,15 @@ include dashboard-side-nav.pug
                             .col-lg-3.order-lg-2
                                 .card-profile-image
                                     a(href='#')
-                                        img.rounded-circle(src='assets/img/theme/avatar.png')
+                                        img.rounded-circle(v-if="item.imageUrl" :src="item.imageUrl")
                         .card-header.text-center.border-0.pt-8.pt-md-4.pb-0.pb-md-4
                         .card-body.pt-0
                             .row
                                 .col
-                                    .text-center
-                                        button.btn.btn-primary
-                                            | upload
+                                    .upload-btn-wrapper.text-center
+                                        button.btn.btn-primary(type='button' @click="upload()")
+                                            | Upload an image
+                                        input(type='file' name='myfile' @change="onChange")
                             .text-center
                                 h5.h3
                                     | {{userData.fname}} {{userData.lname}}

@@ -26,13 +26,13 @@ include head.pug
             a.nav-link(href='/fxrates')
               span.nav-link-inner--text FX Rates
           li.nav-item
-            a.nav-link(href='pages/examples/login.html')
+            a.nav-link(href='/about')
               span.nav-link-inner--text About
           li.nav-item
-            a.nav-link(href='pages/examples/register.html')
+            a.nav-link(href='/faq')
               span.nav-link-inner--text FAQ
           li.nav-item
-            a.nav-link(href='#contact')
+            a.nav-link(href='/contact')
               span.nav-link-inner--text Conatct
         hr.d-lg-none
         ul.navbar-nav.align-items-lg-center.ml-lg-auto
@@ -70,7 +70,7 @@ include head.pug
                         th(scope='col') Sell
                         //- th(scope='col') Date
                     tbody.list.text-center
-                      tr(v-for='exchangeRate in exchangeRates')
+                      tr(v-for='exchangeRate in selectedexchangeRates')
                         td
                           | {{exchangeRate.currency}}
                         td

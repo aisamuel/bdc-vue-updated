@@ -109,8 +109,8 @@ head
                         i.ni.ni-briefcase-24
                     select.custom-select(v-model='userData.acctType' @change='businessOrPersonal()')
                       option(selected='' value='Account Type') Account Type
-                      option(value='personal') Personal
-                      option(value='business') Business
+                      option(value='Personal') Personal
+                      option(value='Business') Business
                 // BUSINESS
                 template(v-if='business')
                   .row

@@ -101,7 +101,7 @@ include dashboard-side-nav.pug
                   div
                     span.h5
                       small Trans. ID: 
-                      |  tgg600ngn4321
+                      |  {{transactionData.transactionId}}
                   div
                     small {{transactionData.user.fname + ' ' + transactionData.user.lname}}
                     br
@@ -111,7 +111,7 @@ include dashboard-side-nav.pug
               .row.ml-0.mt-4
                 small
                   span.font-weight-bold Date:
-                  |  Mar. 23 2020
+                  |  {{date}}
               // Title
             // Card body
             .card-body
@@ -154,10 +154,10 @@ include dashboard-side-nav.pug
                     .col-auto
                       span.text-success {{transactionData.recieveAmount + ' ' + transactionData.recieveCurrency}}
                 .row
-                  p
-                    | * Please use 
-                    span.text-success 12908945BDC
-                    |  as beneficiary reference - Rates are guaranteed for 15 mins -
+                  p.blocquote.small
+                    | Dear customer, kindly complete the above transaction from your bank account using the online application or any of the other channels provided by your bank. Remember to include the reference number 
+                    span.text-success {{transactionData.transactionId}}
+                    |  for easy tracking.
         .text-center
           button.btn.btn-success(data-toggle='modal' data-target='#modal-notification')
             | finish

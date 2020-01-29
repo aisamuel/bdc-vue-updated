@@ -58,7 +58,7 @@ const registerApp = new Vue({
     },
     businessOrPersonal() {
       console.log('HERE');
-      if (this.userData.acctType === 'business') {
+      if (this.userData.acctType === 'Business') {
           this.business = true;
       } else {
         this.business = false;
