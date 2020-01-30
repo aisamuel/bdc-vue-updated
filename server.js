@@ -61,6 +61,18 @@ app.get("/faq", (req, res) => {
   res.send(pug.renderFile("project/faq.pug"));
 });
 
+app.get("/log", (req, res) => {
+  res.send(pug.renderFile("project/log.pug"));
+});
+
+app.get("/dash", (req, res) => {
+  res.send(pug.renderFile("project/dashboard.pug"));
+});
+
+app.get("/bank-details", (req, res) => {
+  res.send(pug.renderFile("project/bank.pug"));
+});
+
 app.get("*", (req, res) => {
   res.send(pug.renderFile("project/landing.pug"));
 });

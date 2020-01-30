@@ -1,0 +1,72 @@
+doctype html
+head
+    include head.pug
+// Sidenav
+include dashboard-side-nav.pug
+// Main content
+#panel.main-content
+ #transactionApp
+  // Topnav
+  include dashboard-top-nav.pug
+  .header.bg-green.pb-6
+    .container-fluid
+      .header-body
+        .row.align-items-center.py-4
+          .col-lg-6.col-7
+            h6.h2.text-white.d-inline-block.mb-0 Bank Details
+            nav.d-none.d-md-inline-block.ml-md-4(aria-label='breadcrumb')
+              ol.breadcrumb.breadcrumb-links.breadcrumb-dark
+                li.breadcrumb-item
+                  a(href='#')
+                    i.fas.fa-home
+                li.breadcrumb-item.active(aria-current='page') Bank Details
+          .col-lg-6.col-5.text-right
+            a.btn.btn-sm.btn-neutral(href='/new-transaction') New Transaction
+            a.btn.btn-sm.btn-neutral(data-toggle='modal' data-target='#modal-form-2') Add Account
+
+  // Page content
+  .container-fluid.mt--6
+    .row.card-wrapper
+      .col-lg-4
+        .card.text-white.bg-gradient-red
+          // Card body
+          .card-body.text-white
+            .row.align-items-center
+              .col-auto
+                // Avatar
+                a.avatar.avatar-xl(href='#')
+                  img(alt='Image placeholder' src='assets/img/banks/UBA.png')
+              .col.ml--2
+                h2.mb-1.text-white Benjamin Emmanuel
+                h3.mb-1.text-white
+                  | 1018041933
+                  small.text-mute  United Bank of Africa
+                span.text-success &#x25CF;
+                small NGN Account
+            .row.float-right.pt-2
+              span.fas.fa-trash
+      .col-lg-4
+        .card.bg-gradient-default.text-center
+          .card-body
+            h2.card-title.text-white New Bank
+            // <i class="fas fa-plus-circle fa-5x mb-1"><a href="data-toggle="modal" data-target="#xf-details"></a></i>
+            button(data-toggle='modal' data-target='#modal-form-2')
+              i.fas.fa-plus-circle.fa-5x
+      .col-lg-4
+        // Pricing
+        // Basic with action button
+        // Image overlay
+        .card.bg-dark.text-white.border-0
+          img.card-img(src='assets/img/theme/img-1-1000x600.jpg' alt='Card image')
+          .card-img-overlay.d-flex.align-items-center
+            div
+              h5.h2.card-title.text-white.mb-2 New Card
+              i.fas.fa-plus-circle.fa-5x
+        // Pricing card
+    include new-transaction-modal.pug
+    include footer.pug
+include js-imports.pug
+script(src="../assets/js/transaction.js")
+  
+
+ 

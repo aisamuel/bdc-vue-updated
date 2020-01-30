@@ -1,0 +1,135 @@
+doctype html
+head
+    include head.pug
+// Sidenav
+include dashboard-side-nav.pug
+// Main content
+#panel.main-content
+ #transactionApp
+  // Topnav
+  include dashboard-top-nav.pug
+  .header.bg-green.pb-6
+    .container-fluid
+      .header-body
+        .row.align-items-center.py-4
+          .col-lg-6.col-7
+            h6.h2.text-white.d-inline-block.mb-0 Dashboard
+            nav.d-none.d-md-inline-block.ml-md-4(aria-label='breadcrumb')
+              ol.breadcrumb.breadcrumb-links.breadcrumb-dark
+                li.breadcrumb-item
+                  a(href='#')
+                    i.fas.fa-home
+                li.breadcrumb-item.active
+                  a(href='#') Transaction History
+          .col-lg-6.col-5.text-right
+            a.btn.btn-sm.btn-neutral(href='/new-transaction') New Transaction
+            a.btn.btn-sm.btn-neutral(data-toggle='modal' data-target='#modal-form-2') Add Account
+        // Card stats
+  .container-fluid.mt--6
+    .row
+      .col-xl-12
+        .card
+          .card-header.border-0
+            .row.align-items-center
+              .col
+                h3.mb-0 Transaction History
+          .table-responsive
+            // Projects table
+            .table-responsive
+              table.table.align-items-center.table-flush
+                thead.thead-light
+                  tr
+                    th.sort(scope='col' data-sort='date') Date
+                    th.sort(scope='col' data-sort='Activity') Activity
+                    th.sort(scope='col' data-sort='ID') Transaction ID
+                    th.sort(scope='col' data-sort='Amount') Amount
+                    th.sort(scope='col' data-sort='Status') Status
+                    th.sort(scope='col' data-sort='Timer') Timer
+                    th(scope='col') Action
+                tbody.list
+                  tr
+                    td.budget
+                      | 29 May 2019
+                    td.budget
+                      | Buying US Dollars
+                    td.budget
+                      | US123eb45trf300
+                    td $ 2,500
+                    td
+                      span.badge.badge-dot.mr-4
+                        i.bg-success
+                        span.status Completed
+                    td 0 Days Left
+                    td.text-right
+                      .dropdown
+                        a.btn.btn-sm.btn-icon-only.text-light(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                          i.fas.fa-ellipsis-v
+                        .dropdown-menu.dropdown-menu-right.dropdown-menu-arrow
+                          a.dropdown-item(href='#') Action
+                          a.dropdown-item(href='#') Another action
+                          a.dropdown-item(href='#') Something else here
+                  tr
+                    td.budget
+                      | 29 May 2019
+                    td.budget
+                      | Buying US Dollars
+                    td.budget
+                      | US123eb45trf300
+                    td $ 2,500
+                    td
+                      span.badge.badge-dot.mr-4
+                        i.bg-info
+                        span.status Pending
+                    td 0 Days Left
+                    td.text-right
+                      .dropdown
+                        a.btn.btn-sm.btn-icon-only.text-light(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                          i.fas.fa-ellipsis-v
+                        .dropdown-menu.dropdown-menu-right.dropdown-menu-arrow
+                          a.dropdown-item(href='#') Action
+                          a.dropdown-item(href='#') Another action
+                          a.dropdown-item(href='#') Something else here
+                  tr
+                    td.budget
+                      | 29 May 2019
+                    td.budget
+                      | Buying US Dollars
+                    td.budget
+                      | US123eb45trf300
+                    td $ 2,500
+                    td
+                      span.badge.badge-dot.mr-4
+                        i.bg-warning
+                        span.status Elapsed
+                    td 0 Days Left
+                    td.text-right
+                      .dropdown
+                        a.btn.btn-sm.btn-icon-only.text-light(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                          i.fas.fa-ellipsis-v
+                        .dropdown-menu.dropdown-menu-right.dropdown-menu-arrow
+                          a.dropdown-item(href='#') Action
+                          a.dropdown-item(href='#') Another action
+                          a.dropdown-item(href='#') Something else here
+          .card-footer.py-4
+            nav(aria-label='...')
+              ul.pagination.justify-content-end.mb-0
+                li.page-item.disabled
+                  a.page-link(href='#' tabindex='-1')
+                    i.fas.fa-angle-left
+                    span.sr-only Previous
+                li.page-item.active
+                  a.page-link(href='#') 1
+                li.page-item
+                  a.page-link(href='#')
+                    | 2 
+                    span.sr-only (current)
+                li.page-item
+                  a.page-link(href='#') 3
+                li.page-item
+                  a.page-link(href='#')
+                    i.fas.fa-angle-right
+                    span.sr-only Next
+    include new-transaction-modal.pug
+    include footer.pug
+include js-imports.pug
+script(src="../assets/js/transaction.js")

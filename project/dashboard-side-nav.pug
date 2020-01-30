@@ -17,9 +17,10 @@ nav#sidenav-main.sidenav.navbar.navbar-vertical.fixed-left.navbar-expand-xs.navb
         // Nav items
         ul.navbar-nav
           //
-            <li class="nav-item">
-            <a class="nav-link" href="index.html"> <i class="ni ni-shop text-primary"></i> <span class="nav-link-text">Dashboard</span> </a>
-            </li>
+          li.nav-item
+            a.nav-link(href='/dash')
+              i.ni.ni-shop.text-primary
+              span.nav-link-text Dashboard
           li.nav-item
             a.nav-link.active(href='/new-transaction')
               i.ni.ni-briefcase-24.text-green
@@ -29,13 +30,14 @@ nav#sidenav-main.sidenav.navbar.navbar-vertical.fixed-left.navbar-expand-xs.navb
             <a class="nav-link" href="wallet.html"> <i class="fa fa-wallet text-info"></i> <span class="nav-link-text">Wallet</span> </a>
             </li>
           //
-            <li class="nav-item">
-            <a class="nav-link" href="history.html"> <i class="ni ni-bullet-list-67 text-red"></i> <span class="nav-link-text">Transaction Log</span> </a>
-            </li>
-          //
-            <li class="nav-item">
-            <a class="nav-link" href="bank_details.html"> <i class="ni ni-building text-red"></i> <span class="nav-link-text">Bank Details </span> </a>
-            </li>
+          li.nav-item
+            a.nav-link(href='/log')
+              i.ni.ni-bullet-list-67.text-red
+              span.nav-link-text Transaction Log
+          li.nav-item
+            a.nav-link(href='/bank-details')
+              i.ni.ni-building.text-red
+              span.nav-link-text Bank Details 
           li.nav-item
             a.nav-link(href='/profile')
               i.ni.ni-circle-08.text-primary
