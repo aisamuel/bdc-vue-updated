@@ -196,8 +196,32 @@ const transactionApp = new Vue({
             if (res) {
                 const result = await res.json();
                 console.log(result);
+                this.fetchUserAccounts();
             }
         },
+
+        // async buyTransactionAccount() {
+        //     const requestBody = {
+        //         accountNumber: this.userSelectedBankAccount.accountNumber,
+        //         accountName: this.userSelectedBankAccount.accountName,
+        //         bankName: this.userSelectedBankAccount.bankName,
+        //         token: getToken()
+        //     };
+        //     const res = await fetch(`${baseURL}${this.addBankURL}${this.userProfile._id}`, {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         },
+        //         body: JSON.stringify(requestBody)
+        //     });
+        //     if (res) {
+        //         const result = await res.json();
+        //         console.log(result);
+        //         this.fetchUserAccounts();
+        //     }
+        // },
+
+        
         async fetchUserAccounts() {
             const res = await fetch(`${baseURL}${this.userBankAccountsURL}${this.userProfile._id}`, {
                 mode: "cors"
