@@ -282,7 +282,8 @@ const transactionApp = new Vue({
                 userId: this.userProfile._id,
                 transactionId: this.randomString,
                 isDelivered: false,
-                bankName: this.bdcSelectedBankAccount.accountName
+                bankName: this.bdcSelectedBankAccount.accountName,
+                accountHolder: this.bdcSelectedBankAccount.bankName
             };
             localStorage.setItem("transaction", JSON.stringify(transaction));
             window.location.href = "/success";

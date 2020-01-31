@@ -1,9 +1,11 @@
-.my-hr{
-    border-bottom:  solid rgba(0,0,0,.05);
+.my-hr {
+    border-bottom: solid rgba(0,0,0,.05);
 }
-.dsmall{
+
+.dsmall {
     font-size: 10px;
 }
+
 /* ==========================================
     testimonial
 ========================================== */
@@ -132,4 +134,25 @@
 .fx-currency .convert-currency form .form-group .custom-select:focus {
     -webkit-box-shadow: none;
     box-shadow: none;
+}
+.separator{
+    background: #2dce89;
+    width: 40px;
+    height: 3px;
+    display: inline-block;
+    margin: 5px 0 10px 0;
+}
+.upload-btn-wrapper{
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+}
+.upload-btn-wrapper input[type=file]{
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
 }
