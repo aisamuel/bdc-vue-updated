@@ -92,7 +92,7 @@ include dashboard-side-nav.pug
                 .col-8
                   h5.h5.mb-0 313BDC
                   small.small.text-muted
-                    | Suite E16 Banex Plaza,
+                    | Babura House Plaza,
                     br
                     |  Aminu Kano crescet, 
                     br
@@ -141,18 +141,32 @@ include dashboard-side-nav.pug
                       h3.mb-0  Bank Name 
                     .col-auto
                       span.text-muted {{transactionData.bankName}}
-                li.list-group-item.px-0
-                  .row.align-items-center
-                    .col.mr--2
-                      h3.mb-0  Amount to Pay 
-                    .col-auto
-                      span.text-muted {{transactionData.giveAmount + ' '}} NGN
-                li.list-group-item.px-0
-                  .row.align-items-center
-                    .col.mr--2
-                      h3.mb-0  Amount to Recieve
-                    .col-auto
-                      span.text-success {{transactionData.recieveAmount + ' ' + transactionData.recieveCurrency}}
+                template(v-if="transactionData.mode === 'buy'")
+                  li.list-group-item.px-0
+                    .row.align-items-center
+                      .col.mr--2
+                        h3.mb-0  Amount to Pay 
+                      .col-auto
+                        span.text-muted {{transactionData.giveAmount + ' '}} NGN
+                  li.list-group-item.px-0
+                    .row.align-items-center
+                      .col.mr--2
+                        h3.mb-0  Amount to Recieve
+                      .col-auto
+                        span.text-success {{transactionData.recieveAmount + ' ' + transactionData.recieveCurrency}}
+                template(v-if="transactionData.mode === 'sell'")
+                  li.list-group-item.px-0
+                    .row.align-items-center
+                      .col.mr--2
+                        h3.mb-0  Amount to Pay 
+                      .col-auto
+                        span.text-muted {{transactionData.recieveAmount + ' ' + transactionData.recieveCurrency}} 
+                  li.list-group-item.px-0
+                    .row.align-items-center
+                      .col.mr--2
+                        h3.mb-0  Amount to Recieve
+                      .col-auto
+                        span.text-success {{transactionData.giveAmount + ' '}} NGN
                 .row
                   p.blocquote.small
                     | Dear customer, kindly complete the above transaction from your bank account using the online application or any of the other channels provided by your bank. Remember to include the reference number 

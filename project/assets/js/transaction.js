@@ -148,6 +148,9 @@ const transactionApp = new Vue({
         exchangeRatesURL: "fx/all-currency/",
         addBankURL: "reg/addBank/",
         userBankAccountsURL: "reg/user-bank/",
+        buyTransURL: "trans/buy/",
+        sellTransURL: "trans-sell/sell",
+        buyTransLogURL: "trans/all-buy/",
         activeMode: "buy",
         paymentMethod: "card",
         acceptAgreement: false,
@@ -179,6 +182,17 @@ const transactionApp = new Vue({
                 this.selectedRates();
             }
         },
+
+        async fetchBuyTransactionLogs() {
+            const res = await fetch(`${baseURL}${this.buyTransLogURL}${this.userProfile._id}`, {
+                mode: "cors"
+            });
+            if (res) {
+                const result = await res.json();
+                console.log(result);
+            }
+        },
+
         async addBankAccount() {
             const requestBody = {
                 accountNumber: this.userSelectedBankAccount.accountNumber,
@@ -200,26 +214,73 @@ const transactionApp = new Vue({
             }
         },
 
-        // async buyTransactionAccount() {
-        //     const requestBody = {
-        //         accountNumber: this.userSelectedBankAccount.accountNumber,
-        //         accountName: this.userSelectedBankAccount.accountName,
-        //         bankName: this.userSelectedBankAccount.bankName,
-        //         token: getToken()
-        //     };
-        //     const res = await fetch(`${baseURL}${this.addBankURL}${this.userProfile._id}`, {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         body: JSON.stringify(requestBody)
-        //     });
-        //     if (res) {
-        //         const result = await res.json();
-        //         console.log(result);
-        //         this.fetchUserAccounts();
-        //     }
-        // },
+        async buyTransactionAccount() {
+            const requestBody = {
+                giveCurrency: "NGN",
+                giveAmount: this.amountInNaira,
+                recieveCurrency: this.selectedCurrency.currency,
+                recieveAmount: this.amountInCurrency,
+                transactionId: this.userProfile._id,
+                // userId: this.userProfile._id,
+                // isDelivered: false,
+                // deliveryMethod: phone,
+                bcdAccountName: this.bdcSelectedBankAccount.accountName,
+                bcdAccountNumber: this.bdcSelectedBankAccount.accountNumber,
+                bcdBankName: this.bdcSelectedBankAccount.bankName,
+                reference: this.randomString,
+                // accountNumber: this.userSelectedBankAccount.accountNumber,
+                // accountName: this.userSelectedBankAccount.accountName,
+                // bankName: this.userSelectedBankAccount.bankName,
+                token: getToken()
+            };
+            const res = await fetch(`${baseURL}${this.buyTransURL}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(requestBody)
+            });
+            if (res) {
+                const result = await res.json();
+                console.log(result);
+                console.log("buy transaction was successful");
+                this.fetchBuyTransactionLogs();
+                // window.location.href = "/success";
+                // this.fetchUserAccounts();
+            }
+        },
+
+        async sellTransactionAccount() {
+            const requestBody = {
+                payCurrency: this.selectedCurrency.currency,
+                payAmount: this.amountInCurrency,
+                recieveCurrency: "NGN",
+                recieveAmount: this.amountInNaira,
+                transactionId: this.randomString,
+                userId: this.userProfile._id,
+                // isDelivered: false,
+                // deliveryMethod: phone,
+                creditAccount: this.bdcSelectedBankAccount.accountNumber,
+                // accountNumber: this.userSelectedBankAccount.accountNumber,
+                // accountName: this.userSelectedBankAccount.accountName,
+                // bankName: this.userSelectedBankAccount.bankName,
+                token: getToken()
+            };
+            const res = await fetch(`${baseURL}${this.sellTransURL}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(requestBody)
+            });
+            if (res) {
+                const result = await res.json();
+                console.log(result);
+                // this.buyTransactionAccount();
+                window.location.href = "/success";
+                // this.fetchUserAccounts();
+            }
+        },
 
         
         async fetchUserAccounts() {
@@ -307,11 +368,24 @@ const transactionApp = new Vue({
                 transactionId: this.randomString,
                 isDelivered: false,
                 bankName: this.bdcSelectedBankAccount.accountName,
-                accountHolder: this.bdcSelectedBankAccount.bankName
+                accountHolder: this.bdcSelectedBankAccount.bankName,
+                mode: this.activeMode
             };
             localStorage.setItem("transaction", JSON.stringify(transaction));
+            // this.sellOrBuyTransaction();
             window.location.href = "/success";
         },
+
+        sellOrBuyTransaction() {
+            if (this.activeMode == "buy") {
+                console.log("buy transaction taking place");
+                this.buyTransactionAccount();
+            } else {
+                console.log("sell transaction taking place");
+                this.sellTransactionAccount();
+            }
+        },
+
         switchPaymentMethod() {}
     },
     mounted: function() {
@@ -325,5 +399,6 @@ const transactionApp = new Vue({
         }
         this.fetchExchangeRates();
         this.fetchUserAccounts();
+        this.fetchBuyTransactionLogs()
     }
 });

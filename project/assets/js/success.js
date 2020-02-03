@@ -3,6 +3,7 @@ const successApp = new Vue({
     data: {
         transactionData: JSON.parse(localStorage.getItem("transaction")),
         userProfile: getUserProfile(),
-        date: new Date().toLocaleString()
+        date: new Date().toLocaleString(),
+        
     }
 })

@@ -38,10 +38,11 @@
                             br
                         .mb-4
                         .row.justify-content-center.mt-5
-                            button.btn.btn-icon.btn-primary(@click="payWithPaystack()")
-                                span.btn-inner--icon
-                                    i.fas.fa-credit-card
-                                span.btn-inner--text Pay With Card
+                            template(v-if="activeMode === 'buy'")
+                                button.btn.btn-icon.btn-primary(@click="payWithPaystack()")
+                                    span.btn-inner--icon
+                                        i.fas.fa-credit-card
+                                    span.btn-inner--text Pay With Card
                             button.btn.btn-icon.btn-primary(onclick='myFunction()')
                                 span.btn-inner--icon
                                     i.fas.fa-landmark
