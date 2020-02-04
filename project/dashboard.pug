@@ -71,96 +71,9 @@ include dashboard-side-nav.pug
                   .col-auto
                     .icon.icon-shape.bg-gradient-danger.text-white.rounded-circle.shadow
                       i.ni.ni-chart-bar-32
-  // Page content
-  .container-fluid.mt--6
-    .row
-      .col-xl-12
-        .card
-          .card-header.border-0
-            .row.align-items-center
-              .col
-                h3.mb-0 Latest Transaction
-              .col.text-right
-                a.btn.btn-sm.btn-primary(href='history.html') See all
-          .table-responsive
-            // Projects table
-            .table-responsive
-              table.table.align-items-center.table-flush
-                thead.thead-light
-                  tr
-                    th(scope='col') Date
-                    th(scope='col') Activity
-                    th(scope='col') Transaction ID
-                    th(scope='col') Amount
-                    th(scope='col') Status
-                    th(scope='col') Timer
-                    th(scope='col') Action
-                tbody.list
-                  tr
-                    td.budget
-                      | 29 May 2019
-                    td.budget
-                      | Buying US Dollars
-                    td.budget
-                      | US123eb45trf300
-                    td $ 2,500
-                    td
-                      span.badge.badge-dot.mr-4
-                        i.bg-warning
-                        span.status pending
-                    td 0 Days Left
-                    td.text-right
-                      .dropdown
-                        a.btn.btn-sm.btn-icon-only.text-light(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                          i.fas.fa-ellipsis-v
-                        .dropdown-menu.dropdown-menu-right.dropdown-menu-arrow
-                          a.dropdown-item(href='#')
-                            i.fas.fa-eye
-                            | View
-                          a.dropdown-item(href='#')
-                            i.fas.fa-trash.text-danger
-                            | Delete
-                  tr
-                    td.budget
-                      | 29 May 2019
-                    td.budget
-                      | Buying US Dollars
-                    td.budget
-                      | US123eb45trf300
-                    td $ 2,500
-                    td
-                      span.badge.badge-dot.mr-4
-                        i.bg-success
-                        span.status Completed
-                    td 0 Days Left
-                    td.text-right
-                      .dropdown
-                        a.btn.btn-sm.btn-icon-only.text-light(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                          i.fas.fa-ellipsis-v
-                        .dropdown-menu.dropdown-menu-right.dropdown-menu-arrow
-                          a.dropdown-item(href='#') Action
-                          a.dropdown-item(href='#') Another action
-                          a.dropdown-item(href='#') Something else here
-          .card-footer.py-4
-            nav(aria-label='...')
-              ul.pagination.justify-content-end.mb-0
-                li.page-item.disabled
-                  a.page-link(href='#' tabindex='-1')
-                    i.fas.fa-angle-left
-                    span.sr-only Previous
-                li.page-item.active
-                  a.page-link(href='#') 1
-                li.page-item
-                  a.page-link(href='#')
-                    | 2 
-                    span.sr-only (current)
-                li.page-item
-                  a.page-link(href='#') 3
-                li.page-item
-                  a.page-link(href='#')
-                    i.fas.fa-angle-right
-                    span.sr-only Next
+    
         include new-transaction-modal.pug
-    include footer.pug
+  include trans-history.pug
+  include footer.pug
 include js-imports.pug
 script(src="../assets/js/transaction.js")

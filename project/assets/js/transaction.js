@@ -140,17 +140,22 @@ const transactionApp = new Vue({
             bankName: ""
         },
         userProfile: {},
+        // userBanks: [],
+        buyTransactionLogs: [],
+        sellTransactionLogs: [],
         selectedCurrency: {},
         amountInCurrency: null,
         amountInNaira: null,
         randomString: "",
         bankAccountsURL: "reg/accounts",
+        getBanksURL: "reg/user-bank/",
         exchangeRatesURL: "fx/all-currency/",
         addBankURL: "reg/addBank/",
         userBankAccountsURL: "reg/user-bank/",
         buyTransURL: "trans/buy/",
         sellTransURL: "trans-sell/sell",
         buyTransLogURL: "trans/all-buy/",
+        sellTransLogURL: "trans-sell/all-sell/",
         activeMode: "buy",
         paymentMethod: "card",
         acceptAgreement: false,
@@ -166,6 +171,7 @@ const transactionApp = new Vue({
                 console.log(result);
             }
         },
+
         async fetchExchangeRates() {
             const res = await fetch(`${baseURL}${this.exchangeRatesURL}`, {
                 mode: "cors"
@@ -189,9 +195,32 @@ const transactionApp = new Vue({
             });
             if (res) {
                 const result = await res.json();
-                console.log(result);
+                this.buyTransactionLogs = JSON.parse(JSON.stringify(result));
+                console.log(this.buyTransactionLogs);
             }
         },
+
+        async fetchSellTransactionLogs() {
+            const res = await fetch(`${baseURL}${this.sellTransLogURL}${this.userProfile._id}`, {
+                mode: "cors"
+            });
+            if (res) {
+                const result = await res.json();
+                this.sellTransactionLogs = JSON.parse(JSON.stringify(result.result));
+                console.log(this.sellTransactionLogs);
+            }
+        },
+
+        // async fetchUserBanks() {
+        //     const res = await fetch(`${baseURL}${this.getBanksURL}${this.userProfile._id}`, {
+        //         mode: "cors"
+        //     });
+        //     if (res) {
+        //         const result = await res.json();
+        //         this.userBanks = JSON.parse(JSON.stringify(result.bank));
+        //         console.log(this.userBanks);
+        //     }
+        // },
 
         async addBankAccount() {
             const requestBody = {
@@ -210,7 +239,7 @@ const transactionApp = new Vue({
             if (res) {
                 const result = await res.json();
                 console.log(result);
-                this.fetchUserAccounts();
+                this.fetchUserBanks();
             }
         },
 
@@ -228,6 +257,7 @@ const transactionApp = new Vue({
                 bcdAccountNumber: this.bdcSelectedBankAccount.accountNumber,
                 bcdBankName: this.bdcSelectedBankAccount.bankName,
                 reference: this.randomString,
+                userId: this.userProfile._id,
                 // accountNumber: this.userSelectedBankAccount.accountNumber,
                 // accountName: this.userSelectedBankAccount.accountName,
                 // bankName: this.userSelectedBankAccount.bankName,
@@ -245,7 +275,7 @@ const transactionApp = new Vue({
                 console.log(result);
                 console.log("buy transaction was successful");
                 this.fetchBuyTransactionLogs();
-                // window.location.href = "/success";
+                window.location.href = "/success";
                 // this.fetchUserAccounts();
             }
         },
@@ -256,11 +286,14 @@ const transactionApp = new Vue({
                 payAmount: this.amountInCurrency,
                 recieveCurrency: "NGN",
                 recieveAmount: this.amountInNaira,
-                transactionId: this.randomString,
+                bcdAccountName: this.bdcSelectedBankAccount.accountName,
+                refference: this.randomString,
+                bcdAccountNumber: this.bdcSelectedBankAccount.accountNumber,
+                bcdBankName: this.bdcSelectedBankAccount.bankName,
                 userId: this.userProfile._id,
                 // isDelivered: false,
                 // deliveryMethod: phone,
-                creditAccount: this.bdcSelectedBankAccount.accountNumber,
+                // creditAccount: this.bdcSelectedBankAccount.accountNumber,
                 // accountNumber: this.userSelectedBankAccount.accountNumber,
                 // accountName: this.userSelectedBankAccount.accountName,
                 // bankName: this.userSelectedBankAccount.bankName,
@@ -277,6 +310,7 @@ const transactionApp = new Vue({
                 const result = await res.json();
                 console.log(result);
                 // this.buyTransactionAccount();
+                this.fetchSellTransactionLogs();
                 window.location.href = "/success";
                 // this.fetchUserAccounts();
             }
@@ -293,6 +327,7 @@ const transactionApp = new Vue({
                 this.userBankAccounts = result.bank;
             }
         },
+
         filterbdc() {
             this.bdcFilteredAccount = [];
             this.bdcBankAccounts.forEach((element) => {
@@ -372,8 +407,8 @@ const transactionApp = new Vue({
                 mode: this.activeMode
             };
             localStorage.setItem("transaction", JSON.stringify(transaction));
-            // this.sellOrBuyTransaction();
-            window.location.href = "/success";
+            this.sellOrBuyTransaction();
+            // window.location.href = "/success";
         },
 
         sellOrBuyTransaction() {
@@ -399,6 +434,8 @@ const transactionApp = new Vue({
         }
         this.fetchExchangeRates();
         this.fetchUserAccounts();
-        this.fetchBuyTransactionLogs()
+        this.fetchBuyTransactionLogs();
+        this.fetchSellTransactionLogs();
+        // this.fetchUserBanks();
     }
 });

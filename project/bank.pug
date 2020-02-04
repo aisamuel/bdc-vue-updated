@@ -27,7 +27,7 @@ include dashboard-side-nav.pug
   // Page content
   .container-fluid.mt--6
     .row.card-wrapper
-      .col-lg-4
+      .col-lg-4(v-for='userBank in userBankAccounts')
         .card.text-white.bg-gradient-red
           // Card body
           .card-body.text-white
@@ -37,10 +37,10 @@ include dashboard-side-nav.pug
                 a.avatar.avatar-xl(href='#')
                   img(alt='Image placeholder' src='assets/img/banks/UBA.png')
               .col.ml--2
-                h2.mb-1.text-white Benjamin Emmanuel
+                h2.mb-1.text-white {{ userBank.accountName}}
                 h3.mb-1.text-white
-                  | 1018041933
-                  small.text-mute  United Bank of Africa
+                  | {{ userBank.accountNumber }}
+                  //- small.text-mute  United Bank of Africa
                 span.text-success &#x25CF;
                 small NGN Account
             .row.float-right.pt-2
