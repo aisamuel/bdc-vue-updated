@@ -4,6 +4,102 @@ const transactionApp = new Vue({
         bdcBankAccounts: [
             {
                 currency: "NAIRA",
+                accountName: "F.C.M.B 313",
+                accountNumber: "2168669089",
+                bankName: "First City Monument Bank (FCMB)"
+            },
+            {
+                currency: "USD",
+                accountName: "F.C.M.B 313",
+                accountNumber: "2168669096",
+                bankName: "First City Monument Bank (FCMB)"
+            },
+            {
+                currency: "GBP",
+                accountName: "F.C.M.B 313",
+                accountNumber: "2168669106",
+                bankName: "First City Monument Bank (FCMB)"
+            },
+            {
+                currency: " EUR",
+                accountName: "F.C.M.B 313",
+                accountNumber: "2168669113",
+                bankName: "First City Monument Bank (FCMB)"
+            },
+            {
+                currency: "NAIRA",
+                accountName: "G.T.B BDC LTD",
+                accountNumber: "0212987103",
+                bankName: "Guarantee Trust Bank (GTB)"
+            },
+            {
+                currency: "USD",
+                accountName: "G.T.B BDC LTD",
+                accountNumber: "0212987718",
+                bankName: "Guarantee Trust Bank (GTB)"
+            },
+            {
+                currency: "GBP",
+                accountName: "G.T.B BDC LTD",
+                accountNumber: "0212987770",
+                bankName: "Guarantee Trust Bank (GTB)"
+            },
+            {
+                currency: "EUR",
+                accountName: "G.T.B BDC LTD",
+                accountNumber: "0212987794",
+                bankName: "Guarantee Trust Bank (GTB)"
+            },
+            {
+                currency: "NAIRA",
+                accountName: "STANBIC IBTC 313 BDC LTD",
+                accountNumber: "0034916851",
+                bankName: "stanbic"
+            },
+            {
+                currency: "USD",
+                accountName: "STANBIC IBTC 313 BDC LTD",
+                accountNumber: "0034916868",
+                bankName: "stanbic"
+            },
+            {
+                currency: "GBP",
+                accountName: "STANBIC IBTC 313 BDC LTD",
+                accountNumber: "0034916882",
+                bankName: "stanbic"
+            },
+            {
+                currency: "EUR",
+                accountName: "STANBIC IBTC 313 BDC LTD",
+                accountNumber: "0034916882",
+                bankName: "stanbic"
+            },
+            {
+                currency: "NAIRA",
+                accountName: "STERLING 313 BDC LTD",
+                accountNumber: "0076151182",
+                bankName: "Sterling Bank"
+            },
+            {
+                currency: "USD",
+                accountName: "STERLING 313 BDC LTD",
+                accountNumber: "0076153454",
+                bankName: "Sterling Bank"
+            },
+            {
+                currency: "EUR",
+                accountName: "STERLING 313 BDC LTD",
+                accountNumber: "0076151168",
+                bankName: "Sterling Bank"
+            },
+            {
+                currency: "GBP",
+                accountName: "STERLING 313 BDC LTD",
+                accountNumber: "0096151034",
+                bankName: "Sterling Bank"
+            },
+            {
+                currency: "NAIRA",
                 accountName: "313 BDC LTD",
                 accountNumber: "1227771089",
                 bankName: "Access Bank"
@@ -146,12 +242,13 @@ const transactionApp = new Vue({
         selectedCurrency: {},
         amountInCurrency: null,
         amountInNaira: null,
+        withBank: false,
         randomString: "",
         bankAccountsURL: "reg/accounts",
-        getBanksURL: "reg/user-bank/",
+        getBanksURL: "reg/user-banks/",
         exchangeRatesURL: "fx/all-currency/",
         addBankURL: "reg/addBank/",
-        userBankAccountsURL: "reg/user-bank/",
+        userBankAccountsURL: "reg/user-banks/",
         buyTransURL: "trans/buy/",
         sellTransURL: "trans-sell/sell",
         buyTransLogURL: "trans/all-buy/",
@@ -324,7 +421,7 @@ const transactionApp = new Vue({
             if (res) {
                 const result = await res.json();
                 console.log(result);
-                this.userBankAccounts = result.bank;
+                this.userBankAccounts = result;
             }
         },
 
@@ -339,6 +436,10 @@ const transactionApp = new Vue({
         });
         },
 
+        payWithBank() {
+            this.withBank = true;
+        },
+
         selectedRates() {
             // selectedexchangeRates
             this.exchangeRates.forEach((element) => {
@@ -348,6 +449,7 @@ const transactionApp = new Vue({
             })
 
         },
+
 
         generateRandomString() {
             return (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));

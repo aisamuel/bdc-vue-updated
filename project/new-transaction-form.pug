@@ -18,6 +18,13 @@
                 #pills-buy.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='pills-buy-tab')
                   form.row
                     .col-md-6(v-if="activeMode==='buy'" v-cloak)
+                      label You Recieve
+                        .input-group.mb-3
+                          .input-group-prepend
+                            select.custom-select(v-model="selectedCurrency" @change="convertCurrency(true)" v-cloak)
+                              option(selected :value='exchangeRate' v-for="(exchangeRate, index) in selectedexchangeRates") {{exchangeRate.currency}}
+                          input.form-control(type='number', v-model="amountInCurrency" @keyup="convertCurrency(true)")
+                    .col-md-6(v-if="activeMode==='buy'" v-cloak)
                       label You Give
                       .form-group
                         .input-group.input-group-merge
@@ -25,13 +32,7 @@
                             span.input-group-text.bg-success.text-white
                               small.font-weight-bold NGN
                           input.form-control(placeholder='Amount you give' type='number' v-model="amountInNaira" @keyup="convertCurrency(false)")
-                    .col-md-6(v-if="activeMode==='buy'" v-cloak)
-                      label You Recieve
-                      .input-group.mb-3
-                        .input-group-prepend
-                          select.custom-select(v-model="selectedCurrency" @change="convertCurrency(true)" v-cloak)
-                            option(selected :value='exchangeRate' v-for="(exchangeRate, index) in selectedexchangeRates") {{exchangeRate.currency}}
-                        input.form-control(type='number', v-model="amountInCurrency" @keyup="convertCurrency(true)")
+                    
                     .col-md-6(v-if="activeMode!=='buy'" v-cloak)
                       label You give
                       .input-group.mb-3

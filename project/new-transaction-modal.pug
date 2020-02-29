@@ -14,7 +14,7 @@
                             li.list-group-item.px-0
                                 .row.align-items-center
                                     .col.mr--2
-                                        h3.mb-0 Transaction ID 
+                                        h3.mb-0 Reference Number
                                     .col-auto
                                         span.text-primary.font-weight-bold {{randomString}} 
                             li.list-group-item.px-0
@@ -43,11 +43,12 @@
                                     span.btn-inner--icon
                                         i.fas.fa-credit-card
                                     span.btn-inner--text Pay With Card
-                            button.btn.btn-icon.btn-primary(onclick='myFunction()')
+                            button.btn.btn-icon.btn-primary(@click='payWithBank()')
                                 span.btn-inner--icon
                                     i.fas.fa-landmark
                                 span.btn-inner--text Pay With Bank
                         #myBank.row
+                        template(v-if='withBank')
                             .card-header.col
                                 // Title
                                 h5.h3.mb-0 Bank Details

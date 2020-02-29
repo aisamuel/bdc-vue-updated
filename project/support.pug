@@ -110,14 +110,13 @@ include dashboard-side-nav.pug
                         | A new issue has been reported for Argon.
               // View all
               a.dropdown-item.text-center.text-primary.font-weight-bold.py-3(href='#!') View all
-        ul.navbar-nav.align-items-center.ml-auto.ml-md-0
-          li.nav-item.dropdown
-            a.nav-link.pr-0(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-              .media.align-items-center
-                span.avatar.avatar-sm.rounded-circle
-                  img(alt='Image placeholder' src='assets/img/theme/team-4.jpg')
-                .media-body.ml-2.d-none.d-lg-block
-                  span.mb-0.text-sm.font-weight-bold Benjamin Emmanuel
+        #profileApp
+          ul.navbar-nav.align-items-center.ml-auto.ml-md-0
+            li.nav-item.dropdown
+              a.nav-link.pr-0(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                .media.align-items-center
+                  .media-body.ml-2.d-none.d-lg-block
+                    span.mb-0.text-sm.font-weight-bold {{userData.fname}} {{userData.lname}}
             .dropdown-menu.dropdown-menu-right
               .dropdown-header.noti-title
                 h6.text-overflow.m-0 Welcome!
@@ -177,3 +176,5 @@ include dashboard-side-nav.pug
     include footer.pug
 include support-modal.pug
 include js-imports.pug
+script(src='assets/js/profile.js')
+script(src="../assets/js/transaction.js")
