@@ -99,6 +99,30 @@ const transactionApp = new Vue({
                 bankName: "Sterling Bank"
             },
             {
+                currency: "NARIA",
+                accountName: "JAIZ 313 BDC LTD",
+                accountNumber: "0005598375",
+                bankName: "Jaiz Bank"
+            },
+            {
+                currency: "USD",
+                accountName: "JAIZ 313 BDC LTD",
+                accountNumber: "0005598375",
+                bankName: "Jaiz Bank"
+            },
+            {
+                currency: "GBP",
+                accountName: "JAIZ 313 BDC LTD",
+                accountNumber: "0005598399",
+                bankName: "Jaiz Bank"
+            },
+            {
+                currency: "EUR",
+                accountName: "JAIZ 313 BDC LTD",
+                accountNumber: "0005598351",
+                bankName: "Jaiz Bank"
+            },
+            {
                 currency: "NAIRA",
                 accountName: "313 BDC LTD",
                 accountNumber: "1227771089",
