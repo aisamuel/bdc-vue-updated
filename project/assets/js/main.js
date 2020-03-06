@@ -31,7 +31,7 @@ const setToken = token => {
 const payWithPaystack = (userProfile, amountInNaira, ref, callback) => {
     console.log("paying with paystack")
   var handler = PaystackPop.setup({
-    key: "pk_test_8bfb374a7ff4b8054250f5aa7b6b3fef8d9f7a2a",
+    key: "pk_test_ad09ec2277fdc777e3eeaa5d51c711ca579a6141",
     email: userProfile.email,
     amount: amountInNaira * 100,
     currency: "NGN",
