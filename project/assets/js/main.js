@@ -58,6 +58,40 @@ const payWithPaystack = (userProfile, amountInNaira, ref, callback) => {
   handler.openIframe();
 };
 
+function payWithFlutterwave(userProfile, amountInNaira, ref, callback) {
+    var x = getpaidSetup({
+        PBFPubKey: "FLWPUBK_TEST-ab1d8d078bdfab1200f71e1eb51880b2-X",
+        customer_email: userProfile.email,
+        amount: amountInNaira,
+        customer_phone: userProfile.phone,
+        currency: "NGN",
+        txref: ref,
+        meta: [{
+            metaname: "mobileNumber",
+            metavalue: userProfile.phone
+        }],
+        onclose: function() {
+          alert("window closed");
+          callback();
+        },
+        callback: function(response) {
+            var txref = response.tx.txRef; // collect txRef returned and pass to a           server page to complete status check.
+            console.log("This is the response returned after a charge", response);
+            if (
+                response.tx.chargeResponseCode == "00" ||
+                response.tx.chargeResponseCode == "0"
+            ) {
+                // redirect to a success page
+            } else {
+                // redirect to a failure page.
+            }
+
+            x.close(); // use this to close the modal immediately after payment.
+        }
+    });
+}
+
+
 
 const landingNav = new Vue({
   el: "#landingNavbar",

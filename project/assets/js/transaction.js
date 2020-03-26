@@ -512,6 +512,9 @@ const transactionApp = new Vue({
 
 
         },
+        payWithFlutterwave() {
+            payWithFlutterwave(this.userProfile, this.amountInNaira, this.randomString, this.generateRandomString);
+        },
         payWithPaystack() {
             payWithPaystack(this.userProfile, this.amountInNaira, this.randomString, this.generateRandomString);
         },
