@@ -71,7 +71,7 @@ function payWithFlutterwave(userProfile, amountInNaira, ref, callback) {
             metavalue: userProfile.phone
         }],
         onclose: function() {
-          alert("window closed");
+          // alert("window closed");
           callback();
         },
         callback: function(response) {
