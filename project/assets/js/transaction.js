@@ -267,6 +267,7 @@ const transactionApp = new Vue({
         amountInCurrency: null,
         amountInNaira: null,
         withBank: false,
+        // mode: "buy",
         randomString: "",
         bankAccountsURL: "reg/accounts",
         getBanksURL: "reg/user-banks/",
@@ -478,22 +479,34 @@ const transactionApp = new Vue({
         generateRandomString() {
             return (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
         },
-        convertCurrency(toNaira = true) {
+        convertCurrencySell(toNaira = true) {
+            console.log("convert currency")
             if (toNaira) {
                 this.amountInNaira = Math.round((this.selectedCurrency.rateToNaira * this.amountInCurrency) * 100) / 100;
             } else {
                 this.amountInCurrency = Math.round((this.amountInNaira / this.selectedCurrency.rateToNaira) * 100) /100;
             }
         },
+        convertCurrencyBuy(toNaira = true) {
+            console.log("convert currency sell")
+            if (toNaira) {
+                this.amountInNaira = Math.round((this.selectedCurrency.rateFromNaira * this.amountInCurrency) * 100) / 100;
+            } else {
+                this.amountInCurrency = Math.round((this.amountInNaira / this.selectedCurrency.rateFromNaira) * 100) /100;
+            }
+        },
         switchMode(mode = "buy") {
             this.activeMode = mode;
             console.log("switching mode", mode);
+            this.amountInNaira = null;
+            this.amountInCurrency = null;
             if ((mode = "buy")) {
                 this.exchangeRates = JSON.parse(JSON.stringify(this.buyingRates));
-                this.convertCurrency();
+                this.convertCurrencyBuy();
             } else {
                 this.exchangeRates = JSON.parse(JSON.stringify(this.sellingRates));
-                this.convertCurrency();
+                this.convertCurrencySell();
+                
             }
         },
         checkAccountIsUnique() {

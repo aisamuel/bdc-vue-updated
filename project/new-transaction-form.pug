@@ -21,9 +21,9 @@
                       label You Recieve
                         .input-group.mb-3
                           .input-group-prepend
-                            select.custom-select(v-model="selectedCurrency" @change="convertCurrency(true)" v-cloak)
+                            select.custom-select(v-model="selectedCurrency" @change="convertCurrencyBuy(true)" v-cloak)
                               option(selected :value='exchangeRate' v-for="(exchangeRate, index) in selectedexchangeRates") {{exchangeRate.currency}}
-                          input.form-control(type='number', v-model="amountInCurrency" @keyup="convertCurrency(true)")
+                          input.form-control(type='text', v-model="amountInCurrency" @keyup="convertCurrencyBuy(true)")
                     .col-md-6(v-if="activeMode==='buy'" v-cloak)
                       label You Give
                       .form-group
@@ -31,20 +31,20 @@
                           .input-group-append
                             span.input-group-text.bg-success.text-white
                               small.font-weight-bold NGN
-                          input.form-control(placeholder='Amount you give' type='number' v-model="amountInNaira" @keyup="convertCurrency(false)")
+                          input.form-control(placeholder='Amount you give' type='text' v-model="amountInNaira" @keyup="convertCurrencyBuy(false)")
                     
                     .col-md-6(v-if="activeMode!=='buy'" v-cloak)
                       label You give
                       .input-group.mb-3
                         .input-group-prepend
-                          select.custom-select(v-model="selectedCurrency" @change="convertCurrency(false)" v-cloak)
+                          select.custom-select(v-model="selectedCurrency" @change="convertCurrencySell(false)" v-cloak)
                             option(selected :value='exchangeRate' v-for="(exchangeRate, index) in exchangeRates") {{exchangeRate.currency}}
-                        input.form-control(type='number', v-model="amountInCurrency" @keyup="convertCurrency(true)")
+                        input.form-control(type='text', v-model="amountInCurrency" @keyup="convertCurrencySell(true)")
                     .col-md-6(v-if="activeMode!=='buy'" v-cloak)
                       label You recieve
                       .form-group
                         .input-group.input-group-merge
-                          input.form-control(placeholder='Amount you get' type='number' v-model="amountInNaira" @keyup="convertCurrency(false)")
+                          input.form-control(placeholder='Amount you get' type='text' v-model="amountInNaira" @keyup="convertCurrencySell(false)")
                           .input-group-append
                             span.input-group-text.bg-success.text-white
                               small.font-weight-bold NGN
@@ -80,8 +80,10 @@
                     //-         option(selected :value='exchangeRate' v-for="(exchangeRate, index) in exchangeRates") {{exchangeRate.currency}}
                     //-     input.form-control(type='number', v-model="amountInCurrency" @keyup="convertCurrency(true)")
                     .text-right.col-md-12
-                      h4(v-cloak)
-                        | Transaction Rate 1 {{selectedCurrency.currency}} = {{selectedCurrency.rateToNaira}} NGN
+                      h4(v-if="activeMode==='buy'" v-cloak)
+                        | Buy Transaction Rate 1 {{selectedCurrency.currency}} = {{selectedCurrency.rateFromNaira}} NGN
+                      h4(v-if="activeMode!=='buy'" v-cloak)
+                        | Sell Transaction Rate 1 {{selectedCurrency.currency}} = {{selectedCurrency.rateToNaira}} NGN
                     // MOdal starts here
                     // MOdal-2 starts here
                   .text-right
