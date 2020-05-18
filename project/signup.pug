@@ -95,12 +95,18 @@ head
                       span.input-group-text
                         i.ni.ni-lock-circle-open
                     input.form-control(v-model='userData.password' placeholder='Password' type='password')
+                    span.input-group-btn(v-if='userData.password')
+                      //- a.btn.reveal(href='')
+                      i.fa.fa-eye
                 .form-group
                   .input-group.input-group-merge.input-group-alternative
                     .input-group-prepend
                       span.input-group-text
                         i.ni.ni-lock-circle-open
                     input.form-control(v-model='userData.confirmPassword' placeholder='Confirm Password' type='password')
+                    span.input-group-btn(v-if='userData.confirmPassword')
+                      //- a.btn.reveal(href='')
+                      i.fa.fa-eye
                 .form-group
                   label Select Account type
                   .input-group.input-group-merge.input-group-alternative

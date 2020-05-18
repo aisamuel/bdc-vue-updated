@@ -63,8 +63,11 @@ head
                   .input-group.input-group-merge.input-group-alternative
                     .input-group-prepend
                       span.input-group-text
-                        i.ni.ni-lock-circle-open
+                        i.fa.fa-eye-slash
                     input.form-control(v-model='password' placeholder='Password' type='password')
+                    span.input-group-btn(v-if='password')
+                      //- a.btn.reveal(href='')
+                      i.fa.fa-eye
                 .custom-control.custom-control-alternative.custom-checkbox
                   input#customCheckLogin.custom-control-input(type='checkbox')
                   label.custom-control-label(for='customCheckLogin')
