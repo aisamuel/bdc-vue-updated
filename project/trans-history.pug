@@ -26,12 +26,12 @@
                     td.budget
                       | Buying {{ ' ' + transactionLog.recieve.recieveCurrency }}
                     td.budget
-                      | {{ transactionLog.transactionId }}
+                      | {{ transactionLog._id }}
                     td {{ transactionLog.recieve.recieveCurrency + ' ' + transactionLog.recieve.recieveAmount }}
                     td
                       span.badge.badge-dot.mr-4
                         i.bg-success
-                        span.status Completed
+                        span.status {{ transactionLog.status }}
                     td 0 Days Left
                     td.text-right
                       .dropdown
@@ -47,12 +47,12 @@
                     td.budget
                       | Selling {{ ' ' + transactionLog.pay.payCurrency }}
                     td.budget
-                      | {{ transactionLog.transDetails.refference }}
+                      | {{ transactionLog._id }}
                     td {{ transactionLog.pay.payCurrency + ' ' + transactionLog.pay.payAmount }}
                     td
                       span.badge.badge-dot.mr-4
                         i.bg-success
-                        span.status Completed
+                        span.status {{ transactionLog.status }}
                     td 0 Days Left
                     td.text-right
                       .dropdown
