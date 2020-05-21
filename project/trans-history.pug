@@ -22,7 +22,7 @@
                 tbody.list
                   tr(v-for='transactionLog in buyTransactionLogs')
                     td.budget
-                      | {{ transactionLog.created_date }}
+                      | {{ format_date(transactionLog.created_date) }}
                     td.budget
                       | Buying {{ ' ' + transactionLog.recieve.recieveCurrency }}
                     td.budget
@@ -43,7 +43,7 @@
                           a.dropdown-item(href='#') Something else here
                   tr(v-for='transactionLog in sellTransactionLogs')
                     td.budget
-                      | {{ transactionLog.created_date }}
+                      | {{ format_date(transactionLog.created_date) }}
                     td.budget
                       | Selling {{ ' ' + transactionLog.pay.payCurrency }}
                     td.budget
