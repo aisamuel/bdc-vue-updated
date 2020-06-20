@@ -59,6 +59,7 @@ const payWithPaystack = (userProfile, amountInNaira, ref, callback) => {
 };
 
 function payWithFlutterwave(userProfile, amountInNaira, ref, callback) {
+    console.log(amountInNaira);
     var x = getpaidSetup({
         PBFPubKey: "FLWPUBK-1b640efbf8ba861d21e53d26854510f8-X",
         customer_email: userProfile.email,

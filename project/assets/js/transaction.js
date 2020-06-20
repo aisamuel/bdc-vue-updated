@@ -281,14 +281,9 @@ const transactionApp = new Vue({
         activeMode: "buy",
         paymentMethod: "card",
         acceptAgreement: false,
-        accountIsUnique: true,
-        successfullTrans: [],
-        pendingTrans: [],
-        failedTrans: [],
+        accountIsUnique: true
     },
     methods: {
-
-        
         async fetchBDCBankAccounts() {
             const res = await fetch(`${baseURL}${this.bankAccountsURL}`, {
                 mode: "cors"
@@ -325,9 +320,6 @@ const transactionApp = new Vue({
                 this.buyTransactionLogs = JSON.parse(JSON.stringify(result));
                 console.log(this.buyTransactionLogs);
             }
-            this.getSuccessfullTrans();
-            this.getPendingTrans();
-            this.getFailedTrans();
         },
 
         async fetchSellTransactionLogs() {
@@ -339,9 +331,6 @@ const transactionApp = new Vue({
                 this.sellTransactionLogs = JSON.parse(JSON.stringify(result.result));
                 console.log(this.sellTransactionLogs);
             }
-            this.getSuccessfullTrans();
-            this.getPendingTrans();
-            this.getFailedTrans();
         },
 
         // async fetchUserBanks() {
@@ -382,14 +371,14 @@ const transactionApp = new Vue({
                 giveAmount: this.amountInNaira,
                 recieveCurrency: this.selectedCurrency.currency,
                 recieveAmount: this.amountInCurrency,
-                // transactionId: this.userProfile._id,
+                transactionId: this.userProfile._id,
                 // userId: this.userProfile._id,
                 // isDelivered: false,
                 // deliveryMethod: phone,
                 bcdAccountName: this.bdcSelectedBankAccount.accountName,
                 bcdAccountNumber: this.bdcSelectedBankAccount.accountNumber,
                 bcdBankName: this.bdcSelectedBankAccount.bankName,
-                // reference: this.randomString,
+                reference: this.randomString,
                 userId: this.userProfile._id,
                 // accountNumber: this.userSelectedBankAccount.accountNumber,
                 // accountName: this.userSelectedBankAccount.accountName,
@@ -420,7 +409,7 @@ const transactionApp = new Vue({
                 recieveCurrency: "NGN",
                 recieveAmount: this.amountInNaira,
                 bcdAccountName: this.bdcSelectedBankAccount.accountName,
-                // refference: this.randomString,
+                refference: this.randomString,
                 bcdAccountNumber: this.bdcSelectedBankAccount.accountNumber,
                 bcdBankName: this.bdcSelectedBankAccount.bankName,
                 userId: this.userProfile._id,
@@ -538,6 +527,7 @@ const transactionApp = new Vue({
         },
         payWithFlutterwave() {
             payWithFlutterwave(this.userProfile, this.amountInNaira, this.randomString, this.generateRandomString);
+            console.log(this.amoutInNaira);
         },
         payWithPaystack() {
             payWithPaystack(this.userProfile, this.amountInNaira, this.randomString, this.generateRandomString);
@@ -573,72 +563,8 @@ const transactionApp = new Vue({
                 this.sellTransactionAccount();
             }
         },
-        getSuccessfullTrans() {
-            this.successfullTrans = [];
-            this.buyTransactionLogs.forEach((element) => {
-                if (element.status == 'completed') {
-                    console.log(element);
-                    this.successfullTrans.push(element);
-                }
-           
-            });
-            this.sellTransactionLogs.forEach((element) => {
-                if (element.status == 'completed') {
-                    console.log(element);
-                    this.successfullTrans.push(element);
-                }
-            });
 
-        },
-
-        getPendingTrans() {
-            this.pendingTrans = [];
-            this.buyTransactionLogs.forEach((element) => {
-                if (element.status == 'pending') {
-                    console.log(element);
-                    this.pendingTrans.push(element);
-                }
-           
-            });
-            this.sellTransactionLogs.forEach((element) => {
-                if (element.status == 'pending') {
-                    console.log(element);
-                    this.pendingTrans.push(element);
-                }
-            });
-            console.log("pending doing")
-
-        },
-        getFailedTrans() {
-            this.failedTrans = [];
-            this.buyTransactionLogs.forEach((element) => {
-                if (element.status == 'failed') {
-                    console.log(element);
-                    this.failedTrans.push(element);
-                }
-           
-            });
-            this.sellTransactionLogs.forEach((element) => {
-                if (element.status == 'failed') {
-                    console.log(element);
-                    this.failedTrans.push(element);
-                }
-            });
-
-        },
-        format_date(date) {
-            var d = new Date(date),
-                month = '' + (d.getMonth() + 1),
-                day = '' + d.getDate(),
-                year = d.getFullYear();
-        
-            if (month.length < 2) month = '0' + month;
-            if (day.length < 2) day = '0' + day;
-        
-            return [year, month, day].join('-');
-        },
-
-        // switchPaymentMethod() {}
+        switchPaymentMethod() {}
     },
     mounted: function() {
         this.logout = logout;
@@ -653,7 +579,6 @@ const transactionApp = new Vue({
         this.fetchUserAccounts();
         this.fetchBuyTransactionLogs();
         this.fetchSellTransactionLogs();
-        
         // this.fetchUserBanks();
     }
 });

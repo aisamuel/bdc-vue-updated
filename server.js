@@ -8,7 +8,7 @@ app.use(cors());
 
 const port = process.env.PORT || "8855";
 
-app.use(express.static("project"));
+app.use(express.static("project")); 
 
 app.get("/", (req, res) => {
   res.send(pug.renderFile("project/landing.pug"));
@@ -20,6 +20,10 @@ app.get("/dashboard", (req, res) => {
 
 app.get("/login", (req, res) => {
   res.send(pug.renderFile("project/login.pug"));
+});
+
+app.get("/reset-password", (req, res) => {
+  res.send(pug.renderFile("project/reset_password.pug"));
 });
 
 app.get("/signup", (req, res) => {
