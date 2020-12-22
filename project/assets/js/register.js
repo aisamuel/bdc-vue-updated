@@ -3,6 +3,7 @@ const registerApp = new Vue({
   data: {
     business: false,
     errors: [],
+    passwordFieldType: 'password',
     userData: {
       fname: "",
       lname: "",
@@ -63,6 +64,10 @@ const registerApp = new Vue({
       } else {
         this.business = false;
       }
+    },
+
+    switchVisibility() {
+      this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password'
     }
   },
   mounted: function() {

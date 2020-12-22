@@ -3,8 +3,10 @@ const loginApp = new Vue({
   data: {
     email: "",
     password: "",
+    passwordFieldType: 'password',
     newPassWord: "",
     isLoading: false,
+    password_viewer: "password",
     loginURL: `${baseURL}reg/login/`,
     errorMessage: "",
     errorTimeOut: 3000
@@ -84,6 +86,10 @@ const loginApp = new Vue({
       setTimeout(() => {
         this.errorMessage = "";
       }, this.errorTimeOut);
+    },
+
+    switchVisibility() {
+      this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password'
     }
   },
   mounted: function() {

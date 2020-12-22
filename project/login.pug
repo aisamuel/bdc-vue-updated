@@ -64,9 +64,9 @@ head
                     .input-group-prepend
                       span.input-group-text
                         i.ni.ni-lock-circle-open
-                    input.form-control(v-model='password' placeholder='Password' type='password')
+                    input.form-control(:type='passwordFieldType' v-model='password' placeholder='Password')
                     span.input-group-btn(v-if='password')
-                      a.btn.reveal(href='')
+                      button.btn.reveal(type='button' @click='switchVisibility')
                         i.fa.fa-eye-slash
                 .custom-control.custom-control-alternative.custom-checkbox
                   input#customCheckLogin.custom-control-input(type='checkbox')
