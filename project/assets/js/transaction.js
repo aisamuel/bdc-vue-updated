@@ -262,6 +262,7 @@ const transactionApp = new Vue({
         userProfile: {},
         // userBanks: [],
         buyTransactionLogs: [],
+        no_of_buy_trans: 1,
         sellTransactionLogs: [],
         selectedCurrency: {},
         amountInCurrency: null,
@@ -318,7 +319,9 @@ const transactionApp = new Vue({
             if (res) {
                 const result = await res.json();
                 this.buyTransactionLogs = JSON.parse(JSON.stringify(result));
+                this.no_of_buy_trans = this.buyTransactionLogs.length;
                 console.log(this.buyTransactionLogs);
+                console.log(this.buyTransactionLogs.length);
             }
         },
 
@@ -565,6 +568,7 @@ const transactionApp = new Vue({
         },
 
         switchPaymentMethod() {}
+        
     },
     mounted: function() {
         this.logout = logout;

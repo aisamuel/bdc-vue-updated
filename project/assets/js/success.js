@@ -5,5 +5,11 @@ const successApp = new Vue({
         userProfile: getUserProfile(),
         date: new Date().toLocaleString(),
         
+    },
+    methods: {
+        landingPage: function() {
+            console.log("landing working");
+            window.location.href = "/landing"
+        }
     }
 })

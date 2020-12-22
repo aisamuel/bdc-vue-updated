@@ -185,11 +185,11 @@ include dashboard-side-nav.pug
               .py-3.text-center
                 i.ni.ni-check-bold.ni-3x
                 h4.heading.mt-4 Succesful Transaction!
-                p
-                  | A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                //- p
+                //-   | A small river named Duden flows by their place and supplies it with the necessary regelialia.
             .modal-footer
-              button.btn.btn-white(type='button') Ok, Got it
-              button.btn.btn-link.text-white.ml-auto(type='button' data-dismiss='modal') Close
+              button.btn.btn-white(type='button' @click='landingPage()') Ok, Got it
+              button.btn.btn-link.text-white.ml-auto(type='button' @click='landingPage()') Close
     // Footer
   include footer.pug
 // Argon Scripts

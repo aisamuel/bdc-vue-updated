@@ -21,7 +21,9 @@
                                 .row.align-items-center
                                     .col.mr--2
                                         h3.mb-0  Exchange Rate 
-                                    .col-auto
+                                    .col-auto(v-if="activeMode==='buy'" v-cloak)
+                                        span {{selectedCurrency.rateFromNaira}} NGN - 1 {{selectedCurrency.currency}}
+                                    .col-auto(v-if="activeMode!=='buy'" v-cloak)
                                         span {{selectedCurrency.rateToNaira}} NGN - 1 {{selectedCurrency.currency}}
                             li.list-group-item.px-0
                                 .row.align-items-center
