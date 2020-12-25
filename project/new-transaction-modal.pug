@@ -126,12 +126,16 @@
                         form(role='form')
                             .form-group
                                 label Select Account Currency
-                                select.custom-select
-                                    option(label='Currency')
-                                    option NAIRA
-                                    option USD
-                                    option EURS
-                                    option GBP
+                                select.custom-select(v-model="userSelectedBankAccount.currencyType")
+                                    //- select#myaccount-1.custom-select(v-model="userSelectedBankAccount.cu")
+                                    option(label='currency')
+                                    option(v-for="exchangeRate in exchangeRates" :value="exchangeRate._id") {{exchangeRate.currency}}
+                                //- option(label='Currency')
+                                //- option NGN
+                                //- option USD
+                                //- option EUROS
+                                //- option POUNDS
+                                //- option RIYAHGS
                             .form-group
                                 label(for='formGroupExampleInput') Select Your Bank
                                 .form-group

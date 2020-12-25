@@ -252,7 +252,8 @@ const transactionApp = new Vue({
         userSelectedBankAccount: {
             accountNumber: "",
             accountName: "",
-            bankName: ""
+            bankName: "",
+            currencyType: ""
         },
         bdcSelectedBankAccount: {
             accountNumber: "",
@@ -348,10 +349,12 @@ const transactionApp = new Vue({
         // },
 
         async addBankAccount() {
+            console.log(this.userSelectedBankAccount);
             const requestBody = {
                 accountNumber: this.userSelectedBankAccount.accountNumber,
                 accountName: this.userSelectedBankAccount.accountName,
                 bankName: this.userSelectedBankAccount.bankName,
+                currencyType: this.userSelectedBankAccount.currencyType,
                 token: getToken()
             };
             const res = await fetch(`${baseURL}${this.addBankURL}${this.userProfile._id}`, {
@@ -364,7 +367,8 @@ const transactionApp = new Vue({
             if (res) {
                 const result = await res.json();
                 console.log(result);
-                this.fetchUserBanks();
+                this.fetchUserAccounts();
+                console.log(this.userSelectedBankAccount);
             }
         },
 
