@@ -51,8 +51,11 @@ const registerApp = new Vue({
           }, 4000)
         } else if(result.message === "error"){
           this.errors = result.errors;
+          console.log(result.errors);
         } else {
+          console.log(result.message);
           alert(result.message);
+          
         }
       }
 
