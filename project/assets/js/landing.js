@@ -285,10 +285,10 @@ const transactionApp = new Vue({
         this.logout = logout;
         this.randomString = this.generateRandomString();
         this.getUserProfile = getUserProfile;
-        if (this.getUserProfile()) {
-            window.location.href = "new-transaction"
-            // this.userProfile = this.getUserProfile();
-        }
+        // if (this.getUserProfile()) {
+        //     window.location.href = "new-transaction"
+        //     // this.userProfile = this.getUserProfile();
+        // }
         this.fetchExchangeRates();
         this.fetchUserAccounts();
     }

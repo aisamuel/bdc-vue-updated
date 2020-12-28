@@ -37,7 +37,7 @@ include head.pug
         hr.d-lg-none
         ul.navbar-nav.align-items-lg-center.ml-lg-auto
           li
-            a.btn.btn-default(@click="logInOrOut()" v-cloak)  {{ !userProfile ? 'Login' : 'Logout'}} 
+            a.btn.btn-success(@click="logInOrOut()" v-cloak)  {{ !userProfile ? 'Login' : 'Logout'}} 
           li.nav-item.d-none.d-lg-block.ml-lg-4
             a.btn.btn-neutral.btn-icon(href='signup' v-if="!userProfile" v-cloak) Create Account 
 // Main content

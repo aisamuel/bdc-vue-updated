@@ -14,7 +14,7 @@
                   tr
                     th.sort(scope='col' data-sort='date') Date
                     th.sort(scope='col' data-sort='Activity') Activity
-                    th.sort(scope='col' data-sort='ID') Transaction ID
+                    th.sort(scope='col' data-sort='ID') Referrence ID
                     th.sort(scope='col' data-sort='Amount') Amount
                     th.sort(scope='col' data-sort='Status') Status
                     th.sort(scope='col' data-sort='Timer') Timer
@@ -27,7 +27,7 @@
                     td.budget
                       | Buying {{ ' ' + transactionLog.recieve.recieveCurrency }}
                     td.budget
-                      | {{ transactionLog._id }}
+                      | {{ transactionLog.transDetails.refference }}
                     td {{ transactionLog.recieve.recieveCurrency + ' ' + transactionLog.recieve.recieveAmount }}
                     td
                       span.badge.badge-dot.mr-4

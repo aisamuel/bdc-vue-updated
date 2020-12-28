@@ -366,6 +366,7 @@ const transactionApp = new Vue({
             });
             if (res) {
                 const result = await res.json();
+                alert("Account has been successfully added!")
                 console.log(result);
                 this.fetchUserAccounts();
                 console.log(this.userSelectedBankAccount);
