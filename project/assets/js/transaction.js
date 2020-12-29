@@ -376,44 +376,30 @@ const transactionApp = new Vue({
 
         async deleteBankAccount(bankID) {
             const res = await fetch(`${baseURL}${this.deleteBankURL}${this.userProfile._id}/${bankID}`, {
-                method: "DELETE",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                // body: JSON.stringify(this.item)
+                mode: "cors"
             });
             if (res) {
                 const result = await res.json();
-                console.log(result)
-                alert(result.message)
+                console.log(result);
+                alert("Account successfully deleted");
+                this.fetchUserAccounts();
             }
+            // const res = await fetch(`${baseURL}${this.deleteBankURL}${this.userProfile._id}/${bankID}`, {
+            //     method: "DELETE",
+            //     headers: {
+            //         "Content-Type": "application/json"
+            //     },
+            //     // body: JSON.stringify(this.item)
+            // });
+            // if (res) {
+            //     const result = await res.json();
+            //     console.log(result)
+            //     alert(result.message)
+            // }
             // console.log(this.image);
         },
 
-        // async deleteBankAccount(bankID) {
-        //     const res = await fetch(`${baseURL}${this.deleteBankURL}${bankID}`, {
-        //         method: "DELETE",
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //     });
-        //     if (res) {
-        //         const result = await res.json();
-        //         // this.sellTransactionLogs = JSON.parse(JSON.stringify(result.result));
-        //         console.log(result);
-        //     }
-        //     // const res = await fetch(`${baseURL}${this.deleteBankURL}${bankID}`, {
-        //     //     method: "DELETE",
-        //     //     headers: {
-        //     //         "Content-Type": "application/json"
-        //     //     },
-        //     //     // body: JSON.stringify(requestBody)
-        //     // });
-        //     // if (res) {
-        //     //     const result = await res.json();
-        //     //     console.log(result);
-        //     // }
-        // },
+       
 
         async buyTransactionAccount() {
             const requestBody = {
