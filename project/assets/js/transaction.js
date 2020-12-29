@@ -275,6 +275,7 @@ const transactionApp = new Vue({
         getBanksURL: "reg/user-banks/",
         exchangeRatesURL: "fx/all-currency/",
         addBankURL: "reg/addBank/",
+        deleteBankURL: "reg/delUser-bank/",
         userBankAccountsURL: "reg/user-banks/",
         buyTransURL: "trans/buy/",
         sellTransURL: "trans-sell/sell",
@@ -372,6 +373,47 @@ const transactionApp = new Vue({
                 console.log(this.userSelectedBankAccount);
             }
         },
+
+        async deleteBankAccount(bankID) {
+            const res = await fetch(`${baseURL}${this.deleteBankURL}${this.userProfile._id}/${bankID}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                // body: JSON.stringify(this.item)
+            });
+            if (res) {
+                const result = await res.json();
+                console.log(result)
+                alert(result.message)
+            }
+            // console.log(this.image);
+        },
+
+        // async deleteBankAccount(bankID) {
+        //     const res = await fetch(`${baseURL}${this.deleteBankURL}${bankID}`, {
+        //         method: "DELETE",
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         },
+        //     });
+        //     if (res) {
+        //         const result = await res.json();
+        //         // this.sellTransactionLogs = JSON.parse(JSON.stringify(result.result));
+        //         console.log(result);
+        //     }
+        //     // const res = await fetch(`${baseURL}${this.deleteBankURL}${bankID}`, {
+        //     //     method: "DELETE",
+        //     //     headers: {
+        //     //         "Content-Type": "application/json"
+        //     //     },
+        //     //     // body: JSON.stringify(requestBody)
+        //     // });
+        //     // if (res) {
+        //     //     const result = await res.json();
+        //     //     console.log(result);
+        //     // }
+        // },
 
         async buyTransactionAccount() {
             const requestBody = {

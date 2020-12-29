@@ -57,7 +57,8 @@ include dashboard-side-nav.pug
                 span.text-success &#x25CF;
                 small {{userBank.currencyType}} Account
             .row.float-right.pt-2
-              span.fas.fa-trash
+              button(@click="deleteBankAccount(userBank._id)")
+                span.fas.fa-trash
       .col-lg-4
         .card.bg-gradient-default.text-center
           .card-body
