@@ -261,7 +261,9 @@ const transactionApp = new Vue({
             bankName: ""
         },
         userProfile: {},
-        noOfPendingTrans: null,
+        noOfPendingTrans: [],
+        noOfSuccessfulTrans: [],
+        noOfFailedTrans: [],
         // userBanks: [],
         buyTransactionLogs: [],
         no_of_buy_trans: 1,
@@ -346,10 +348,51 @@ const transactionApp = new Vue({
             });
             if (res) {
                 const result = await res.json();
-                this.noOfPendingTrans = JSON.parse(JSON.stringify(result.result));
+                // console.log(result);
+                this.noOfPendingTrans = JSON.parse(JSON.stringify(result));
+                console.log("fetching no of pending trans");
                 console.log(this.noOfPendingTrans);
             }
+            else {
+                console.log("not fetching no of pending trans");
+            }
+           
         },
+
+
+        async fetchNoOfSuccessfulTransactions() {
+            const res = await fetch(`${baseURL}${this.noOfTrans}${this.userProfile._id}&status=successful`, {
+                mode: "cors"
+            });
+            if (res) {
+                const result = await res.json();
+                this.noOfSuccessfulTrans = JSON.parse(JSON.stringify(result));
+                console.log("fetching no of successful trans");
+                console.log(this.noOfSuccessfulTrans);
+            }
+            else {
+                console.log("not fetching no of successful trans");
+            }
+           
+        },
+
+        async fetchNoOfFailedTransactions() {
+            const res = await fetch(`${baseURL}${this.noOfTrans}${this.userProfile._id}&status=failed`, {
+                mode: "cors"
+            });
+            if (res) {
+                const result = await res.json();
+                this.noOfFailedTrans = JSON.parse(JSON.stringify(result));
+                console.log("fetching no of failed trans");
+                console.log(this.noOfFailedTrans);
+            }
+            else {
+                console.log("not fetching no of failed trans");
+            }
+           
+        },
+
+
 
         // async fetchUserBanks() {
         //     const res = await fetch(`${baseURL}${this.getBanksURL}${this.userProfile._id}`, {
@@ -627,9 +670,12 @@ const transactionApp = new Vue({
         }
         this.fetchExchangeRates();
         this.fetchUserAccounts();
+        this.fetchNoOfPendingTransactions();
+        this.fetchNoOfSuccessfulTransactions();
+        this.fetchNoOfFailedTransactions();
         this.fetchBuyTransactionLogs();
         this.fetchSellTransactionLogs();
-        this.fetchNoOfPendingTransactions();
+        
         // this.fetchUserBanks();
     }
 });
