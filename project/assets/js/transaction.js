@@ -261,6 +261,7 @@ const transactionApp = new Vue({
             bankName: ""
         },
         userProfile: {},
+        noOfPendingTrans: null,
         // userBanks: [],
         buyTransactionLogs: [],
         no_of_buy_trans: 1,
@@ -281,6 +282,7 @@ const transactionApp = new Vue({
         sellTransURL: "trans-sell/sell",
         buyTransLogURL: "trans/all-buy/",
         sellTransLogURL: "trans-sell/all-sell/",
+        noOfTrans: "trans-logs/user-trans-logs?uid=",
         activeMode: "buy",
         paymentMethod: "card",
         acceptAgreement: false,
@@ -335,6 +337,17 @@ const transactionApp = new Vue({
                 const result = await res.json();
                 this.sellTransactionLogs = JSON.parse(JSON.stringify(result.result));
                 console.log(this.sellTransactionLogs);
+            }
+        },
+
+        async fetchNoOfPendingTransactions() {
+            const res = await fetch(`${baseURL}${this.noOfTrans}${this.userProfile._id}&status=pending`, {
+                mode: "cors"
+            });
+            if (res) {
+                const result = await res.json();
+                this.noOfPendingTrans = JSON.parse(JSON.stringify(result.result));
+                console.log(this.noOfPendingTrans);
             }
         },
 
@@ -616,6 +629,7 @@ const transactionApp = new Vue({
         this.fetchUserAccounts();
         this.fetchBuyTransactionLogs();
         this.fetchSellTransactionLogs();
+        this.fetchNoOfPendingTransactions();
         // this.fetchUserBanks();
     }
 });
