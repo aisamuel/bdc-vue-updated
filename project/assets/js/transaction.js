@@ -172,6 +172,30 @@ const transactionApp = new Vue({
             },
             {
                 currency: "NAIRA",
+                accountName: "313 BUSINESS POINT",
+                accountNumber: "2035231767",
+                bankName: "First Bank"
+            },
+            {
+                currency: "USD",
+                accountName: "313 BDC LTD",
+                accountNumber: "2026046433",
+                bankName: "First Bank"
+            },
+            {
+                currency: "GBP",
+                accountName: "313 BDC LTD",
+                accountNumber: "2026040457",
+                bankName: "First Bank"
+            },
+            {
+                currency: "EUR",
+                accountName: "313 BDC LTD",
+                accountNumber: "2026046464",
+                bankName: "First Bank"
+            },
+            {
+                currency: "NAIRA",
                 accountName: "313 BDC LTD(PROJECT)",
                 accountNumber: "1009064840",
                 bankName: "Keystone Bank"

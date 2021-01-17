@@ -126,9 +126,9 @@
                         form(role='form')
                             .form-group
                                 label Select Account Currency
-                                select.custom-select(v-model="userSelectedBankAccount.currencyType")
+                                select.custom-select(v-model="userSelectedBankAccount.currencyType" placeholder='Select Currency')
                                     //- select#myaccount-1.custom-select(v-model="userSelectedBankAccount.cu")
-                                    option(label='currency')
+                                    //- option(label='currency')
                                     option(v-for="exchangeRate in exchangeRates" :value="exchangeRate.currency") {{exchangeRate.currency}}
                                 //- option(label='Currency')
                                 //- option NGN
@@ -142,21 +142,23 @@
                                     input.form-control(list='banks' v-model="userSelectedBankAccount.bankName" name='bank' placeholder='e.g Choose your Bank')
                                     datalist#banks
                                         option(value='Access Bank') Access Bank
-                                        option(value='Citibank') Citibank
-                                        option(value='Ecobank Bank') Ecobank
+                                        //- option(value='Citibank') Citibank
+                                        //- option(value='Ecobank Bank') Ecobank
                                         option(value='Fidelity Bank') Fidelity Bank
                                         option(value='First City Monument Bank (FCMB)') First City Monument Bank (FCMB)
+                                        option(value='First Bank') First Bank
                                         //- option(value='FSDH Merchant Bank') FSDH Merchant Bank
                                         option(value='Guarantee Trust Bank (GTB)') Guarantee Trust Bank (GTB)
-                                        option(value='Heritage Bank') Heritage Bank
+                                        //- option(value='Heritage Bank') Heritage Bank
+                                        option(value='Jaiz Bank') Jaiz Bank
                                         option(value='Keystone Bank') Keystone Bank
                                         option(value='stanbic') Stanbic IBTC Bank
-                                        option(value='standard') Standard Chartered Bank
+                                        //- option(value='standard') Standard Chartered Bank
                                         option(value='Sterling Bank') Sterling Bank
-                                        option(value='Union Bank') Union Bank
+                                        //- option(value='Union Bank') Union Bank
                                         option(value='United Bank for Africa (UBA)') United Bank for Africa (UBA)
-                                        option(value='Unity Bank') Unity Bank
-                                        option(value='Wema Bank') Wema Bank
+                                        //- option(value='Unity Bank') Unity Bank
+                                        //- option(value='Wema Bank') Wema Bank
                                         option(value='Zenith Bank') Zenith Bank
                             .form-group.mb-3
                                 label Account Number 

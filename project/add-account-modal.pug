@@ -5,14 +5,14 @@
             .card.bg-secondary.border-0.mb-0
             .card-header.bg-transparent.pb-5
                 .text-center.text-muted.mb-4
-                h3 Add a New Account
+                h3 Add a New Accounts
             .card-body.px-lg-5.py-lg-5
                 form(role='form')
                 .form-group
                     label Select Account Currency
                     select.custom-select(v-model="userSelectedBankAccount.currencyType")
                         //- select#myaccount-1.custom-select(v-model="userSelectedBankAccount.cu")
-                        option(label='currency')
+                        //- option(label='currency')
                         option(v-for="exchangeRate in exchangeRates" :value="exchangeRate._id") {{exchangeRate.currency}}
                     //- option(label='Currency')
                     //- option NGN
