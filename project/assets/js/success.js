@@ -9,7 +9,7 @@ const successApp = new Vue({
     methods: {
         landingPage: function() {
             console.log("landing working");
-            window.location.href = "/landing"
+            window.location.href = "/new-transaction"
         }
     }
 })
