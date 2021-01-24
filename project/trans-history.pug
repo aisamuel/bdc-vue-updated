@@ -20,7 +20,7 @@
                     th.sort(scope='col' data-sort='Timer') Timer
                     //- th(scope='col') Action
                 tbody.list
-                  tr(v-for='transactionLog in buyTransactionLogs')
+                  tr(v-for='transactionLog in buyTransactionLogs' v-cloak)
                     td.budget
                       | {{ transactionLog.created_date }}
                       //- | {{ format_date(transactionLog.created_date) }}
@@ -42,7 +42,7 @@
                           a.dropdown-item(href='#') Action
                           a.dropdown-item(href='#') Another action
                           a.dropdown-item(href='#') Something else here
-                  tr(v-for='transactionLog in sellTransactionLogs')
+                  tr(v-for='transactionLog in sellTransactionLogs' v-cloak)
                     td.budget
                       | {{ transactionLog.created_date }}
                       //- | {{ format_date(transactionLog.created_date) }}

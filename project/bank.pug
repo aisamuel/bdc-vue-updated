@@ -27,7 +27,7 @@ include dashboard-side-nav.pug
   // Page content
   .container-fluid.mt--6
     .row.card-wrapper
-      .col-lg-4(v-for='userBank in userBankAccounts')
+      .col-lg-4(v-for='userBank in userBankAccounts' v-cloak)
         .card.text-white.bg-gradient-red
           // Card body
           .card-body.text-white

@@ -97,7 +97,7 @@ include dashboard-side-nav.pug
                     |  Aminu Kano crescet, 
                     br
                     | wuse 2, Abuja
-                .col-4.text-right
+                .col-4.text-right(v-cloak)
                   //- div
                   //-   span.h5
                   //-     small Ref. Number: 
@@ -108,7 +108,7 @@ include dashboard-side-nav.pug
                     span.text-muted.small {{transactionData.user.email}} 
                     br
                     span.text-muted.small {{transactionData.user.acctType + ' '}} Account
-              .row.ml-0.mt-4
+              .row.ml-0.mt-4(v-cloak)
                 small
                   span.font-weight-bold Date:
                   |  {{date}}
@@ -116,7 +116,7 @@ include dashboard-side-nav.pug
             // Card body
             .card-body
               // List group
-              ul.list-group.list-group-flush.list.my--3
+              ul.list-group.list-group-flush.list.my--3(v-cloak)
                 li.list-group-item.px-0
                   .row.align-items-center
                     .col.mr--2

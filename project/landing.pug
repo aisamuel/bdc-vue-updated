@@ -70,7 +70,7 @@ include head.pug
                         th(scope='col') Sell
                         //- th(scope='col') Date
                     tbody.list.text-center
-                      tr(v-for='exchangeRate in selectedexchangeRates')
+                      tr(v-for='exchangeRate in selectedexchangeRates' v-cloak)
                         td
                           | {{exchangeRate.currency}}
                         td

@@ -32,7 +32,7 @@ include dashboard-side-nav.pug
               // Card body
               .card-body
                 .row
-                  .col
+                  .col(v-cloak)
                     h5.card-title.text-uppercase.text-muted.mb-0 Total transactions
                     //- span.h2.display-2.font-weight-bold.mb-0 {{ no_of_buy_trans }}
                     span.h2.display-2.font-weight-bold.mb-0 {{ buyTransactionLogs.length +  sellTransactionLogs.length }}
@@ -44,7 +44,7 @@ include dashboard-side-nav.pug
               // Card body
               .card-body
                 .row
-                  .col
+                  .col(v-cloak)
                     h5.card-title.text-uppercase.text-muted.mb-0 Succesful Transactions
                     span.h2.display-2.font-weight-bold.mb-0 {{noOfSuccessfulTrans.length}}
                   .col-auto
@@ -55,7 +55,7 @@ include dashboard-side-nav.pug
               // Card body
               .card-body
                 .row
-                  .col
+                  .col(v-cloak)
                     h5.card-title.text-uppercase.text-muted.mb-0 Pending Transactons
                     span.h2.display-2.font-weight-bold.mb-0 {{noOfPendingTrans.length}}
                   .col-auto
@@ -66,7 +66,7 @@ include dashboard-side-nav.pug
               // Card body
               .card-body
                 .row
-                  .col
+                  .col(v-cloak)
                     h5.card-title.text-uppercase.text-muted.mb-0 Failed Transactions
                     span.h2.display-2.font-weight-bold.mb-0 {{ noOfFailedTrans.length }}
                   .col-auto
