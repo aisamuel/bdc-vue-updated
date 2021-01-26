@@ -49,14 +49,20 @@ const registerApp = new Vue({
           setTimeout(() => {
             window.location.href = "/login";
           }, 4000)
-        } else if(result.message === "error"){
+        } else{
           this.errors = result.errors;
           console.log(result.errors);
-        } else {
-          console.log(result.message);
           alert(result.message);
-          
         }
+        // } else if(result.message === "error"){
+        //   this.errors = result.errors;
+        //   console.log(result.errors);
+        //   alert(result.message);
+        // } else {
+        //   console.log(result.message);
+        //   alert(result.message);
+          
+        // }
       }
 
     },
