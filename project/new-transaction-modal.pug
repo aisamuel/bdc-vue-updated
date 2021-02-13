@@ -22,7 +22,7 @@
                                     .col.mr--2
                                         h3.mb-0  Exchange Rate 
                                     .col-auto(v-if="activeMode==='buy'" v-cloak)
-                                        span {{selectedCurrency.rateFromNaira}} NGN - 1 {{selectedCurrency.currency}}
+                                        span {{selectedCurrency.rateFromNaira}} NGNs - 1 {{selectedCurrency.currency}}
                                     .col-auto(v-if="activeMode!=='buy'" v-cloak)
                                         span {{selectedCurrency.rateToNaira}} NGN - 1 {{selectedCurrency.currency}}
                             li.list-group-item.px-0
@@ -41,10 +41,10 @@
                         .mb-4
                         .row.justify-content-center.mt-5
                             template(v-if="activeMode === 'buy'")
-                                button.btn.btn-icon.btn-primary(@click="payWithFlutterwave()")
+                                button.btn.btn-icon.btn-primary(@click="payWithPaystack()")
                                     span.btn-inner--icon
                                         i.fas.fa-credit-card
-                                    span.btn-inner--text Pay With Card
+                                    span.btn-inner--text Pay With Cards
                             button.btn.btn-icon.btn-primary(@click='payWithBank()')
                                 span.btn-inner--icon
                                     i.fas.fa-landmark
