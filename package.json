@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "netlify-lambda build express",
+    "build": "netlify-lambda build",
     "lint": "vue-cli-service lint",
     "start": "node server.js"
   },
