@@ -1,6 +1,6 @@
 // const baseURL = "https://bcd-backend.herokuapp.com/";
-const baseURL = "https://reset313.herokuapp.com/";
-// const baseURL = "https://smartapps.com.ng/bdc-back/";
+// const baseURL = "https://reset313.herokuapp.com/";
+const baseURL = "bdc313-test.herokuapp.com";
 
 const getUserProfile = () => {
   try {
