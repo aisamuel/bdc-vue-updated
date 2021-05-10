@@ -23,7 +23,7 @@
                           .input-group-prepend
                             select.custom-select(v-model="selectedCurrency" @change="convertCurrencyBuy(true)" v-cloak)
                               option(selected :value='exchangeRate' v-for="(exchangeRate, index) in selectedexchangeRates") {{exchangeRate.currency}}
-                          input.form-control(type='number', v-model="amountInCurrency" @keyup="convertCurrencyBuy(true)" @change="convertCurrencyBuy(true)" )
+                          input.form-control(type='text' onchange='return addCommas(this.value)' v-model="amountInCurrency" @keyup="convertCurrencyBuy(true)" @change="convertCurrencyBuy(true)" )
                     .col-md-6(v-if="activeMode==='buy'" v-cloak)
                       label You Give
                       .form-group
