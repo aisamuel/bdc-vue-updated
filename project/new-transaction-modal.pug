@@ -167,7 +167,7 @@
                                     .input-group-prepend
                                         span.input-group-text
                                             i.fas.fa-credit-card
-                                    input.form-control(placeholder='1018041933' type='number' v-model="userSelectedBankAccount.accountNumber" @keyup="checkAccountIsUnique()")
+                                    input.form-control(placeholder='1018041933' type='text' v-model="userSelectedBankAccount.accountNumber" @keyup="checkAccountIsUnique()")
                             .form-group
                                 label Account Name
                                 .input-group.input-group-merge.input-group-alternative
