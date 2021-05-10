@@ -1,0 +1,242 @@
+doctype html
+head
+  include head.pug
+#registerApp
+  // Google Tag Manager (noscript)
+  noscript
+    iframe(src='https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6' height='0' width='0' style='display:none;visibility:hidden')
+  // End Google Tag Manager (noscript)
+  // Navbar
+  nav#navbar-main.navbar.navbar-horizontal.navbar-transparent.navbar-main.navbar-expand-lg.navbar-light
+    .container
+      a.navbar-brand(href='index.html')
+        img(src='assets/img/brand/logo.png')
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbar-collapse.navbar-collapse.navbar-custom-collapse.collapse
+        .navbar-collapse-header
+          .row
+            .col-6.collapse-brand
+              a(href='index.html')
+                img(src='assets/img/brand/logo.png')
+            .col-6.collapse-close
+              button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
+                span
+                span
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href='landing')
+              span.nav-link-inner--text Home
+          li.nav-item
+            a.nav-link(href='login')
+              span.nav-link-inner--text Login
+        hr.d-lg-none
+  // Main content
+  .main-content
+    // Header
+    .header.bg-gradient-success.py-7.py-lg-8.pt-lg-9
+      .container
+        .header-body.text-center.mb-7
+          .row.justify-content-center
+            .col-xl-5.col-lg-6.col-md-8.px-5
+              h1.text-white Create an account
+              p.text-lead.text-white
+                | It takes less
+                | than a minute
+      .separator.separator-bottom.separator-skew.zindex-100
+        svg(x='0' y='0' viewbox='0 0 2560 100' preserveaspectratio='none' version='1.1' xmlns='http://www.w3.org/2000/svg')
+          polygon.fill-default(points='2560 0 2560 100 0 100')
+    // Page content
+    .container.mt--9.pb-5
+      // Table
+      .row.justify-content-center
+        .col-lg-6.col-md-8
+          .card.bg-secondary.border-0
+            .card-body.px-lg-5.py-lg-5
+              .text-center.text-muted.mb-4
+                small.errorMsg(v-for="err in errors" v-cloak) * {{err}}
+                small Create your account
+              // FORM STARTS HERE
+              // PERSONAL DETAILS
+              form(role='form')
+                .form-group
+                  .input-group.input-group-merge.input-group-alternative.mb-3
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-single-02
+                    input.form-control(v-model='userData.fname' placeholder='First Name' type='text')
+                .form-group
+                  .input-group.input-group-merge.input-group-alternative.mb-3
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-single-02
+                    input.form-control(v-model='userData.lname' placeholder='Last Name' type='text')
+                .form-group
+                  .input-group.input-group-merge.input-group-alternative.mb-3
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-email-83
+                    input.form-control(v-model='userData.email' placeholder='Email' type='email')
+                .form-group
+                  .input-group.input-group-merge.input-group-alternative.mb-3
+                    .input-group-prepend
+                      span.input-group-text
+                        i.fa.fa-mobile-alt
+                    input.form-control(v-model='userData.phone' placeholder='Phone Number' type='text')
+                .form-group
+                  .input-group.input-group-merge.input-group-alternative.mb-3
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-pin-3
+                    input.form-control(v-model='userData.address' placeholder='Address' type='text')
+                .form-group
+                  .input-group.input-group-merge.input-group-alternative
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-lock-circle-open
+                    input.form-control(:type='passwordFieldType' v-model='userData.password' placeholder='Password')
+                    span.input-group-btn(v-if='userData.password')
+                      button.btn.reveal(type='button' @click='switchVisibility')
+                        i.fa.fa-eye-slash
+                .form-group
+                  .input-group.input-group-merge.input-group-alternative
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-lock-circle-open
+                    input.form-control(:type='passwordFieldType' v-model='userData.confirmPassword' placeholder='Confirm Password')
+                    span.input-group-btn(v-if='userData.confirmPassword')
+                      button.btn.reveal(type='button' @click='switchVisibility')
+                        i.fa.fa-eye-slash
+                .form-group
+                  label Select Account type
+                  .input-group.input-group-merge.input-group-alternative
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-briefcase-24
+                    select.custom-select(v-model='userData.acctType' @change='businessOrPersonal()')
+                      option(selected='' value='Account Type') Account Type
+                      option(value='Personal') Personal
+                      option(value='Business') Business
+                // BUSINESS
+                template(v-if='business')
+                  .row
+                    .col-6
+                      .form-group
+                        .input-group.input-group-merge.input-group-alternative.mb-3
+                          .input-group-prepend
+                            span.input-group-text
+                              i.ni.ni-briefcase-24
+                          input.form-control(v-model='userData.userName' placeholder='Business Name' type='text')
+                    .col-6
+                      .form-group
+                        .input-group.input-group-merge.input-group-alternative
+                          .input-group-prepend
+                            span.input-group-text
+                              i.ni.ni-briefcase-24
+                          select.custom-select(v-model='userData.aboutMe')
+                            option(selected='' value='Business Description')
+                              | Business
+                              | Description
+                            option(value='1') Personal
+                            option(value='2') Business
+                            option(value='Airlines/Aviation') Airlines/Aviation
+                            option(value='Banking') Banking
+                            option(value='Blogging')  Blogging
+                            option(value='Computer Software/Hardware') Computer Software/Hardware
+                            option(value='Construction') Construction
+                            option(value='Engineering') Engineering
+                            option(value='Entertainment') Entertainment
+                            option(value='Environmental Services') Environmental Services 
+                            option(value='Fashion, Hairstyling and Makeup') Fashion, Hairstyling and Makeup 
+                            option(value='Financial Services and Accounting') Financial Services and Accounting 
+                            option(value='Food and Beverages') Food and Beverages
+                            option(value='Health, Wellness, and Fitness') Health, Wellness, and Fitness
+                            option(value='Human Resources') Human Resources
+                            option(value='Information Technology') Information Technology 
+                            option(value='Insurance') Insurance
+                            option(value='International Trade and Development') International Trade and Development 
+                            option(value='Legal Practice') Legal Practice
+                            option(value='Manufacturing') Manufacturing
+                            option(value='Medical Practice') Medical Practice
+                            option(value='Military')  Military
+                            option(value='Oil and Gas') Oil and Gas
+                            option(value='Public Relations, Marketing and Communications') Public Relations, Marketing and Communications
+                            option(value='Publishing') Publishing
+                            option(value='Real Estate') Real Estate
+                            option(value='Religious Institutions') Religious Institutions
+                            option(value='Sports') Sports
+                            option(value='Telecommunications') Telecommunications
+                            option(value='Transportation') Transportation
+                            option(value='Travel and Tourism') Travel and Tourism
+                            option(value='Warehousing and Retail') Warehousing and Retail 
+                            option(value='Others') Others
+                    .col-6
+                      .form-group
+                        .input-group.input-group-merge.input-group-alternative.mb-3
+                          .input-group-prepend
+                            span.input-group-text
+                              i.ni.ni-email-83
+                          input.form-control(v-model='userData.rcNumber' placeholder='RC Number' type='text')
+                    .col-6
+                      .form-group
+                        .input-group.input-group-merge.input-group-alternative.mb-3
+                          .input-group-prepend
+                            span.input-group-text
+                              i.fas.fa-mobile-alt
+                          input.form-control(v-model='userData.busPhoneNum' placeholder='Business Phone Number' type='text')
+                  .row
+                    .col-6
+                      .form-group
+                        .input-group.input-group-merge.input-group-alternative.mb-3
+                          .input-group-prepend
+                            span.input-group-text
+                              i.ni.ni-email-83
+                          input.form-control(v-model='userData.busEmail' placeholder='Business Email' type='text')
+                    .col-6
+                      .form-group
+                        .input-group.input-group-merge.input-group-alternative.mb-3
+                          .input-group-prepend
+                            span.input-group-text
+                              i.fas.fa-map
+                          input.form-control(v-model='userData.busAddress' placeholder='Business Address' type='text')
+                .row.my-4
+                  .col-12
+                    .custom-control.custom-control-alternative.custom-checkbox
+                      input#customCheckRegister.custom-control-input(v-model='userData.acceptance' type='checkbox')
+                      label.custom-control-label(for='customCheckRegister')
+                        span.text-muted
+                          | I accept the 
+                          a.text-success(href='#!')
+                            | Terms and
+                            | Conditions
+                .text-center
+                  button.btn.btn-primary.mt-4(type='button' @click='register()' :disabled="!userData.acceptance") Create account
+              .row.mt-3
+                .col-6
+                  a.text-light(href='#')
+                    small
+                .col-6.text-right
+                  a.text-dark(href='login')
+                    small Login
+  // Footer
+  footer#footer-main.py-5
+    .container
+      .row.align-items-center.justify-content-xl-between
+        .col-xl-6
+          .copyright.text-center.text-xl-left.text-muted
+            | &copy; 2019 
+            a.font-weight-bold.ml-1(href='#' target='_blank') 313BDC
+        .col-xl-6
+          ul.nav.nav-footer.justify-content-center.justify-content-xl-end
+            li.nav-item
+              a.nav-link(href='landing.html' target='_blank') 313BDC
+            li.nav-item
+              a.nav-link(href='#' target='_blank')
+                | About
+                | Us
+            li.nav-item
+              a.nav-link(href='#' target='_blank') Blog
+            li.nav-item
+              a.nav-link(href='#' target='_blank') Terms &amp; Conditions
+include js-imports.pug
+script(src='assets/js/register.js')

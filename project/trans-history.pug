@@ -1,0 +1,86 @@
+.container-fluid.mt--6
+    .row
+      .col-xl-12
+        .card
+          .card-header.border-0
+            .row.align-items-center
+              .col
+                h3.mb-0 Transaction History
+          .table-responsive
+            // Projects table
+            .table-responsive
+              table.table.align-items-center.table-flush
+                thead.thead-light
+                  tr
+                    th.sort(scope='col' data-sort='date') Date
+                    th.sort(scope='col' data-sort='Activity') Activity
+                    th.sort(scope='col' data-sort='ID') Referrence ID
+                    th.sort(scope='col' data-sort='Amount') Amount
+                    th.sort(scope='col' data-sort='Status') Status
+                    th.sort(scope='col' data-sort='Timer') Timer
+                    //- th(scope='col') Action
+                tbody.list
+                  tr(v-for='transactionLog in buyTransactionLogs' v-cloak)
+                    td.budget
+                      | {{ transactionLog.created_date }}
+                      //- | {{ format_date(transactionLog.created_date) }}
+                    td.budget
+                      | Buying {{ ' ' + transactionLog.recieve.recieveCurrency }}
+                    td.budget
+                      | {{ transactionLog.transDetails.refference }}
+                    td {{ transactionLog.recieve.recieveCurrency + ' ' + transactionLog.recieve.recieveAmount }}
+                    td
+                      span.badge.badge-dot.mr-4
+                        i.bg-success
+                        span.status {{ transactionLog.status }}
+                    td 0 Days Left
+                    td.text-right
+                      .dropdown
+                        a.btn.btn-sm.btn-icon-only.text-light(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                          i.fas.fa-ellipsis-v
+                        .dropdown-menu.dropdown-menu-right.dropdown-menu-arrow
+                          a.dropdown-item(href='#') Action
+                          a.dropdown-item(href='#') Another action
+                          a.dropdown-item(href='#') Something else here
+                  tr(v-for='transactionLog in sellTransactionLogs' v-cloak)
+                    td.budget
+                      | {{ transactionLog.created_date }}
+                      //- | {{ format_date(transactionLog.created_date) }}
+                    td.budget
+                      | Selling {{ ' ' + transactionLog.pay.payCurrency }}
+                    td.budget
+                      | {{ transactionLog._id }}
+                    td {{ transactionLog.pay.payCurrency + ' ' + transactionLog.pay.payAmount }}
+                    td
+                      span.badge.badge-dot.mr-4
+                        i.bg-success
+                        span.status {{ transactionLog.status }}
+                    td 0 Days Left
+                    td.text-right
+                      .dropdown
+                        a.btn.btn-sm.btn-icon-only.text-light(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                          i.fas.fa-ellipsis-v
+                        .dropdown-menu.dropdown-menu-right.dropdown-menu-arrow
+                          a.dropdown-item(href='#') Action
+                          a.dropdown-item(href='#') Another action
+                          a.dropdown-item(href='#') Something else here
+                  
+          .card-footer.py-4
+            nav(aria-label='...')
+              ul.pagination.justify-content-end.mb-0
+                li.page-item.disabled
+                  a.page-link(href='#' tabindex='-1')
+                    i.fas.fa-angle-left
+                    span.sr-only Previous
+                li.page-item.active
+                  a.page-link(href='#') 1
+                li.page-item
+                  a.page-link(href='#')
+                    | 2 
+                    span.sr-only (current)
+                li.page-item
+                  a.page-link(href='#') 3
+                li.page-item
+                  a.page-link(href='#')
+                    i.fas.fa-angle-right
+                    span.sr-only Next

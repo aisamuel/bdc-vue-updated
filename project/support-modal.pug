@@ -1,0 +1,34 @@
+#modal-support.modal.fade(tabindex='-1' role='dialog' aria-labelledby='modal-form' aria-hidden='true')
+  .modal-dialog.modal-.modal-dialog-centered.modal-md(role='document')
+    .modal-content
+      .modal-body.p-0
+        .card.bg-secondary.border-0.mb-0
+          .card-header.bg-transparent.pb-5
+            h3.text-center
+              | Support Ticket
+          .card-body.px-lg-5.py-lg-5
+            form(role='form')
+              .form-group.mb-3
+                label Subject
+                .input-group.input-group-merge.input-group-alternative
+                  .input-group-prepend
+                    span.input-group-text
+                      i.fas.fa-comment
+                  input.form-control(placeholder='$1000' type='text')
+              .form-group
+                label Select Priority
+                select.custom-select
+                  option Low
+                  option Medium
+                  option High
+              .form-group
+                label Select Type
+                select.custom-select
+                  option Technical
+                  option Account
+              .form-group
+                label.form-control-label(for='exampleFormControlTextarea1') Message
+                textarea#exampleFormControlTextarea1.form-control(rows='3')
+              .row.justify-content-center.mt-5
+                button.btn.btn-icon.btn-success
+                  span.btn-inner--text Open Ticket

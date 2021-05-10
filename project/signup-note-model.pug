@@ -1,0 +1,17 @@
+#modal-notification.modal.fade(tabindex='-1' role='dialog' aria-labelledby='modal-notification' aria-hidden='true')
+  .modal-dialog.modal-danger.modal-dialog-centered.modal-(role='document')
+    .modal-content.bg-gradient-green
+      .modal-header
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        .py-3.text-center
+          i.fas.fa-check-circle.fa-5x
+          h4.heading.mt-4 Congratulations
+          h2.display-3.text-white
+            | Tunji Ibe
+          p
+            | A small river named Duden flows by their place and supplies it with the necessary regelialia.
+      .modal-footer
+        button.btn.btn-white(type='button') Buy  Now
+        button.btn.btn-link.text-white.ml-auto(type='button' data-dismiss='modal') Close

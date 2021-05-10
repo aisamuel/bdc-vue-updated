@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+        <meta name="author" content="Creative Tim">
+        <title>Landing Page</title>
+        <!-- Favicon -->
+        <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+        <!-- Icons -->
+        <link rel="stylesheet" href="assets/vendor/nucleo/css/nucleo.css" type="text/css">
+        <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+        <!-- Page plugins -->
+        <link rel="stylesheet" href="assets/vendor/animate.css/animate.min.css" type="text/css">
+        <link rel="stylesheet" href="assets/vendor/sweetalert2/dist/sweetalert2.min.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+        <!-- Argon CSS -->
+        <link rel="stylesheet" href="assets/css/argon.min-v=1.0.0.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    </head>
+    <body>
+        <!-- Navabr -->
+        <nav id="navbar-main" class="navbar navbar-horizontal navbar-main navbar-expand-lg navbar-transparent">
+            <div class="container">
+                <a class="navbar-brand" href="pages/dashboards/dashboard.html"> <img src="assets/img/brand/logo.png"> </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse navbar-custom-collapse collapse" id="navbar-collapse">
+                    <div class="navbar-collapse-header">
+                        <div class="row">
+                            <div class="col-6 collapse-brand">
+                                <a href="pages/dashboards/dashboard.html"> <img src="assets/img/brand/blue.png"> </a>
+                            </div>
+                            <div class="col-6 collapse-close">
+                                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link"> <span class="nav-link-inner--text">Dashboard</span> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="fxrates.html" class="nav-link"> <span class="nav-link-inner--text">FX Rates</span> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/examples/login.html" class="nav-link"> <span class="nav-link-inner--text">About</span> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/examples/register.html" class="nav-link"> <span class="nav-link-inner--text">FAQ</span> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link"> <span class="nav-link-inner--text">Conatct</span> </a>
+                        </li>
+                    </ul>
+                    <hr class="d-lg-none"/>
+                    <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+                        <li>
+                            <a href="login.html" class="btn btn-default"> Login </a>
+                        </li>
+                        <li class="nav-item d-none d-lg-block ml-lg-4">
+                            <a href="signup.html" target="_blank" class="btn btn-neutral btn-icon">Create Account </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Main content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header bg-landing pt-5 pb-7">
+                <div class="container mt-7">
+                    <div class="header-body">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="pr-5">
+                                    <h1 class="display-2 text-white font-weight-bold mb-0">Best Rate for Currency</h1>
+                                    <!--<h2 class="display-4 text-white font-weight-light">A beautiful premium dashboard for Bootstrap 4.</h2>-->
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-none">
+                                <div class="row pt-5">
+                                    <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow mb-4">
+                                                    <i class="ni ni-active-40"></i>
+                                                </div>
+                                                <h5 class="h3">Components</h5>
+                                                <p>Argon comes with over 70 handcrafted components.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow mb-4">
+                                                    <i class="ni ni-active-40"></i>
+                                                </div>
+                                                <h5 class="h3">Plugins</h5>
+                                                <p>Fully integrated and extendable third-party plugins that you will love.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 pt-lg-5 pt-4 hidden">
+                                        <div class="card mb-4">
+                                            <div class="card-body">
+                                                <div class="icon icon-shape bg-gradient-success text-white rounded-circle shadow mb-4">
+                                                    <i class="ni ni-active-40"></i>
+                                                </div>
+                                                <h5 class="h3">Pages</h5>
+                                                <p>From simple to complex, you get a beautiful set of 15+ page examples.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-4">
+                                            <div class="card-body">
+                                                <div class="icon icon-shape bg-gradient-warning text-white rounded-circle shadow mb-4">
+                                                    <i class="ni ni-active-40"></i>
+                                                </div>
+                                                <h5 class="h3">Documentation</h5>
+                                                <p>You will love how easy is to to work with Argon.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="section section-lg pt-lg-0 mt--6">
+                <div class="container">
+                    <div class="row justify-content-md-center">
+                        <div class="col-lg-10 ">
+                            <div class="card-wrapper">
+                                <!-- Input groups -->
+                                <div class="card">
+                                    <!-- Card header -->
+                                    <div class="card-header">
+                                        <h3 class="mb-0">New Transaction</h3>
+                                    </div>
+                                    <!-- Card body -->
+                                    <div class="card-body">
+                                        <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link tab-link active" id="pills-home-tab" data-toggle="pill" href="#pills-sell" role="tab" aria-controls="pills-home" aria-selected="true">Sell</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class=" nav-link tab-link" id="pills-profile-tab" data-toggle="pill" href="#pills-buy" role="tab" aria-controls="pills-profile" aria-selected="false">Buy</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="pills-tabContent">
+                                            <div class="tab-pane fade show active" id="pills-sell" role="tabpanel" aria-labelledby="pills-sell-tab">
+                                                <form class="row">
+                                                    <div class="col-md-6">
+                                                        <label>You Pay</label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <select class="custom-select">
+                                                                    <option>USD</option>
+                                                                    <option value="1">EUR</option>
+                                                                    <option value="2">POUNDS</option>
+                                                                </select>
+                                                            </div>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label>You Recieve</label>
+                                                        <div class="form-group">
+                                                            <div class="input-group input-group-merge">
+                                                                <input class="form-control" placeholder="Payment method" type="text">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text bg-success text-white"><small class="font-weight-bold">NGN</small></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <div class="float-right">
+                                                    <h3>
+                                                Transaction Rate 1 USD = 360 NGN </h3>
+                                                </div>
+                                                <div class="float-left">
+                                                    <small class="text-muted">
+                                                Transaction Limit USD 10,000 </small>
+                                                </div>
+                                                <div class="modal fade" id="xf-details" tabindex="-1" role="dialog" aria-labelledby="xf-details" aria-hidden="true">
+                                                    <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-body p-0">
+                                                                <div class="card">
+                                                                    <!-- Card header -->
+                                                                    <div class="card-header">
+                                                                        <!-- Title -->
+                                                                        <h5 class="h3 mb-0">Transaction ID</h5>
+                                                                    </div>
+                                                                    <!-- Card body -->
+                                                                    <div class="card-body">
+                                                                        <!-- List group -->
+                                                                        <div class="row align-items-center">
+                                                                            <div class="col-8">
+                                                                                <h3 class=" text-success"> 200BDC2hik01 </h3> 
+                                                                            </div>
+                                                                            <div class="col-4 text-right"> 
+                                                                                <i class="ni ni-single-copy-04"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row mt-4">
+                                                                            <div class="mb-4 col text-right">
+                                                                                <a href="login.html" class="btn btn-success">
+                                                                                    proceed </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-5">
+                                                    <hr>
+                                                </div>
+                                                <div class="text-right">
+                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#xf-details">
+                                                        Proceed
+</button>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="pills-buy" role="tabpanel" aria-labelledby="pills-buy-tab">
+                                                <form class="row">
+                                                    <div class="col-md-6">
+                                                        <label>You Give</label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <select class="custom-select">
+                                                                    <option>USD</option>
+                                                                    <option value="1">EUR</option>
+                                                                    <option value="2">POUNDS</option>
+                                                                    <option selected value="3">NAIRA</option>
+                                                                </select>
+                                                            </div>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label>You Recieve</label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <select class="custom-select">
+                                                                    <option>USD</option>
+                                                                    <option value="1">EUR</option>
+                                                                    <option value="2">POUNDS</option>
+                                                                    <option selected value="3">NAIRA</option>
+                                                                </select>
+                                                            </div>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <div class="float-right">
+                                                    <h3>
+                                                Transaction Rate 1 USD = 360 NGN </h3>
+                                                </div>
+                                                <div class="modal fade" id="xf-details-2" tabindex="-1" role="dialog" aria-labelledby="xf-details" aria-hidden="true">
+                                                    <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-body p-0">
+                                                                <div class="card">
+                                                                    <!-- Card header -->
+                                                                    <div class="card-header">
+                                                                        <!-- Title -->
+                                                                        <h5 class="h3 mb-0">Transaction ID</h5>
+                                                                    </div>
+                                                                    <!-- Card body -->
+                                                                    <div class="card-body">
+                                                                        <!-- List group -->
+                                                                        <div class="row align-items-center">
+                                                                            <div class="col-8">
+                                                                                <h3 class=" text-success"> 200BDC2hik01 </h3> 
+                                                                            </div>
+                                                                            <div class="col-4 text-right"> 
+                                                                                <i class="ni ni-single-copy-04"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row mt-4">
+                                                                            <div class="mb-4 col text-right">
+                                                                                <a href="login.html" class="btn btn-success">
+                                                                                    proceed </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-5">
+                                                    <hr>
+                                                </div>
+                                                <div class="text-right">
+                                                    <button class="btn btn-primary" data-toggle="modal" data-target="#xf-details-2">
+                                                        Proceed
+</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="text-right">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#xf-details">
+                                Proceed
+</button>
+                        </div> -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-6">
+                <div class="container">
+                    <div class="row row-grid align-items-center">
+                        <div class="col-md-6 order-md-2 text-center">
+                            <img src="assets/img/theme/mobile.png" width="300" class="img-fluid">
+                        </div>
+                        <div class="col-md-6 order-md-1">
+                            <div class="pr-md-5">
+                                <h1>Awesome features</h1>
+                                <p>This dashboard comes with super cool features that are meant to help in the process. Handcrafted components, page examples and functional widgets are just a few things you will see and love at first sight.</p>
+                            </div>
+                            <div class="mt-5">
+                                <a href="#"><img src="assets/img/icons/apple.png"></a>
+                                <a href="#"><img src="assets/img/icons/google.png"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="section fx-currency"> 
+                <div class="container"> 
+                    <div class="row"> 
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12"> 
+                            <div class="testimonial-area"> 
+                                <div class="testimonial-slider"> 
+                                    <div class="single-testimonial"> 
+                                        <h4 class="user_name">Our Fx-Rates Today</h4> 
+                                        <img src="assets/img/svg/trust-icon-1.png" alt=""> 
+                                        <h1 class="title">NGN 360.00 <br> $ 1 US Dollars</h1> 
+                                        <p>3% higher than bank Rates</p> 
+                                        <a class="position" href="#"> See our Fx-rates <i class="fa fa-long-arrow-alt-right"></i></a>
+                                    </div>                                     
+                                    <div class="single-testimonial">
+                                        <h4 class="user_name">Our Fx-Rates Today</h4> 
+                                        <img src="assets/img/svg/trust-icon-1.png" alt=""> 
+                                        <h1 class="title">NGN 450.00 <br> £ 1 British Pound</h1> 
+                                        <p>2% higher than bank Rates</p> 
+                                        <a class="position" href="rates.html"> See our Fx-rates <i class="fa fa-long-arrow-alt-right"></i></a>
+                                    </div>                                     
+                                    <div class="single-testimonial"> 
+                                        <h4 class="user_name">Our Fx-Rates Today</h4> 
+                                        <img src="assets/img/svg/trust-icon-1.png" alt=""> 
+                                        <h1 class="title">NGN 427.00 <br> € 1 Euros</h1> 
+                                        <p><span class="fa fa-chart-bar"></span> 3% higher than bank Rates</p> 
+                                        <a class="position" href="#"> See our Fx-rates <i class="fa fa-long-arrow-alt-right"></i></a>
+                                    </div>                                     
+                                </div>                                 
+                            </div>                             
+                        </div>                         
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 d-xl-flex d-lg-flex d-block align-items-center"> 
+                            <div class="convert-currency"> 
+                                <h3>Convert Currency&nbsp;</h3> 
+                                <form> 
+                                    <div class="form-group"> 
+                                        <label for="formGroupExampleInput">You Send</label>                                         
+                                        <div class="d-flex"> 
+                                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="$2546"> 
+                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"> 
+                                                <option selected>USD</option>                                                 
+                                                <option value="1">EUR</option>                                                 
+                                                <option value="2">POUNDS</option>                                                 
+                                                <option value="3">NAIAR</option>                                                 
+                                            </select>                                             
+                                        </div>                                         
+                                    </div>                                     
+                                    <div class="form-group"> 
+                                        <label for="formGroupExampleInput2">You Received</label>                                         
+                                        <div class="d-flex"> 
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="2454.21"> 
+                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect2"> 
+                                                <option>USD</option>                                                 
+                                                <option value="1">EUR</option>                                                 
+                                                <option value="2">POUNDS</option>                                                 
+                                                <option selected value="3">NAIRA</option>                                                 
+                                            </select>                                             
+                                        </div>                                         
+                                    </div>                                     
+                                    <a href="signup.html" class="btn btn-success">Exchange Now</a> 
+                                </form>                                 
+                            </div>                             
+                        </div>                         
+                    </div>                     
+                </div>                 
+            </div>
+            <section class="py-6">
+                <div class="container">
+                    <div class="row row-grid align-items-center">
+                        <div class="col-md-6">
+                            <img src="assets/img/theme/landing-2.png" class="img-fluid">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="pr-md-5">
+                                <h1>Example pages</h1>
+                                <p>If you want to get inspiration or just show something directly to your clients, you can jump start your development with our pre-built example pages.</p>
+                                <a href="pages/examples/profile.html" class="font-weight-bold text-warning mt-5">Explore pages</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-6">
+                <div class="container">
+                    <div class="row row-grid align-items-center">
+                        <div class="col-md-6 order-md-2">
+                            <img src="assets/img/theme/landing-3.png" class="img-fluid">
+                        </div>
+                        <div class="col-md-6 order-md-1">
+                            <div class="pr-md-5">
+                                <h1>Lovable widgets and cards</h1>
+                                <p>We love cards and everybody on the web seems to. We have gone above and beyond with options for you to organise your information. From cards designed for content, to pricing cards or user profiles, you will have many options to choose from.</p>
+                                <a href="pages/widgets.html" class="font-weight-bold text-info mt-5">Explore widgets</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-6">
+                <div class="container">
+                    <div class="row row-grid align-items-center">
+                        <div class="col-md-6 order-md-2">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>
+                                        Send Us a Message </h3>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="exampleFormControlInput1">Your Name</label>
+                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="exampleFormControlInput1">Email address</label>
+                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="exampleFormControlSelect1">Subject</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Non-Payment</option>
+                                                <option>Delayed Payment </option>
+                                                <option>Refund</option>
+                                                <option>General</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="exampleFormControlTextarea1">Message</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 order-md-1">
+                            <div class="pr-md-5">
+                                <h1>You can reach Us</h1>
+                                <h4 class="text-light">
+                                    Locate Us </h4>
+                                <p class="font-weight-bold">Suite E16 Emab Plaza Aminu Kano Crescent, Wuse 2, Abuja</p>
+                                <div>
+                                    <h4 class="text-light">Call for support : </h4> 
+                                    <span class="font-weight-bold">(234) 9030621787</span>
+                                </div>
+                                <div class="mt-2 mb-2">
+                                    <a href="mailto:info@313bdc.com" class="font-weight-bold text-success mt-5"> <span class="ni ni-email-83"></span> We respond to Emails Promptly</a>
+                                </div>
+                                <div>
+                                    <ul class="nav nav-footer justify-content-left">
+                                        <li class="nav-item">
+                                            <a class="nav-link nav-link-icon" href="#" target="_blank" data-toggle="tooltip" title="" data-original-title="Like us on Facebook"> <i class="fab fa-whatsapp fa-2x"></i> <span class="nav-link-inner--text d-lg-none">Whatsapp</span> </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link nav-link-icon" href="#" target="_blank" data-toggle="tooltip" title="" data-original-title="Like us on Facebook"> <i class="fab fa-facebook-square fa-2x"></i> <span class="nav-link-inner--text d-lg-none">Facebook</span> </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial" target="_blank" data-toggle="tooltip" title="" data-original-title="Follow us on Instagram"> <i class="fab fa-instagram fa-2x"></i> <span class="nav-link-inner--text d-lg-none">Instagram</span> </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link nav-link-icon" href="https://twitter.com/creativetim" target="_blank" data-toggle="tooltip" title="" data-original-title="Follow us on Twitter"> <i class="fab fa-twitter fa-2x"></i> <span class="nav-link-inner--text d-lg-none">Twitter</span> </a>
+                                        </li>
+                                        <li>
+</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- Footer -->
+        <footer class="py-5" id="footer-main">
+            <div class="container">
+                <div class="row align-items-center justify-content-xl-between">
+                    <div class="col-xl-6">
+                        <div class="copyright text-center text-xl-left text-muted">
+                            &copy; 2020 
+                            <a href="#" class="font-weight-bold ml-1">313BDC</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="about" class="nav-link">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Terms & Conditions</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Argon Scripts -->
+        <!-- Core -->
+        <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/js-cookie/js.cookie.js"></script>
+        <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+        <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+        <script src="assets/vendor/lavalamp/js/jquery.lavalamp.min.js"></script>
+        <!-- Optional JS -->
+        <script src="assets/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+        <script src="assets/vendor/bootstrap-notify/bootstrap-notify.min.js"></script>
+        <script src="assets/vendor/owl.carousel/owl.carousel.js"></script>
+        <!-- argon js -->
+        <script src="assets/js/argon.min-v=1.0.0.js"></script>
+        <!-- Demo JS - remove this in your project -->
+        <script src="assets/js/demo.min.js"></script>
+    </body>
+</html>

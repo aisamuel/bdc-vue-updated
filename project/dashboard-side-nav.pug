@@ -1,0 +1,70 @@
+nav#sidenav-main.sidenav.navbar.navbar-vertical.fixed-left.navbar-expand-xs.navbar-light.bg-white
+  .scrollbar-inner
+    // Brand
+    .sidenav-header.d-flex.align-items-center
+      a.navbar-brand(href='/landing')
+        img.navbar-brand-img(src='assets/img/brand/logo.png' alt='...')
+      .ml-auto
+        // Sidenav toggler
+        .sidenav-toggler.d-none.d-xl-block(data-action='sidenav-unpin' data-target='#sidenav-main')
+          .sidenav-toggler-inner
+            i.sidenav-toggler-line
+            i.sidenav-toggler-line
+            i.sidenav-toggler-line
+    .navbar-inner
+      // Collapse
+      #sidenav-collapse-main.collapse.navbar-collapse
+        // Nav items
+        ul.navbar-nav
+          //
+          li.nav-item
+            a.nav-link(href='/dash')
+              i.ni.ni-shop.text-primary
+              span.nav-link-text Overview
+          li.nav-item
+            a.nav-link.active(href='/new-transaction')
+              i.ni.ni-briefcase-24.text-green
+              span.nav-link-text New Transaction
+          li.nav-item
+            a.nav-link(href='/profile')
+              i.ni.ni-circle-08.text-primary
+              span.nav-link-text Profile 
+          li.nav-item
+            a.nav-link(href='/log')
+              i.ni.ni-bullet-list-67.text-red
+              span.nav-link-text Transaction History
+          li.nav-item
+            a.nav-link(href='/bank-details')
+              i.ni.ni-building.text-red
+              span.nav-link-text Account Details
+          li.nav-item
+            a.nav-link(href='/fxrates')
+              i.ni.ni-shop.text-primary
+              span.nav-link-text Fx Rates
+          //
+            <li class="nav-item">
+            <a class="nav-link" href="wallet.html"> <i class="fa fa-wallet text-info"></i> <span class="nav-link-text">Wallet</span> </a>
+            </li>
+          // 
+          li.nav-item
+            a.nav-link(href='/support')
+              i.ni.ni-headphones.text-green
+              span.nav-link-text Support
+          li.nav-item
+            a.nav-link(href='/about')
+              i.ni.ni-circle-08.text-primary
+              span.nav-link-text About us
+          li.nav-item
+            a.nav-link(href='/reset-password')
+              i.ni.ni-bullet-list-67.text-green
+              span.nav-link-text Change Password
+        // Divider
+        hr.my-3
+        // Heading
+        // <h6 class="navbar-heading p-0 text-muted"></h6>
+        // Navigation
+        ul.navbar-nav.mb-md-3
+          li.nav-item
+            button.btn.btn-block(onclick="logout()")
+              i.ni.ni-spaceship
+              span.nav-link-text Log Out
