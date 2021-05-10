@@ -1,0 +1,41 @@
+// Argon Scripts
+// Core
+script(src='assets/js/main.js')
+script(src='assets/vendor/jquery/dist/jquery.min.js')
+script(src='assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')
+script(src='assets/vendor/js-cookie/js.cookie.js')
+script(src='assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js')
+script(src='assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js')
+script(src='assets/vendor/lavalamp/js/jquery.lavalamp.min.js')
+// Argon JS
+script(src='assets/js/argon.min-v=1.0.0.js')
+// Demo JS - remove this in your project
+script(src='assets/js/demo.min.js')
+script.
+  $(document).ready(function () { //Make script DOM ready
+  $('#myaccount').change(function () { //jQuery Change Function
+  var opval = $(this).val(); //Get value from select element
+  if (opval == "newaccount") { //Compare it and if true
+  $('#modal-form').modal("show"); //Open Modal
+  }
+  });
+  });
+script.
+  $(document).ready(function () { //Make script DOM ready
+  $('#myaccount-1').change(function () { //jQuery Change Function
+  var opval = $(this).val(); //Get value from select element
+  if (opval == "newaccount-1") { //Compare it and if true
+  $('#modal-form-2').modal("show"); //Open Modal
+  }
+  });
+  });
+script.
+  function myFunction() {
+  var x = document.getElementById("myBank");
+  if (x.style.display === "none") {
+  x.style.display = "block";
+  } else {
+  x.style.display = "none";
+  }
+  }
+

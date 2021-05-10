@@ -1,0 +1,216 @@
+doctype html
+head
+    include head.pug
+include dashboard-side-nav.pug
+// Main content
+#panel.main-content
+  // Topnav
+  // nav.navbar.navbar-top.navbar-expand.navbar-dark.bg-green.border-bottom
+    .container-fluid
+      #navbarSupportedContent.collapse.navbar-collapse
+        // Search form
+        form#navbar-search-main.navbar-search.navbar-search-light.form-inline.mr-sm-3
+          .form-group.mb-0
+            .input-group.input-group-alternative.input-group-merge
+              .input-group-prepend
+                span.input-group-text
+                  i.fas.fa-search
+              input.form-control(placeholder='Search' type='text')
+          button.close(type='button' data-action='search-close' data-target='#navbar-search-main' aria-label='Close')
+            span(aria-hidden='true') &times;
+        // Navbar links
+        ul.navbar-nav.align-items-center.ml-md-auto
+          li.nav-item.d-xl-none
+            // Sidenav toggler
+            .pr-3.sidenav-toggler.sidenav-toggler-dark(data-action='sidenav-pin' data-target='#sidenav-main')
+              .sidenav-toggler-inner
+                i.sidenav-toggler-line
+                i.sidenav-toggler-line
+                i.sidenav-toggler-line
+          li.nav-item.d-sm-none
+            a.nav-link(href='#' data-action='search-show' data-target='#navbar-search-main')
+              i.ni.ni-zoom-split-in
+        ul.navbar-nav.align-items-center.ml-auto.ml-md-0
+          li.nav-item.dropdown
+            a.nav-link.pr-0(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+              .media.align-items-center
+                span.avatar.avatar-sm.rounded-circle
+                  img(alt='Image placeholder' src='assets/img/theme/team-4.jpg')
+                .media-body.ml-2.d-none.d-lg-block
+                  span.mb-0.text-sm.font-weight-bold Benjamin Emmanuel
+            .dropdown-menu.dropdown-menu-right
+              .dropdown-header.noti-title
+                h6.text-overflow.m-0 Welcome!
+              a.dropdown-item(href='profile.html')
+                i.ni.ni-single-02
+                span My profile
+              a.dropdown-item(href='#!')
+                i.ni.ni-settings-gear-65
+                span Settings
+              a.dropdown-item(href='')
+                i.ni.ni-calendar-grid-58
+                span Activity
+              a.dropdown-item(href='support.html')
+                i.ni.ni-support-16
+                span Support
+              .dropdown-divider
+              a.dropdown-item(href='login.html')
+                i.ni.ni-user-run
+                span Logout
+  // Header
+  // Header
+  include dashboard-top-nav.pug
+  .header.bg-success.pb-6
+    .container-fluid
+      .header-body
+        .row.align-items-center.py-4
+          .col-lg-6.col-7
+            h6.h2.text-white.d-inline-block.mb-0 Default
+            nav.d-none.d-md-inline-block.ml-md-4(aria-label='breadcrumb')
+              ol.breadcrumb.breadcrumb-links.breadcrumb-dark
+                li.breadcrumb-item
+                  a(href='#')
+                    i.fas.fa-home
+                li.breadcrumb-item
+                  a(href='#') Dashboards
+                li.breadcrumb-item.active(aria-current='page') Default
+          .col-lg-6.col-5.text-right
+            a.btn.btn-sm.btn-neutral(href='new_trans.html') New Transaction
+            a.btn.btn-sm.btn-neutral(href='bank_details.html') New Account
+        // Card stats
+  // Page content
+  .container-fluid.mt--6
+    .row.justify-content-md-center
+      .col-lg-8
+        .card-wrapper
+          // Input groups
+          .card
+            // Card header
+            .card-header
+              img(src='assets/img/brand/logo.png' width='60px')
+              .row.align-items-center
+                .col-8
+                  h5.h5.mb-0 313BDC
+                  small.small.text-muted
+                    | Babura House Plaza,
+                    br
+                    |  Aminu Kano crescet, 
+                    br
+                    | wuse 2, Abuja
+                .col-4.text-right(v-cloak)
+                  //- div
+                  //-   span.h5
+                  //-     small Ref. Number: 
+                  //-     |  {{transactionData._id}}
+                  div
+                    small {{transactionData.user.fname + ' ' + transactionData.user.lname}}
+                    br
+                    span.text-muted.small {{transactionData.user.email}} 
+                    br
+                    span.text-muted.small {{transactionData.user.acctType + ' '}} Account
+              .row.ml-0.mt-4(v-cloak)
+                small
+                  span.font-weight-bold Date:
+                  |  {{date}}
+              // Title
+            // Card body
+            .card-body
+              // List group
+              ul.list-group.list-group-flush.list.my--3(v-cloak)
+                li.list-group-item.px-0
+                  .row.align-items-center
+                    .col.mr--2
+                      h3.mb-0  Reference Number 
+                    .col-auto
+                      span.text-warning {{transactionData.transactionId}}
+                li.list-group-item.px-0
+                  .row.align-items-center
+                    .col.mr--2
+                      h3.mb-0  BDC Account No. 
+                    .col-auto
+                      span.text-muted {{transactionData.creditAccount}}
+                li.list-group-item.px-0
+                  .row.align-items-center
+                    .col.mr--2
+                      h3.mb-0  Account Holder
+                    .col-auto
+                      span.text-muted {{transactionData.accountHolder}}
+                li.list-group-item.px-0
+                  .row.align-items-center
+                    .col.mr--2
+                      h3.mb-0  Bank Name 
+                    .col-auto
+                      span.text-muted {{transactionData.bankName}}
+                template(v-if="transactionData.mode === 'buy'")
+                  li.list-group-item.px-0
+                    .row.align-items-center
+                      .col.mr--2
+                        h3.mb-0  Amount to Pay 
+                      .col-auto
+                        span.text-muted {{transactionData.giveAmount + ' '}} NGN
+                  li.list-group-item.px-0
+                    .row.align-items-center
+                      .col.mr--2
+                        h3.mb-0  Amount to Recieve
+                      .col-auto
+                        span.text-success {{transactionData.recieveAmount + ' ' + transactionData.recieveCurrency}}
+                template(v-if="transactionData.mode === 'sell'")
+                  li.list-group-item.px-0
+                    .row.align-items-center
+                      .col.mr--2
+                        h3.mb-0  Amount to Pay 
+                      .col-auto
+                        span.text-muted {{transactionData.recieveAmount + ' ' + transactionData.recieveCurrency}} 
+                  li.list-group-item.px-0
+                    .row.align-items-center
+                      .col.mr--2
+                        h3.mb-0  Amount to Recieve
+                      .col-auto
+                        span.text-success {{transactionData.giveAmount + ' '}} NGN
+                .row
+                  p.blocquote.small
+                    | Dear customer, kindly complete the above transaction from your bank account using the online application or any of the other channels provided by your bank. Remember to include the reference number 
+                    span.text-success {{transactionData.transactionId}}
+                    |  for easy tracking.
+        .text-center
+          button.btn.btn-success(data-toggle='modal' data-target='#modal-notification')
+            | finish
+      #modal-notification.modal.fade(tabindex='-1' role='dialog' aria-labelledby='modal-notification' aria-hidden='true')
+        .modal-dialog.modal-danger.modal-dialog-centered.modal-(role='document')
+          .modal-content.bg-gradient-green
+            .modal-header
+              button.close(type='button' data-dismiss='modal' aria-label='Close')
+                span(aria-hidden='true') &times;
+            .modal-body
+              .py-3.text-center
+                i.ni.ni-check-bold.ni-3x
+                h4.heading.mt-4 Succesful Transaction!
+                //- p
+                //-   | A small river named Duden flows by their place and supplies it with the necessary regelialia.
+            .modal-footer
+              button.btn.btn-white(type='button' @click='landingPage()') Ok, Got it
+              button.btn.btn-link.text-white.ml-auto(type='button' @click='landingPage()') Close
+    // Footer
+  include footer.pug
+// Argon Scripts
+// Core
+include js-imports.pug
+script(src="assets/js/success.js")
+script.
+  $(document).ready(function () { //Make script DOM ready
+  $('#myaccount').change(function () { //jQuery Change Function
+  var opval = $(this).val(); //Get value from select element
+  if (opval == "newaccount") { //Compare it and if true
+  $('#modal-form').modal("show"); //Open Modal
+  }
+  });
+  });
+script.
+  function myFunction() {
+  var x = document.getElementById("myBank");
+  if (x.style.display === "none") {
+  x.style.display = "block";
+  } else {
+  x.style.display = "none";
+  }
+  }

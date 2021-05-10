@@ -1,0 +1,80 @@
+doctype html
+head
+    include head.pug
+// Sidenav
+include dashboard-side-nav.pug
+// Main content
+#panel.main-content
+ #transactionApp
+  // Topnav
+  include dashboard-top-nav.pug
+  // Header
+  .header.bg-green.pb-6
+    .container-fluid
+      .header-body
+        .row.align-items-center.py-4
+          .col-lg-6.col-7
+            h6.h2.text-white.d-inline-block.mb-0 Dashboard
+            nav.d-none.d-md-inline-block.ml-md-4(aria-label='breadcrumb')
+              ol.breadcrumb.breadcrumb-links.breadcrumb-dark
+                li.breadcrumb-item
+                  a(href='#')
+                    i.fas.fa-home
+                li.breadcrumb-item.active
+                  a(href='#') Dashboard
+          .col-lg-6.col-5.text-right
+            a.btn.btn-sm.btn-neutral(href='/new-transaction') New Transaction
+            a.btn.btn-sm.btn-neutral(data-toggle='modal' data-target='#modal-form-2') Add Account
+        // Card stats
+        .row
+          .col-xl-3.col-md-6
+            .card.card-stats
+              // Card body
+              .card-body
+                .row
+                  .col(v-cloak)
+                    h5.card-title.text-uppercase.text-muted.mb-0 Total transactions
+                    //- span.h2.display-2.font-weight-bold.mb-0 {{ no_of_buy_trans }}
+                    span.h2.display-2.font-weight-bold.mb-0 {{ buyTransactionLogs.length +  sellTransactionLogs.length }}
+                  .col-auto
+                    .icon.icon-shape.bg-gradient-success.text-white.rounded-circle.shadow
+                      i.ni.ni-briefcase-24
+          .col-xl-3.col-md-6
+            .card.card-stats
+              // Card body
+              .card-body
+                .row
+                  .col(v-cloak)
+                    h5.card-title.text-uppercase.text-muted.mb-0 Succesful Transactions
+                    span.h2.display-2.font-weight-bold.mb-0 {{noOfSuccessfulTrans.length}}
+                  .col-auto
+                    .icon.icon-shape.bg-gradient-green.text-white.rounded-circle.shadow
+                      i.ni.ni-like-2
+          .col-xl-3.col-md-6
+            .card.card-stats
+              // Card body
+              .card-body
+                .row
+                  .col(v-cloak)
+                    h5.card-title.text-uppercase.text-muted.mb-0 Pending Transactons
+                    span.h2.display-2.font-weight-bold.mb-0 {{noOfPendingTrans.length}}
+                  .col-auto
+                    .icon.icon-shape.bg-gradient-orange.text-white.rounded-circle.shadow
+                      i.ni.ni-money-coins
+          .col-xl-3.col-md-6
+            .card.card-stats
+              // Card body
+              .card-body
+                .row
+                  .col(v-cloak)
+                    h5.card-title.text-uppercase.text-muted.mb-0 Failed Transactions
+                    span.h2.display-2.font-weight-bold.mb-0 {{ noOfFailedTrans.length }}
+                  .col-auto
+                    .icon.icon-shape.bg-gradient-danger.text-white.rounded-circle.shadow
+                      i.ni.ni-chart-bar-32
+    
+        include new-transaction-modal.pug
+  include trans-history.pug
+  include footer.pug
+include js-imports.pug
+script(src="../assets/js/transaction.js")

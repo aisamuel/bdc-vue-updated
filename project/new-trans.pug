@@ -1,0 +1,43 @@
+doctype html
+head
+    include head.pug
+// Sidenav
+include dashboard-side-nav.pug
+// Main content
+#panel.main-content
+ #transactionApp
+  // Topnav
+  include dashboard-top-nav.pug
+  // Header
+  // Header
+  
+  .header.bg-success.pb-6
+    .container-fluid
+      .header-body
+        .row.align-items-center.py-4
+          .col-lg-6.col-7
+            h6.h2.text-white.d-inline-block.mb-0 Transaction
+            nav.d-none.d-md-inline-block.ml-md-4(aria-label='breadcrumb')
+              ol.breadcrumb.breadcrumb-links.breadcrumb-dark
+                li.breadcrumb-item
+                  a(href='#')
+                    i.fas.fa-home
+                li.breadcrumb-item.active(aria-current='page') New transaction
+          .col-lg-6.col-5.text-right
+            // <a href="new_trans.html" class="btn btn-sm btn-neutral">New Transaction</a>
+            //- a.btn.btn-sm.btn-neutral(href='bank_details' data-toggle='modal' data-target='#xf-details-2') Add Account
+            a.btn.btn-sm.btn-neutral(data-toggle='modal' data-target='#modal-form-2') Add Account
+        // Card stats
+  // Page content
+  include new-transaction-form.pug
+        //
+          <div class="text-right">
+          <button class="btn btn-primary" data-toggle="modal" data-target="#xf-details">
+          Proceed
+          </button>
+          </div>
+  // Footer
+  include footer.pug
+include js-imports.pug
+script(src="../assets/js/transaction.js")
+

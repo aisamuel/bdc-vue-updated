@@ -1,0 +1,107 @@
+doctype html
+head
+  include head.pug
+#loginApp
+  // Navbar
+  nav#navbar-main.navbar.navbar-horizontal.navbar-transparent.navbar-main.navbar-expand-lg.navbar-light
+    .container
+      a.navbar-brand(href='index.html')
+        img(src='assets/img/brand/logo.png')
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbar-collapse.navbar-collapse.navbar-custom-collapse.collapse
+        .navbar-collapse-header
+          .row
+            .col-6.collapse-brand
+              a(href='dashboards/dashboard.html')
+                img(src='assets/img/brand/blue.png')
+            .col-6.collapse-close
+              button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
+                span
+                span
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href='landing')
+              span.nav-link-inner--text Home
+          li.nav-item
+            a.nav-link(href='signup')
+              span.nav-link-inner--text Sign Up
+        hr.d-lg-none
+  // Main content
+  .main-content
+    // Header
+    .header.bg-gradient-success.py-7.py-lg-8.pt-lg-9
+      .container
+        .header-body.text-center.mb-7
+          .row.justify-content-center
+            .col-xl-5.col-lg-6.col-md-8.px-5
+              h1.text-white Welcome!
+              p.text-lead.text-white
+                | Please login into your account to continue.
+      .separator.separator-bottom.separator-skew.zindex-100
+        svg(x='0' y='0' viewbox='0 0 2560 100' preserveaspectratio='none' version='1.1' xmlns='http://www.w3.org/2000/svg')
+          polygon.fill-default(points='2560 0 2560 100 0 100')
+    // Page content
+    .container.mt--8.pb-5
+      .row.justify-content-center
+        .col-lg-5.col-md-7
+          .card.bg-secondary.border-0.mb-0
+            .card-body.px-lg-5.py-lg-5
+              .text-center.text-muted.mb-4
+                small(v-if='!errorMessage')
+                  | Enter your Email / Phone Number and PIN to access your
+                  | Dashboard
+                small.alert-danger(v-if='errorMessage' v-cloak) {{errorMessage}}
+              form(role='form')
+                .form-group.mb-3
+                  .input-group.input-group-merge.input-group-alternative
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-email-83
+                    input.form-control(v-model='email' placeholder='Email' type='text')
+                .form-group
+                  .input-group.input-group-merge.input-group-alternative
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-lock-circle-open
+                    input.form-control(:type='passwordFieldType' v-model='password' placeholder='Password')
+                    span.input-group-btn(v-if='password')
+                      button.btn.reveal(type='button' @click='switchVisibility')
+                        i.fa.fa-eye-slash
+                .custom-control.custom-control-alternative.custom-checkbox
+                  input#customCheckLogin.custom-control-input(type='checkbox')
+                  label.custom-control-label(for='customCheckLogin')
+                    span.text-muted Remember me
+                .text-center
+                  button.btn.btn-primary.my-4(:disabled='isLoading' type='button' @click='login()' v-cloak)
+                    | {{isLoading? &quot;Please wait...&quot; : &quot;Sign in&quot;}}
+          .row.mt-3
+            .col-4
+              a.text-dark(href='http://reset313.herokuapp.com/reg/resetPass' target="_blank")
+                small Forgot password?
+            .col-4.text-right
+              a.text-dark(href='')
+                small 
+            .col-4.text-right
+              a.text-dark(href='signup')
+                small Create new account
+  // Footer
+  footer#footer-main.py-5
+    .container
+      .row.align-items-center.justify-content-xl-between
+        .col-xl-6
+          //- .copyright.text-center.text-xl-left.text-muted
+          //-   | &copy; 2019
+          //-   a.font-weight-bold.ml-1(href='#' target='_blank') 313BDC
+        .col-xl-6
+          ul.nav.nav-footer.justify-content-center.justify-content-xl-end
+            li.nav-item
+              a.nav-link(href='landing.html' target='_blank') 313BDC
+            li.nav-item
+              a.nav-link(href='#' target='_blank') About Us
+            li.nav-item
+              a.nav-link(href='h#' target='_blank') Blog
+            li.nav-item
+              a.nav-link(href='#' target='_blank') Terms &amp; Conditions
+include js-imports.pug
+script(src='assets/js/login.js')

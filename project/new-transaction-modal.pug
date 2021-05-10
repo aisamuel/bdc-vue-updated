@@ -1,0 +1,188 @@
+#xf-details-2.modal.fade(tabindex='-1' role='dialog' aria-labelledby='xf-details-2' aria-hidden='true')
+    .modal-dialog.modal-.modal-dialog-centered.modal-md(role='document')
+        .modal-content
+            .modal-body.p-0
+                .card
+                    // Card header
+                    .card-header
+                        // Title
+                        h5.h3.mb-0 Transaction Summary
+                    // Card body
+                    .card-body
+                        // List group
+                        ul.list-group.list-group-flush.list.my--3
+                            //- li.list-group-item.px-0
+                            //-     .row.align-items-center
+                            //-         .col.mr--2
+                            //-             h3.mb-0 Reference Number
+                            //-         .col-auto
+                            //-             span.text-primary.font-weight-bold {{randomString}} 
+                            li.list-group-item.px-0
+                                .row.align-items-center
+                                    .col.mr--2
+                                        h3.mb-0  Exchange Rate 
+                                    .col-auto(v-if="activeMode==='buy'" v-cloak)
+                                        span {{selectedCurrency.rateFromNaira}} NGNs - 1 {{selectedCurrency.currency}}
+                                    .col-auto(v-if="activeMode!=='buy'" v-cloak)
+                                        span {{selectedCurrency.rateToNaira}} NGN - 1 {{selectedCurrency.currency}}
+                            li.list-group-item.px-0
+                                .row.align-items-center
+                                    .col.mr--2
+                                        h3.mb-0 Amount to be Paid 
+                                    .col-auto
+                                        span {{Number(amountInNaira).toLocaleString()}} NGN 
+                            li.list-group-item.px-0
+                                .row.align-items-center
+                                    .col.mr--2
+                                        h3.mb-0  Amount to Recieve
+                                    .col-auto
+                                        span {{Number(amountInCurrency).toLocaleString()}} {{selectedCurrency.currency}}
+                            br
+                        .mb-4
+                        .row.justify-content-center.mt-5
+                            template(v-if="activeMode === 'buy'")
+                                button.btn.btn-icon.btn-primary(@click="payWithPaystack()")
+                                    span.btn-inner--icon
+                                        i.fas.fa-credit-card
+                                    span.btn-inner--text Pay With Cards
+                            button.btn.btn-icon.btn-primary(@click='payWithBank()')
+                                span.btn-inner--icon
+                                    i.fas.fa-landmark
+                                span.btn-inner--text Pay With Bank
+                        #myBank.row
+                        template(v-if='withBank')
+                            .card-header.col
+                                // Title
+                                h5.h3.mb-0 Bank Details
+                            form(role='form')
+                                .form-group
+                                    #addAcct
+                                        a.btn.btn-sm.btn-neutral(data-dismiss="modal" data-toggle='modal' data-target='#modal-form-2') Add a new Account
+                                    label Your Account
+                                    select#myaccount-1.custom-select(v-model="userSelectedBankAccount" @change="filterbdc()")
+                                        option(label='Select your account')
+                                        option(v-for="acct in userBankAccounts" :value="acct") {{acct.accountNumber}} ({{acct.bankName}}) {{acct.accountName}} ({{acct.currencyType}} account)
+                                .form-group
+                                    label(for='formGroupExampleInput') BDC account
+                                    .form-group                            
+                                        select#myaccount-1.custom-select(v-model="bdcSelectedBankAccount")
+                                            option(label='Select BDC account')
+                                            option(selected v-for="bdcAcct in bdcFilteredAccount" :value="bdcAcct") {{bdcAcct.accountNumber}} ({{bdcAcct.bankName}}) {{bdcAcct.accountName}}
+                                //- .form-group
+                                //-     #addAcct
+                                //-         a.btn.btn-sm.btn-neutral(data-dismiss="modal" data-toggle='modal' data-target='#modal-form-2') Add a new Account
+                                //-     label Your Account
+                                //-     select#myaccount-1.custom-select(v-model="userSelectedBankAccount")
+                                //-         option(label='Select your account')
+                                //-         option(v-for="acct in userBankAccounts" :value="acct") {{acct.accountNumber}} ({{acct.bankName}}) {{acct.accountName}}
+                                //- .form-group
+                                //-     label(for='formGroupExampleInput') BDC account
+                                //-     .form-group
+                                //-         select#myaccount-1.custom-select(v-model="bdcSelectedBankAccount")
+                                //-             option(label='Select BDC account')
+                                //-             option(v-for="bdcAcct in bdcBankAccounts" :value="bdcAcct") {{bdcAcct.accountNumber}} ({{bdcAcct.bankName}}) {{bdcAcct.accountName}}
+                                        //- input.form-control(list='banks' v-model="bdcSelectedBankAccount.bankName" name='bank' placeholder='e.g Choose your Bank')
+                                        //- datalist#banks
+                                            option(value='Access Bank') Access Bank
+                                            option(value='Citibank') Citibank
+                                            option(value='Ecobank Bank') Ecobank
+                                            option(value='Fidelity Bank') Fidelity Bank
+                                            option(value='First City Monument Bank (FCMB)') First City Monument Bank (FCMB)
+                                            option(value='FSDH Merchant Bank') FSDH Merchant Bank
+                                            option(value='uarantee Trust Bank (GTB)') Guarantee Trust Bank (GTB)
+                                            option(value='Heritage Bank') Heritage Bank
+                                            option(value='Keystone Bank') Keystone
+                                            option(value='Keystone Bank') Keystone Bank
+                                            option(value='stanbic') Stanbic IBTC Bank
+                                            option(value='standard') Standard Chartered Bank
+                                            option(value='Stanbic IBTC Bank') Sterling Bank
+                                            option(value='Union Bank') Union Bank
+                                            option(value='United Bank for Africa (UBA)') United Bank for Africa (UBA)
+                                            option(value='Unity Bank') Unity Bank
+                                            option(value='Wema Bank') Wema Bank
+                                            option(value='Zenith Bank') Zenith Bank
+                                //- .form-group.mb-3
+                                //-     label Enter Your Login PIN
+                                //-     .input-group.input-group-merge.input-group-alternative
+                                //-         .input-group-prepend
+                                //-             span.input-group-text
+                                //-                 i.fas.fa-credit-card
+                                //-         input.form-control(placeholder='Enter Your 4 Digit PIN ' type='number')
+                                p.blocquote
+                                    | * Note: Settlement mostly occur within 15 mins of our receipt of payment from your Bank
+                                p.blocquote * 313BDC will not be held liable if wrong denominated currency is inserted
+                                .text-center
+                                    a.btn.btn-primary.my-4(a='' @click="checkoutBankTransaction()") Pay Now
+                                    button.btn.btn-danger.my-4(type='button' data-dismiss="modal") Cancel
+#modal-form-2.modal.fade(tabindex='-1' role='dialog' aria-labelledby='modal-form-2' aria-hidden='true')
+    .modal-dialog.modal-.modal-dialog-centered.modal-md(role='document')
+        .modal-content
+            .modal-body.p-0
+                .card.bg-secondary.border-0.mb-0
+                    .card-header.bg-transparent.pb-5
+                        .text-center.text-muted.mb-4
+                            h3 Add a New Account
+                    .card-body.px-lg-5.py-lg-5
+                        form(role='form')
+                            .form-group
+                                label Select Account Currency
+                                select.custom-select(v-model="userSelectedBankAccount.currencyType" placeholder='Select Currency')
+                                    //- select#myaccount-1.custom-select(v-model="userSelectedBankAccount.cu")
+                                    //- option(label='currency')
+                                    option(v-for="exchangeRate in exchangeRates" :value="exchangeRate.currency") {{exchangeRate.currency}}
+                                //- option(label='Currency')
+                                //- option NGN
+                                //- option USD
+                                //- option EUROS
+                                //- option POUNDS
+                                //- option RIYAHGS
+                            .form-group
+                                label(for='formGroupExampleInput') Select Your Bank
+                                .form-group
+                                    input.form-control(list='banks' v-model="userSelectedBankAccount.bankName" name='bank' placeholder='e.g Choose your Bank')
+                                    datalist#banks
+                                        option(value='Access Bank') Access Bank
+                                        //- option(value='Citibank') Citibank
+                                        //- option(value='Ecobank Bank') Ecobank
+                                        option(value='Fidelity Bank') Fidelity Bank
+                                        option(value='First City Monument Bank (FCMB)') First City Monument Bank (FCMB)
+                                        option(value='First Bank') First Bank
+                                        //- option(value='FSDH Merchant Bank') FSDH Merchant Bank
+                                        option(value='Guarantee Trust Bank (GTB)') Guarantee Trust Bank (GTB)
+                                        //- option(value='Heritage Bank') Heritage Bank
+                                        option(value='Jaiz Bank') Jaiz Bank
+                                        option(value='Keystone Bank') Keystone Bank
+                                        option(value='stanbic') Stanbic IBTC Bank
+                                        //- option(value='standard') Standard Chartered Bank
+                                        option(value='Sterling Bank') Sterling Bank
+                                        //- option(value='Union Bank') Union Bank
+                                        option(value='United Bank for Africa (UBA)') United Bank for Africa (UBA)
+                                        //- option(value='Unity Bank') Unity Bank
+                                        //- option(value='Wema Bank') Wema Bank
+                                        option(value='Zenith Bank') Zenith Bank
+                            .form-group.mb-3
+                                label Account Number 
+                                span.errorMsg(v-if="!accountIsUnique") (Account Exists)
+                                .input-group.input-group-merge.input-group-alternative
+                                    .input-group-prepend
+                                        span.input-group-text
+                                            i.fas.fa-credit-card
+                                    input.form-control(placeholder='1018041933' type='text' v-model="userSelectedBankAccount.accountNumber" @keyup="checkAccountIsUnique()")
+                            .form-group
+                                label Account Name
+                                .input-group.input-group-merge.input-group-alternative
+                                    .input-group-prepend
+                                        span.input-group-text
+                                            i.fas.fa-user-circle
+                                    input.form-control(placeholder='Jane Doe' type='text' v-model="userSelectedBankAccount.accountName")
+                            p.blocquote * 313BDC will not be held liable if wrong denominated currency is inserted
+                            .custom-control.custom-control-alternative.custom-checkbox
+                                input#customCheckLogin.custom-control-input(type='checkbox' v-model="acceptAgreement")
+                                label.custom-control-label(for='customCheckLogin')
+                                    span.text-muted
+                                        | I agree to the 
+                                        a(href='#') Terms &amp; Conditions
+                                        |  of 313BDC
+                            .text-center
+                                button.btn.btn-primary.my-4(type='button' data-dismiss="modal" @click="addBankAccount()" :disabled="!acceptAgreement || !accountIsUnique") Add Account
+                                button.btn.btn-danger.my-4(type='button' data-dismiss="modal" data-toggle='modal' data-target='#xf-details-2') Cancel

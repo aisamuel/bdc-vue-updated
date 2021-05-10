@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+        <title>Sign Up</title>
+        <!-- Favicon -->
+        <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+        <!-- Icons -->
+        <link rel="stylesheet" href="assets/vendor/nucleo/css/nucleo.css" type="text/css">
+        <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+        <!-- Argon CSS -->
+        <link rel="stylesheet" href="assets/css/argon.min-v=1.0.0.css" type="text/css">
+        <script src="assets/js/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body class="bg-default">
+        <div id="registerApp">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <!-- Navbar -->
+        <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"> <img src="assets/img/brand/logo.png"> </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse navbar-custom-collapse collapse" id="navbar-collapse">
+                    <div class="navbar-collapse-header">
+                        <div class="row">
+                            <div class="col-6 collapse-brand">
+                                <a href="index.html"> <img src="assets/img/brand/logo.png"> </a>
+                            </div>
+                            <div class="col-6 collapse-close">
+                                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link"> <span class="nav-link-inner--text">Dashboard</span> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.html" class="nav-link"> <span class="nav-link-inner--text">Login</span> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="register.html" class="nav-link"> <span class="nav-link-inner--text">Register</span> </a>
+                        </li>
+                    </ul>
+                    <hr class="d-lg-none"/>
+                </div>
+            </div>
+        </nav>
+        <!-- Main content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header bg-gradient-success py-7 py-lg-8 pt-lg-9">
+                <div class="container">
+                    <div class="header-body text-center mb-7">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-5 col-lg-6 col-md-8 px-5">
+                                <h1 class="text-white">Create an account</h1>
+                                <p class="text-lead text-white"> It takes less
+                                than a minute</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="separator separator-bottom separator-skew zindex-100">
+                    <svg x="0" y="0" viewbox="0 0 2560 100" preserveaspectratio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+                    </svg>
+                </div>
+            </div>
+            <!-- Page content -->
+            <div class="container mt--9 pb-5">
+                <!-- Table -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8">
+                        <div class="card bg-secondary border-0">
+                            <div class="card-body px-lg-5 py-lg-5">
+                                <div class="text-center text-muted mb-4">
+                                    <small>Create your account</small>
+                                </div>
+                                <!--FORM STARTS HERE-->
+                                <!-- PERSONAL DETAILS-->
+                                <form role="form">
+                                    <div class="form-group">
+                                        <div class="input-group input-group-merge input-group-alternative mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                            </div>
+                                            <input class="form-control" v-model="userData.fname" placeholder="First Name" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-merge input-group-alternative mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                            </div>
+                                            <input class="form-control" v-model="userData.lname" placeholder="Last Name" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-merge input-group-alternative mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                            </div>
+                                            <input class="form-control" v-model="userData.email" placeholder="Email" type="email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-merge input-group-alternative mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-mobile-alt"></i></span>
+                                            </div>
+                                            <input class="form-control" v-model="userData.phone" placeholder="Phone Number" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-merge input-group-alternative mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="ni ni-pin-3"></i></span>
+                                            </div>
+                                            <input class="form-control" v-model="userData.address" placeholder="Address" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-merge input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                            </div>
+                                            <input class="form-control" v-model="userData.password" placeholder="Enter 4 Digit PIN" type="password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-merge input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                            </div>
+                                            <input class="form-control" v-model="userData.confirmPassword" placeholder="Confirm 4 Digit PIN" type="password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Select Account type</label>
+                                        <div class="input-group input-group-merge input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="ni ni-briefcase-24"></i></span>
+                                            </div>
+                                            <select class="custom-select" v-model="userData.accountType">
+                                                <option selected value="Account Type">Account Type</option>
+                                                <option value="1">Personal</option>
+                                                <option value="2">Business</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!--BUSINESS-->
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <div class="input-group input-group-merge input-group-alternative mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-briefcase-24"></i></span>
+                                                    </div>
+                                                    <input class="form-control" v-model="userData.businessName" placeholder="Business Name" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <div class="input-group input-group-merge input-group-alternative">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-briefcase-24"></i></span>
+                                                    </div>
+                                                    <select class="custom-select" v-model="userData.businessDescription">
+                                                        <option selected value="Business Description">Business
+                                                            Description
+</option>
+                                                        <option value="1">Personal</option>
+                                                        <option value="2">Business</option>
+                                                        <option value="Airlines/Aviation">Airlines/Aviation</option>
+                                                        <option value="Banking">Banking</option>
+                                                        <option value="Blogging"> Blogging</option>
+                                                        <option value="Computer Software/Hardware">Computer Software/Hardware</option>
+                                                        <option value="Construction">Construction</option>
+                                                        <option value="Engineering">Engineering</option>
+                                                        <option value="Entertainment">Entertainment</option>
+                                                        <option value="Environmental Services">Environmental Services </option>
+                                                        <option value="Fashion, Hairstyling and Makeup">Fashion, Hairstyling and Makeup </option>
+                                                        <option value="Financial Services and Accounting">Financial Services and Accounting </option>
+                                                        <option value="Food and Beverages">Food and Beverages</option>
+                                                        <option value="Health, Wellness, and Fitness">Health, Wellness, and Fitness</option>
+                                                        <option value="Human Resources">Human Resources</option>
+                                                        <option value="Information Technology">Information Technology </option>
+                                                        <option value="Insurance">Insurance</option>
+                                                        <option value="International Trade and Development">International Trade and Development </option>
+                                                        <option value="Legal Practice">Legal Practice</option>
+                                                        <option value="Manufacturing">Manufacturing</option>
+                                                        <option value="Medical Practice">Medical Practice</option>
+                                                        <option value="Military"> Military</option>
+                                                        <option value="Oil and Gas">Oil and Gas</option>
+                                                        <option value="Public Relations, Marketing and Communications">Public Relations, Marketing and Communications</option>
+                                                        <option value="Publishing">Publishing</option>
+                                                        <option value="Real Estate">Real Estate</option>
+                                                        <option value="Religious Institutions">Religious Institutions</option>
+                                                        <option value="Sports">Sports</option>
+                                                        <option value="Telecommunications">Telecommunications</option>
+                                                        <option value="Transportation">Transportation</option>
+                                                        <option value="Travel and Tourism">Travel and Tourism</option>
+                                                        <option value="Warehousing and Retail">Warehousing and Retail </option>
+                                                        <option value="Others">Others</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <div class="input-group input-group-merge input-group-alternative mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                                    </div>
+                                                    <input v-model="userData.rcNumber" class="form-control" placeholder="RC Number" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <div class="input-group input-group-merge input-group-alternative mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                                    </div>
+                                                    <input v-model="userData.businessPhoneNumber" class="form-control" placeholder="Business Phone Number" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <div class="input-group input-group-merge input-group-alternative mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                                    </div>
+                                                    <input v-model="userData.businessEmail" class="form-control" placeholder="Business Email" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <div class="input-group input-group-merge input-group-alternative mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-map"></i></span>
+                                                    </div>
+                                                    <input v-model="userData.businessAddress" class="form-control" placeholder="Business Address" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row my-4">
+                                        <div class="col-12">
+                                            <div class="custom-control custom-control-alternative custom-checkbox">
+                                                <input v-model="userData.acceptance" class="custom-control-input" id="customCheckRegister" type="checkbox">
+                                                <label class="custom-control-label" for="customCheckRegister">
+                                                    <span class="text-muted">I accept the <a class="text-success" href="#!">Terms and
+                                                        Conditions</a></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="button" @click="register()" class="btn btn-primary mt-4">Create account</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="py-5" id="footer-main">
+            <div class="container">
+                <div class="row align-items-center justify-content-xl-between">
+                    <div class="col-xl-6">
+                        <div class="copyright text-center text-xl-left text-muted">
+                            &copy; 2019 
+                            <a href="#" class="font-weight-bold ml-1" target="_blank">313BDC</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+                            <li class="nav-item">
+                                <a href="landing.html" class="nav-link" target="_blank">313BDC</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" target="_blank">About
+                                Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" target="_blank">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" target="_blank">Terms & Conditions</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        </div>
+        <!-- Argon Scripts -->
+        <!-- Core -->
+        <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/js-cookie/js.cookie.js"></script>
+        <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+        <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+        <script src="assets/vendor/lavalamp/js/jquery.lavalamp.min.js"></script>
+        <!-- Argon JS -->
+        <script src="assets/js/argon.min-v=1.0.0.js"></script>
+        <!-- Demo JS - remove this in your project -->
+        <script src="assets/js/demo.min.js"></script>
+        <script src="assets/js/register.js"></script>
+    </body>
+</html>

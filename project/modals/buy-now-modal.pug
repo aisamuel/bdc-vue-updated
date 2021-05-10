@@ -1,0 +1,94 @@
+#xf-details-2.modal.fade(tabindex='-1' role='dialog' aria-labelledby='xf-details-2' aria-hidden='true')
+  .modal-dialog.modal-.modal-dialog-centered.modal-md(role='document')
+    .modal-content
+      .modal-body.p-0
+        .card
+          // Card header
+          .card-header
+            // Title
+            h5.h3.mb-0 Transaction Summary
+          // Card body
+          .card-body
+            // List group
+            ul.list-group.list-group-flush.list.my--3
+              li.list-group-item.px-0
+                .row.align-items-center
+                  .col.mr--2
+                    h3.mb-0 Transaction ID 
+                  .col-auto
+                    span.text-primary.font-weight-bold tgg600ngn4321 
+              li.list-group-item.px-0
+                .row.align-items-center
+                  .col.mr--2
+                    h3.mb-0  Exchange Rate 
+                  .col-auto
+                    span 360 NGN - 1 USD
+              li.list-group-item.px-0
+                .row.align-items-center
+                  .col.mr--2
+                    h3.mb-0 Amount to be Paid 
+                  .col-auto
+                    span 600,000 NGN 
+              li.list-group-item.px-0
+                .row.align-items-center
+                  .col.mr--2
+                    h3.mb-0  Amount to Recieve
+                  .col-auto
+                    span 3,000 USD 
+              br
+            .mb-4
+            .row.justify-content-center.mt-5
+              button.btn.btn-icon.btn-primary(href='#')
+                span.btn-inner--icon
+                  i.fas.fa-credit-card
+                span.btn-inner--text Pay With Card
+              button.btn.btn-icon.btn-primary(onclick='myFunction()')
+                span.btn-inner--icon
+                  i.fas.fa-landmark
+                span.btn-inner--text Pay With Bank
+            #myBank.row
+              .card-header.col
+                // Title
+                h5.h3.mb-0 Bank Details
+              form(role='form')
+                .form-group
+                  label Debit Account
+                  select#myaccount-1.custom-select
+                    option(label='Select your account to debited')
+                    option 1018041933 (UBA) Benjamin Emmanuel
+                    option 1018041933 (Zenith Bank) Benjamin Emmanuel
+                    option(value='newaccount-1') Add a new Account
+                .form-group
+                  label(for='formGroupExampleInput') BDC account to credit
+                  .form-group
+                    input.form-control(list='banks' name='bank' placeholder='e.g Choose your Bank')
+                    datalist#banks
+                      option(value='Access Bank') Access Bank
+                      option(value='Citibank') Citibank
+                      option(value='Ecobank Bank') Ecobank
+                      option(value='Fidelity Bank') Fidelity Bank
+                      option(value='First City Monument Bank (FCMB)') First City Monument Bank (FCMB)
+                      option(value='FSDH Merchant Bank') FSDH Merchant Bank
+                      option(value='uarantee Trust Bank (GTB)') Guarantee Trust Bank (GTB)
+                      option(value='Heritage Bank') Heritage Bank
+                      option(value='Keystone Bank') Keystone
+                      option(value='Keystone Bank') Keystone Bank
+                      option(value='stanbic') Stanbic IBTC Bank
+                      option(value='standard') Standard Chartered Bank
+                      option(value='Stanbic IBTC Bank') Sterling Bank
+                      option(value='Union Bank') Union Bank
+                      option(value='United Bank for Africa (UBA)') United Bank for Africa (UBA)
+                      option(value='Unity Bank') Unity Bank
+                      option(value='Wema Bank') Wema Bank
+                      option(value='Zenith Bank') Zenith Bank
+                .form-group.mb-3
+                  label Enter Your Login PIN
+                  .input-group.input-group-merge.input-group-alternative
+                    .input-group-prepend
+                      span.input-group-text
+                        i.fas.fa-credit-card
+                    input.form-control(placeholder='Enter Your 4 Digit PIN ' type='number')
+                p.blocquote
+                  | * Note: Settlement mostly occur within 15 mins of our receipt of payment from your Bank
+                .text-center
+                  a.btn.btn-primary.my-4(a='' href='success.html') Pay Now

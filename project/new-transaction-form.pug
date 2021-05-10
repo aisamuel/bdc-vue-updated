@@ -1,0 +1,135 @@
+.container-fluid.mt--6
+    .row.justify-content-md-center
+      .col-lg-8
+        .card-wrapper
+          // Input groups
+          .card
+            // Card header
+            .card-header
+              h3.mb-0 New Transaction
+            // Card body
+            .card-body
+              ul#pills-tab.nav.nav-pills.mb-3.nav-justified(role='tablist')
+                li.nav-item
+                  a#pills-buy-tab.nav-link.tab-link.active(data-toggle='pill' href='#pills-buy' role='tab' aria-controls='pills-buy' aria-selected='true' @click="switchMode('buy')") Buy
+                li.nav-item
+                  a#pills-sell-tab.nav-link.tab-link(data-toggle='pill' href='#pills-sell' role='tab' aria-controls='pills-sell' aria-selected='false' @click="switchMode('sell')") Sell
+              #pills-tabContent.tab-content
+                #pills-buy.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='pills-buy-tab')
+                  form.row
+                    .col-md-6(v-if="activeMode==='buy'" v-cloak)
+                      label You Recieve
+                        .input-group.mb-3
+                          .input-group-prepend
+                            select.custom-select(v-model="selectedCurrency" @change="convertCurrencyBuy(true)" v-cloak)
+                              option(selected :value='exchangeRate' v-for="(exchangeRate, index) in selectedexchangeRates") {{exchangeRate.currency}}
+                          input.form-control(type='number', v-model="amountInCurrency" @keyup="convertCurrencyBuy(true)" @change="convertCurrencyBuy(true)" )
+                    .col-md-6(v-if="activeMode==='buy'" v-cloak)
+                      label You Give
+                      .form-group
+                        .input-group.input-group-merge
+                          .input-group-append
+                            span.input-group-text.bg-success.text-white
+                              small.font-weight-bold NGN
+                          input.form-control(placeholder='Amount you give' type='number' v-model="amountInNaira" @keyup="convertCurrencyBuy(false)" @change="convertCurrencyBuy(false)")
+                    
+                    .col-md-6(v-if="activeMode!=='buy'" v-cloak)
+                      label You give
+                      .input-group.mb-3
+                        .input-group-prepend
+                          select.custom-select(v-model="selectedCurrency" @change="convertCurrencySell(false)" v-cloak)
+                            option(selected :value='exchangeRate' v-for="(exchangeRate, index) in exchangeRates") {{exchangeRate.currency}}
+                        input.form-control(type='number', v-model="amountInCurrency" @keyup="convertCurrencySell(true)" @change="convertCurrencySell(true)")
+                    .col-md-6(v-if="activeMode!=='buy'" v-cloak)
+                      label You recieve
+                      .form-group
+                        .input-group.input-group-merge
+                          input.form-control(placeholder='Amount you get' type='number' v-model="amountInNaira" @keyup="convertCurrencySell(false)" @change="convertCurrencySell(false)")
+                          .input-group-append
+                            span.input-group-text.bg-success.text-white
+                              small.font-weight-bold NGN
+
+                    //- .col-md-6(v-if="activeMode==='buy'" v-cloak)
+                    //-   label You Give
+                    //-   .input-group.mb-3
+                    //-     .input-group-prepend
+                    //-       select.custom-select(v-model="selectedCurrency" @change="convertCurrency(true)" v-cloak)
+                    //-         option(selected :value='exchangeRate' v-for="(exchangeRate, index) in exchangeRates") {{exchangeRate.currency}}
+                    //-     input.form-control(type='number', v-model="amountInCurrency" @keyup="convertCurrency(true)")
+                    //- .col-md-6(v-if="activeMode==='buy'" v-cloak)
+                    //-   label Amount
+                    //-   .form-group
+                    //-     .input-group.input-group-merge
+                    //-       input.form-control(placeholder='Amount you get' type='number' v-model="amountInNaira" @keyup="convertCurrency(false)")
+                    //-       .input-group-append
+                    //-         span.input-group-text.bg-success.text-white
+                    //-           small.font-weight-bold NGN
+                    //- .col-md-6(v-if="activeMode!=='buy'" v-cloak)
+                    //-   label Amount
+                    //-   .form-group
+                    //-     .input-group.input-group-merge
+                    //-       .input-group-append
+                    //-         span.input-group-text.bg-success.text-white
+                    //-           small.font-weight-bold NGN
+                    //-       input.form-control(placeholder='Amount you get' type='number' v-model="amountInNaira" @keyup="convertCurrency(false)")
+                    //- .col-md-6(v-if="activeMode!=='buy'" v-cloak)
+                    //-   label Amount
+                    //-   .input-group.mb-3
+                    //-     .input-group-prepend
+                    //-       select.custom-select(v-model="selectedCurrency" @change="convertCurrency(false)" v-cloak)
+                    //-         option(selected :value='exchangeRate' v-for="(exchangeRate, index) in exchangeRates") {{exchangeRate.currency}}
+                    //-     input.form-control(type='number', v-model="amountInCurrency" @keyup="convertCurrency(true)")
+                    .text-right.col-md-12
+                      h4(v-if="activeMode==='buy'" v-cloak)
+                        | Buy Transaction Rate 1 {{selectedCurrency.currency}} = {{selectedCurrency.rateFromNaira}} NGN
+                      h4(v-if="activeMode!=='buy'" v-cloak)
+                        | Sell Transaction Rate 1 {{selectedCurrency.currency}} = {{selectedCurrency.rateToNaira}} NGN
+                    // MOdal starts here
+                    // MOdal-2 starts here
+                  .text-right
+                    button.btn.btn-primary(v-if="!userProfile._id" @click="routeToRegister()" :disabled="amountInNaira<1000" v-cloak)
+                      | {{activeMode === 'buy' ? "Buy Now" : "Sell Now"}}
+                    button.btn.btn-primary(v-if="userProfile._id" data-toggle='modal' data-target='#xf-details-2' :disabled="amountInNaira<1000" v-cloak)
+                      | {{activeMode === 'buy' ? "Buy Now" : "Sell Now"}}
+                  include new-transaction-modal.pug
+
+                  //- .col-md-6(v-if="activeMode!=='buy'" v-cloak)
+                  //-     label Amount
+                  //-     .form-group
+                  //-       .input-group.input-group-merge
+                  //-         .input-group-append
+                  //-           span.input-group-text.bg-success.text-white
+                  //-             small.font-weight-bold NGN
+                  //-         input.form-control(placeholder='Amount you get' type='number' v-model="amountInNaira" @keyup="convertCurrency(false)")
+                  //-   .col-md-6(v-if="activeMode!=='buy'" v-cloak)
+                  //-     label Amount
+                  //-     .input-group.mb-3
+                  //-       .input-group-prepend
+                  //-         select.custom-select(v-model="selectedCurrency" @change="convertCurrency(false)" v-cloak)
+                  //-           option(selected :value='exchangeRate' v-for="(exchangeRate, index) in exchangeRates") {{exchangeRate.currency}}
+                  //-       input.form-control(type='number', v-model="amountInCurrency" @keyup="convertCurrency(true)")
+
+                              <div class="col-md-6">
+                                                    <label>You Give</label>
+                                                    <div class="form-group">
+                                                        <div class="input-group input-group-merge">
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text bg-success text-white"><small class="font-weight-bold">NGN</small></span>
+                                                            </div>
+                                                            <input class="form-control" placeholder="Amount you Give" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>You Recieve</label>
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <select class="custom-select">
+                                                                <option selected value="USD">USD</option>
+                                                                <option value="1">EUR</option>
+                                                                <option value="2">POUNDS</option>
+                                                            </select>
+                                                        </div>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>

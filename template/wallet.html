@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Wallet - 313BDC</title>
+        <!-- Favicon -->
+        <link rel="icon" href="assets/img/brand/favicon.ico" type="image/ico">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+        <!-- Icons -->
+        <link rel="stylesheet" href="assets/vendor/nucleo/css/nucleo.css" type="text/css">
+        <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+        <!-- Page plugins -->
+        <!-- Argon CSS -->
+        <link rel="stylesheet" href="assets/css/argon.min-v=1.0.0.css" type="text/css">
+    </head>
+    <body>
+        <!-- Sidenav -->
+        <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+            <div class="scrollbar-inner">
+                <!-- Brand -->
+                <div class="sidenav-header d-flex align-items-center">
+                    <a class="navbar-brand" href="dashboard.html"> <img src="assets/img/brand/logo.png" class="navbar-brand-img" alt="..."> </a>
+                    <div class="ml-auto">
+                        <!-- Sidenav toggler -->
+                        <div class="sidenav-toggler d-none d-xl-block" data-action="sidenav-unpin" data-target="#sidenav-main">
+                            <div class="sidenav-toggler-inner">
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-inner">
+                    <!-- Collapse -->
+                    <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+                        <!-- Nav items -->
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html"> <i class="ni ni-shop text-primary"></i> <span class="nav-link-text">Dashboard</span> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../widgets.html"> <i class="ni ni-briefcase-24 text-green"></i> <span class="nav-link-text">New Transaction</span> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#"> <i class="fa fa-wallet text-info"></i> <span class="nav-link-text">Wallet</span> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="history.html"> <i class="ni ni-bullet-list-67 text-red"></i> <span class="nav-link-text">Transaction Log</span> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="bank_details.html"> <i class="ni ni-building text-red"></i> <span class="nav-link-text">Bank Details </span> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="support.html"> <i class="ni ni-headphones text-green"></i> <span class="nav-link-text">Support </span> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="profile.html"> <i class="ni ni-circle-08 text-primary"></i> <span class="nav-link-text">Profile </span> </a>
+                            </li>
+                        </ul>
+                        <!-- Divider -->
+                        <hr class="my-3">
+                        <!-- Heading -->
+                        <!--<h6 class="navbar-heading p-0 text-muted">Documentation</h6>-->
+                        <!-- Navigation -->
+                        <ul class="navbar-nav mb-md-3">
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.html" target="_blank"> <i class="ni ni-spaceship"></i> <span class="nav-link-text">Log Out</span> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Main content -->
+        <div class="main-content" id="panel">
+            <!-- Topnav -->
+            <nav class="navbar navbar-top navbar-expand navbar-dark bg-green border-bottom">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Search form -->
+                        <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+                            <div class="form-group mb-0">
+                                <div class="input-group input-group-alternative input-group-merge">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    </div>
+                                    <input class="form-control" placeholder="Search" type="text">
+                                </div>
+                            </div>
+                            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </form>
+                        <!-- Navbar links -->
+                        <ul class="navbar-nav align-items-center ml-md-auto">
+                            <li class="nav-item d-xl-none">
+                                <!-- Sidenav toggler -->
+                                <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+                                    <div class="sidenav-toggler-inner">
+                                        <i class="sidenav-toggler-line"></i>
+                                        <i class="sidenav-toggler-line"></i>
+                                        <i class="sidenav-toggler-line"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item d-sm-none">
+                                <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main"> <i class="ni ni-zoom-split-in"></i> </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav align-items-center ml-auto ml-md-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <div class="media align-items-center">
+                                        <span class="avatar avatar-sm rounded-circle"> <img alt="Image placeholder" src="assets/img/theme/team-4.jpg"> </span>
+                                        <div class="media-body ml-2 d-none d-lg-block">
+                                            <span class="mb-0 text-sm  font-weight-bold">Benjamin Emmanuel</span>
+                                        </div>
+                                    </div> </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header noti-title">
+                                        <h6 class="text-overflow m-0">Welcome!</h6>
+                                    </div>
+                                    <a href="profile.html" class="dropdown-item"> <i class="ni ni-single-02"></i> <span>My profile</span> </a>
+                                    <a href="#!" class="dropdown-item"> <i class="ni ni-settings-gear-65"></i> <span>Settings</span> </a>
+                                    <a href="" class="dropdown-item"> <i class="ni ni-calendar-grid-58"></i> <span>Activity</span> </a>
+                                    <a href="support.html" class="dropdown-item"> <i class="ni ni-support-16"></i> <span>Support</span> </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="login.html" class="dropdown-item"> <i class="ni ni-user-run"></i> <span>Logout</span> </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Header -->
+            <!-- Header -->
+            <div class="header bg-green pb-6">
+                <div class="container-fluid">
+                    <div class="header-body">
+                        <div class="row align-items-center py-4">
+                            <div class="col-lg-6 col-7">
+                                <h6 class="h2 text-white d-inline-block mb-0">Dashboard</h6>
+                                <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                                    <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                        <li class="breadcrumb-item">
+                                            <a href="#"><i class="fas fa-home"></i></a>
+                                        </li>
+                                        <li class="breadcrumb-item active">
+                                            <a href="#">Wallet</a>
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                            <div class="col-lg-6 col-5 text-right">
+                                <a href="new_trans.html" class="btn btn-sm btn-neutral">New Transaction</a>
+                                <a href="bank_details.html" class="btn btn-sm btn-neutral">Add Account</a>
+                            </div>
+                        </div>
+                        <!-- Card stats -->
+                    </div>
+                </div>
+            </div>
+            <!-- Page content -->
+            <div class="container-fluid mt--6">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <!-- Avatar -->
+                                        <a href="#" class="avatar avatar-xl"> <img alt="Image placeholder" src="assets/img/icons/wallet-2.svg"> </a>
+                                    </div>
+                                    <div class="col-3 ml--">
+                                        <div class="form-group">
+                                            <label>Select Account type</label>
+                                            <select class="custom-select" id="mywallet">
+                                                <option>USD (Dollar)</option>
+                                                <option>NGN (Naira)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col ml-6">
+                                        <h2 class="mb-0"> Wallet Balance </h2>
+                                        <p class="text-md text-muted mb-0">0 USD</p>
+                                    </div>
+                                    <div class="col text-right">
+                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-wallet">
+                                            Fund Wallet Now
+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="mb-0">Latest Transaction</h3>
+                            </div>
+                            <div class="col text-right">
+                                <a href="history.html" class="btn btn-sm btn-primary">See all</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <!-- Projects table -->
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Activity</th>
+                                        <th scope="col">Transaction ID</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Timer</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+                                    <tr>
+                                        <td class="budget">
+                        29 May 2019 </td>
+                                        <td class="budget">
+                        Buying US Dollars </td>
+                                        <td class="budget">
+                        US123eb45trf300 </td>
+                                        <td>$ 2,500</td>
+                                        <td> <span class="badge badge-dot mr-4"> <i class="bg-warning"></i> <span class="status">pending</span> </span> </td>
+                                        <td>0 Days Left</td>
+                                        <td class="text-right">
+                                            <div class="dropdown">
+                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-ellipsis-v"></i> </a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="budget">
+                        29 May 2019 </td>
+                                        <td class="budget">
+                        Buying US Dollars </td>
+                                        <td class="budget">
+                        US123eb45trf300 </td>
+                                        <td>$ 2,500</td>
+                                        <td> <span class="badge badge-dot mr-4"> <i class="bg-success"></i> <span class="status">Completed</span> </span> </td>
+                                        <td>0 Days Left</td>
+                                        <td class="text-right">
+                                            <div class="dropdown">
+                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-ellipsis-v"></i> </a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer py-4">
+                        <nav aria-label="...">
+                            <ul class="pagination justify-content-end mb-0">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1"> <i class="fas fa-angle-left"></i> <span class="sr-only">Previous</span> </a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">1</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">3</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#"> <i class="fas fa-angle-right"></i> <span class="sr-only">Next</span> </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- Footer -->
+                <footer class="footer pt-0">
+                    <div class="row align-items-center justify-content-lg-between">
+                        <div class="col-lg-6">
+                            <div class="copyright text-center text-lg-left text-muted">
+                                &copy; 2019 
+                                <a href="#" class="font-weight-bold ml-1" target="_blank">313BDC</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link" target="_blank">About Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link" target="_blank">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#/license" class="nav-link" target="_blank">License</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-wallet" tabindex="-1" role="dialog" aria-labelledby="modal-wallet" aria-hidden="true">
+            <div class="modal-dialog modal- modal-dialog-centered modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-body p-0">
+                        <div class="card bg-secondary border-0 mb-0">
+                            <div class="card-header bg-transparent pb-5">
+                                <h3 class="text-center">
+                                    Wallet Details </h3>
+                            </div>
+                            <div class="card-body px-lg-5 py-lg-5">
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label>Select Wallet Currency</label>
+                                        <select class="custom-select">
+                                            <option label="Currency"></option>
+                                            <option>NGN</option>
+                                            <option>USD</option>
+                                            <option>EUROS</option>
+                                            <option>POUNDS</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Enter Amount</label>
+                                        <div class="input-group input-group-merge input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-money-bill"></i></span>
+                                            </div>
+                                            <input class="form-control" placeholder="$1000" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-merge input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-comment"></i></span>
+                                            </div>
+                                            <input class="form-control" placeholder="Benjamin Emmanuel" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center mt-5">
+                                        <button class="btn btn-icon btn-primary" href="#">
+                                            <span class="btn-inner--icon"><i class="fas fa-credit-card"></i></span>
+                                            <span class="btn-inner--text">Pay With Card</span>
+                                        </button>
+                                        <button class="btn btn-icon btn-primary" onclick="myFunction()">
+                                            <span class="btn-inner--icon"><i class="fas fa-landmark"></i></span>
+                                            <span class="btn-inner--text">Fund With BAnk</span>
+                                        </button>
+                                    </div>
+                                </form>
+                                <div class="row" id="myWallet">
+                                    <div class="card-header col">
+                                        <!-- Title -->
+                                        <h5 class="h3 mb-0">Bank Details</h5>
+                                    </div>
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Select Country</label>
+                                            <select class="custom-select">
+                                                <option label="Country"></option>
+                                                <option>Nigeria</option>
+                                                <option>United States of America</option>
+                                                <option>England</option>
+                                                <option>Germany</option>
+                                                <option>Canada</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group"> 
+                                            <label for="formGroupExampleInput">Select Your Bank</label>                                             
+                                            <div class="form-group">
+                                                <input class=" form-control" list="banks" name="bank" placeholder="e.g Choose your Bank">
+                                                <datalist id="banks">
+                                                    <option value="Access Bank">Access Bank</option>
+                                                    <option value="Citibank">Citibank</option>
+                                                    <option value="Ecobank Bank">Ecobank</option>
+                                                    <option value="Fidelity Bank">Fidelity Bank</option>
+                                                    <option value="First City Monument Bank (FCMB)">First City Monument Bank (FCMB)</option>
+                                                    <option value="FSDH Merchant Bank">FSDH Merchant Bank</option>
+                                                    <option value="uarantee Trust Bank (GTB)">Guarantee Trust Bank (GTB)</option>
+                                                    <option value="Heritage Bank">Heritage Bank</option>
+                                                    <option value="Keystone Bank">Keystone</option>                                                     
+                                                    <option value="Keystone Bank">Keystone Bank</option>
+                                                    <option value="stanbic">Stanbic IBTC Bank</option>
+                                                    <option value="standard">Standard Chartered Bank</option>
+                                                    <option value="Stanbic IBTC Bank">Sterling Bank</option>
+                                                    <option value="Union Bank">Union Bank</option>
+                                                    <option value="United Bank for Africa (UBA)">United Bank for Africa (UBA)</option>
+                                                    <option value="Unity Bank">Unity Bank</option>
+                                                    <option value="Wema Bank">Wema Bank</option>
+                                                    <option value="Zenith Bank">Zenith Bank</option>
+                                                </datalist>
+                                            </div>                                             
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label>Re-Enter Your PIN</label>
+                                            <div class="input-group input-group-merge input-group-alternative">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-credit-card"></i></span>
+                                                </div>
+                                                <input class="form-control" placeholder="Enter Your 4 Digit PIN " type="number">
+                                            </div>
+                                        </div>
+                                        <p class="blocquote">* Note: Settlement mostly occur within 15 mins of our receipt of payment from your Bank</p>
+                                        <div class="text-center">
+                                            <button type="button" class="btn btn-primary my-4">Pay Now</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Argon Scripts -->
+        <!-- Core -->
+        <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/js-cookie/js.cookie.js"></script>
+        <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+        <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+        <script src="assets/vendor/lavalamp/js/jquery.lavalamp.min.js"></script>
+        <!-- Optional JS -->
+        <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
+        <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+        <!-- Argon JS -->
+        <script src="assets/js/argon.min-v=1.0.0.js"></script>
+        <!-- Demo JS - remove this in your project -->
+        <script src="assets/js/demo.min.js"></script>
+        <script>
+        function myFunction() {
+          var x = document.getElementById("myWallet");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        }
+        </script>
+    </body>
+</html>

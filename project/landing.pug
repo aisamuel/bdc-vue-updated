@@ -1,0 +1,360 @@
+doctype html
+include head.pug
+// Navabr
+#landingNavbar
+  nav#navbar-main.navbar.navbar-horizontal.navbar-main.navbar-expand-lg.navbar-transparent
+    .container
+      a.navbar-brand(href='pages/dashboards/dashboard.html')
+        img(src='assets/img/brand/logo.png')
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbar-collapse.navbar-collapse.navbar-custom-collapse.collapse
+        .navbar-collapse-header
+          .row
+            .col-6.collapse-brand
+              a(href='pages/dashboards/dashboard.html')
+                img(src='assets/img/brand/blue.png')
+            .col-6.collapse-close
+              button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-collapse' aria-controls='navbar-collapse' aria-expanded='false' aria-label='Toggle navigation')
+                span
+                span
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href='/new-transaction')
+              span.nav-link-inner--text Dashboard
+          li.nav-item
+            a.nav-link(href='/fxrates')
+              span.nav-link-inner--text FX Rates
+          li.nav-item
+            a.nav-link(href='/about')
+              span.nav-link-inner--text About
+          li.nav-item
+            a.nav-link(href='/faq')
+              span.nav-link-inner--text FAQ
+          li.nav-item
+            a.nav-link(href='#contact')
+              span.nav-link-inner--text Contact
+        hr.d-lg-none
+        ul.navbar-nav.align-items-lg-center.ml-lg-auto
+          li
+            a.btn.btn-success(@click="logInOrOut()" v-cloak)  {{ !userProfile ? 'Login' : 'Logout'}} 
+          li.nav-item.d-none.d-lg-block.ml-lg-4
+            a.btn.btn-neutral.btn-icon(href='signup' v-if="!userProfile" v-cloak) Create Account 
+// Main content
+#landingApp.main-content
+  // Header
+  .main-content
+  // Header
+  .header.bg-landing.pt-5.pb-7
+    .container.mt-7
+      .header-body
+        .row.align-items-center
+          .col-lg-6
+            div
+              h1.display-1.text-white.font-weight-bold.mb-0 Welcome to 313BDC 
+              h4.display-6.text-white.font-weight-light Making Forex services easy and accessible to all.
+          .col-xl-6.col-lg-6
+            .card.bg-default.shadows
+              .card-header.bg-transparent.border-0
+                .row.align-items-center
+                  .col
+                    h3.mb-0.text-white 313BDC Current Rates
+              .table-responsive
+                // Projects table
+                .table-responsive
+                  table.table.align-items-center.table-dark.table-flush
+                    thead.thead-dark.text-center
+                      tr
+                        th(scope='col') Currency
+                        th(scope='col') Buy
+                        th(scope='col') Sell
+                        //- th(scope='col') Date
+                    tbody.list.text-center
+                      tr(v-for='exchangeRate in selectedexchangeRates' v-cloak)
+                        td
+                          | {{exchangeRate.currency}}
+                        td
+                          | {{exchangeRate.rateFromNaira}}
+                        td {{exchangeRate.rateToNaira}}
+                        //- td
+                        //-   | {{exchangeRate.updated | dateFormat('YYYY.MM.DD')}}
+                      //- tr
+                      //-   td
+                      //-     | GBP
+                      //-   td
+                      //-     | 475.00
+                      //-   td 480.00
+                      //-   td
+                      //-     | 29 May 2019
+                      //- tr
+                      //-   td
+                      //-     | EUR
+                      //-   td
+                      //-     | 395.00
+                      //-   td 400.00
+                      //-   td
+                      //-     | 29 May 2019
+
+  section.section.section-lg.pt-lg-0.mt--6
+    include new-transaction-form.pug
+  section.py-6
+  .container
+    .row.row-grid.align-items-center
+      .col-md-6.order-md-2.text-center
+        img.img-fluid(src='assets/img/theme/mobile.png' width='300')
+      .col-md-6.order-md-1
+        .pr-md-5
+          h1 Awesome features
+          p
+            | This dashboard comes with super cool features that are meant to help in the process. Handcrafted components, page examples and functional widgets are just a few things you will see and love at first sight.
+        .mt-5
+          a(href='#')
+            img(src='assets/img/icons/apple.png')
+          a(href='#')
+            img(src='assets/img/icons/google.png')
+section.py-6
+  .container
+    .row.row-grid.align-items-center
+      .col-md-6
+        .embed-responsive.embed-responsive-16by9
+          iframe(width='806' height='453' src='https://www.youtube.com/embed/xjBGynabXOE' frameborder='0' allow='accelerometer; autoplay;	' allowfullscreen='')
+      .col-md-6
+        .pr-md-5
+          h1 About US
+          p
+            | 313 Bureau De Change (BDC) is a fully owned indigenous BDC firm with a multi-discipline group of professionals. 313 BDC LTD is a one stop Bureau de Change where we buy and sell (exchange) foreign Currencies at the BEST RATE for customers in the market.
+          a.font-weight-bold.text-green.mt-5(href='about.html') Read More
+section.py-6
+  .container
+    .row.row-grid.align-items-center
+      .col-md-6.order-md-2.shadows
+        img.im-fluid(src='assets/img/theme/dash.png' width='600')
+      .col-md-6.order-md-1
+        .pr-md-5
+          h1
+          p
+            | 313 Bureau De Change Limited is incorporated in Nigeria with the Corporate Affairs Commission (CAC) with Registration Number (RC: 735395) and Certificate of incorporation of a Private Limited Company duly certified by England and Wales with Company Number 8679026. 313 BDC LTD has a very strong Capital Base, adequately staffed and operates through a highly capable and closely knit core of key professionals with varied background covering different aspects of business unlike the other BDCs. We offer the best services in the market to customers on hourly bases. We offer cashless transactions and also Foreign Transfers for safe and convenient transactions anywhere you are in the world.
+section#contact.py-6
+  .container
+    h1.text-center.pb-4 You can reach Us
+    .row.row-grid.align-items-center
+      .col-md-6.order-md-2
+        .card
+          .card-header
+            h3
+              | Send Us a Message
+          .card-body
+            form
+              .form-group
+                label.form-control-label(for='exampleFormControlInput1') Your Name
+                input#exampleFormControlInput1.form-control(type='email' placeholder='name@example.com')
+              .form-group
+                label.form-control-label(for='exampleFormControlInput1') Email address
+                input#exampleFormControlInput1.form-control(type='email' placeholder='name@example.com')
+              .form-group
+                label.form-control-label(for='exampleFormControlSelect1') Subject
+                select#exampleFormControlSelect1.form-control
+                  option Non-Payment
+                  option Delayed Payment 
+                  option Refund
+                  option General
+              .form-group
+                label.form-control-label(for='exampleFormControlTextarea1') Message
+                textarea#exampleFormControlTextarea1.form-control(rows='3')
+      .col-md-6.order-md-1.mb-9
+        .pr-md-5
+          h4.text-light
+            | Main Office
+          p.font-weight-bold
+            | No 3, Oshakati Close, Off Constantine Street, by Zone 4 Plaza, off Sheraton Hotel, Wuse Zone 4, Abuja
+          h4.text-light
+            | Branch office 
+          p
+            | Babura House Plaza, Addis Ababa Cresent, Off Ladi Kwali Street, Wuse Zone 4, Abuja
+          div
+            h4.text-light Phone : 
+            span.font-weight-bold 08031230313, 08099936398, 07058890313
+          .mt-2.mb-2
+            a.font-weight-bold.text-success.mt-5(href='mailto:info@313bdc.com')
+              span.ni.ni-email-83
+              |  Send us a Mail
+          div
+            ul.nav.nav-footer.justify-content-left
+              li.nav-item
+                a.nav-link.nav-link-icon(href='#' target='_blank' data-toggle='tooltip' title='' data-original-title='we are Whatsapp')
+                  i.fab.fa-whatsapp.fa-2x
+                  span.nav-link-inner--text.d-lg-none Whatsapp
+              li.nav-item
+                a.nav-link.nav-link-icon(href='https://www.facebook.com/313-Bureau-De-Change-436412349767568/' target='_blank' data-toggle='tooltip' title='' data-original-title='Like us on Facebook')
+                  i.fab.fa-facebook-square.fa-2x
+                  span.nav-link-inner--text.d-lg-none Facebook
+              li.nav-item
+                a.nav-link.nav-link-icon(href='https://twitter.com/313bdc313?lang=en' target='_blank' data-toggle='tooltip' title='' data-original-title='Follow us on Twitter')
+                  i.fab.fa-twitter.fa-2x
+                  span.nav-link-inner--text.d-lg-none Twitter
+              li
+
+  //- section.py-6
+  //-   .container
+  //-     .row.row-grid.align-items-center
+  //-       .col-md-6.order-md-2.text-center
+  //-         img.img-fluid(src='assets/img/theme/mobile.png' width='300')
+  //-       .col-md-6.order-md-1
+  //-         .pr-md-5
+  //-           h1 Awesome features
+  //-           p
+  //-             | This dashboard comes with super cool features that are meant to help in the process. Handcrafted components, page examples and functional widgets are just a few things you will see and love at first sight.
+  //-         .mt-5
+  //-           a(href='#')
+  //-             img(src='assets/img/icons/apple.png')
+  //-           a(href='#')
+  //-             img(src='assets/img/icons/google.png')
+  //- .section.fx-currency
+  //-   .container
+  //-     .row
+  //-       .col-xl-6.col-lg-6.col-md-12.col-sm-12
+  //-         .testimonial-area
+  //-           .testimonial-slider
+  //-             .single-testimonial
+  //-               h4.user_name Our Fx-Rates Today
+  //-               img(src='assets/img/svg/trust-icon-1.png' alt='')
+  //-               h1.title
+  //-                 | NGN 360.00 
+  //-                 br
+  //-                 |  $ 1 US Dollars
+  //-               p 3% higher than bank Rates
+  //-               a.position(href='#')
+  //-                 | See our Fx-rates 
+  //-                 i.fa.fa-long-arrow-alt-right
+  //-             .single-testimonial
+  //-               h4.user_name Our Fx-Rates Today
+  //-               img(src='assets/img/svg/trust-icon-1.png' alt='')
+  //-               h1.title
+  //-                 | NGN 450.00 
+  //-                 br
+  //-                 |  &pound; 1 British Pound
+  //-               p 2% higher than bank Rates
+  //-               a.position(href='rates.html')
+  //-                 | See our Fx-rates 
+  //-                 i.fa.fa-long-arrow-alt-right
+  //-             .single-testimonial
+  //-               h4.user_name Our Fx-Rates Today
+  //-               img(src='assets/img/svg/trust-icon-1.png' alt='')
+  //-               h1.title
+  //-                 | NGN 427.00 
+  //-                 br
+  //-                 |  &euro; 1 Euros
+  //-               p
+  //-                 span.fa.fa-chart-bar
+  //-                 |  3% higher than bank Rates
+  //-               a.position(href='#')
+  //-                 | See our Fx-rates 
+  //-                 i.fa.fa-long-arrow-alt-right
+  //-       .col-xl-6.col-lg-6.col-md-12.col-sm-12.d-xl-flex.d-lg-flex.d-block.align-items-center
+  //-         .convert-currency
+  //-           h3 Convert Currency&nbsp;
+  //-           form
+  //-             .form-group
+  //-               label(for='formGroupExampleInput') You Send
+  //-               .d-flex
+  //-                 input#formGroupExampleInput.form-control(type='text' placeholder='$2546')
+  //-                 select#inlineFormCustomSelect.custom-select.mr-sm-2
+  //-                   option(selected='') USD
+  //-                   option(value='1') EUR
+  //-                   option(value='2') POUNDS
+  //-                   option(value='3') NAIAR
+  //-             .form-group
+  //-               label(for='formGroupExampleInput2') You Received
+  //-               .d-flex
+  //-                 input#formGroupExampleInput2.form-control(type='text' placeholder='2454.21')
+  //-                 select#inlineFormCustomSelect2.custom-select.mr-sm-2
+  //-                   option USD
+  //-                   option(value='1') EUR
+  //-                   option(value='2') POUNDS
+  //-                   option(selected='' value='3') NAIRA
+  //-             a.btn.btn-success(href='signup.html') Exchange Now
+    
+  //- section.py-6
+  //-   .container
+  //-     .row.row-grid.align-items-center
+  //-       .col-md-6
+  //-         img.img-fluid(src='assets/img/theme/landing-2.png')
+  //-       .col-md-6
+  //-         .pr-md-5
+  //-           h1 Example pages
+  //-           p
+  //-             | If you want to get inspiration or just show something directly to your clients, you can jump start your development with our pre-built example pages.
+  //-           a.font-weight-bold.text-warning.mt-5(href='pages/examples/profile.html') Explore pages
+  //- section.py-6
+  //-   .container
+  //-     .row.row-grid.align-items-center
+  //-       .col-md-6.order-md-2
+  //-         img.img-fluid(src='assets/img/theme/landing-3.png')
+  //-       .col-md-6.order-md-1
+  //-         .pr-md-5
+  //-           h1 Lovable widgets and cards
+  //-           p
+  //-             | We love cards and everybody on the web seems to. We have gone above and beyond with options for you to organise your information. From cards designed for content, to pricing cards or user profiles, you will have many options to choose from.
+  //-           a.font-weight-bold.text-info.mt-5(href='pages/widgets.html') Explore widgets
+  //- section.py-6
+  //-   .container
+  //-     .row.row-grid.align-items-center
+  //-       .col-md-6.order-md-2
+  //-         .card
+  //-           .card-header
+  //-             h3
+  //-               | Send Us a Message
+  //-           .card-body
+  //-             form
+  //-               .form-group
+  //-                 label.form-control-label(for='exampleFormControlInput1') Your Name
+  //-                 input#exampleFormControlInput1.form-control(type='email' placeholder='name@example.com')
+  //-               .form-group
+  //-                 label.form-control-label(for='exampleFormControlInput1') Email address
+  //-                 input#exampleFormControlInput1.form-control(type='email' placeholder='name@example.com')
+  //-               .form-group
+  //-                 label.form-control-label(for='exampleFormControlSelect1') Subject
+  //-                 select#exampleFormControlSelect1.form-control
+  //-                   option Non-Payment
+  //-                   option Delayed Payment 
+  //-                   option Refund
+  //-                   option General
+  //-               .form-group
+  //-                 label.form-control-label(for='exampleFormControlTextarea1') Message
+  //-                 textarea#exampleFormControlTextarea1.form-control(rows='3')
+  //-       .col-md-6.order-md-1
+  //-         .pr-md-5
+  //-           h1 You can reach Us
+  //-           h4.text-light
+  //-             | Locate Us
+  //-           p.font-weight-bold Suite E16 Emab Plaza Aminu Kano Crescent, Wuse 2, Abuja
+  //-           div
+  //-             h4.text-light Call for support : 
+  //-             span.font-weight-bold (234) 9030621787
+  //-           .mt-2.mb-2
+  //-             a.font-weight-bold.text-success.mt-5(href='mailto:info@313bdc.com')
+  //-               span.ni.ni-email-83
+  //-               |  We respond to Emails Promptly
+  //-           div
+  //-             ul.nav.nav-footer.justify-content-left
+  //-               li.nav-item
+  //-                 a.nav-link.nav-link-icon(href='#' target='_blank' data-toggle='tooltip' title='' data-original-title='Like us on Facebook')
+  //-                   i.fab.fa-whatsapp.fa-2x
+  //-                   span.nav-link-inner--text.d-lg-none Whatsapp
+  //-               li.nav-item
+  //-                 a.nav-link.nav-link-icon(href='#' target='_blank' data-toggle='tooltip' title='' data-original-title='Like us on Facebook')
+  //-                   i.fab.fa-facebook-square.fa-2x
+  //-                   span.nav-link-inner--text.d-lg-none Facebook
+  //-               li.nav-item
+  //-                 a.nav-link.nav-link-icon(href='https://www.instagram.com/creativetimofficial' target='_blank' data-toggle='tooltip' title='' data-original-title='Follow us on Instagram')
+  //-                   i.fab.fa-instagram.fa-2x
+  //-                   span.nav-link-inner--text.d-lg-none Instagram
+  //-               li.nav-item
+  //-                 a.nav-link.nav-link-icon(href='https://twitter.com/creativetim' target='_blank' data-toggle='tooltip' title='' data-original-title='Follow us on Twitter')
+  //-                   i.fab.fa-twitter.fa-2x
+  //-                   span.nav-link-inner--text.d-lg-none Twitter
+  //-               li
+// Footer
+include footer.pug
+include js-imports.pug
+script(src="assets/js/landing.js")
