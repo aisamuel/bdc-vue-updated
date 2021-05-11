@@ -288,6 +288,7 @@ const transactionApp = new Vue({
         noOfPendingTrans: [],
         noOfSuccessfulTrans: [],
         noOfFailedTrans: [],
+        myOpenTickets: [],
         // userBanks: [],
         buyTransactionLogs: [],
         no_of_buy_trans: 1,
@@ -295,6 +296,10 @@ const transactionApp = new Vue({
         selectedCurrency: {},
         amountInCurrency: null,
         amountInNaira: null,
+        ticketSubject: null,
+        ticketPriority: null,
+        ticketType: null,
+        ticketMessage: null,
         withBank: false,
         // mode: "buy",
         randomString: "",
@@ -309,6 +314,8 @@ const transactionApp = new Vue({
         buyTransLogURL: "trans/all-buy/",
         sellTransLogURL: "trans-sell/all-sell/",
         noOfTrans: "trans-logs/user-trans-logs?uid=",
+        saveTicket: "tickets/open-tickets",
+        userTicket: "tickets/user-ticket/",
         activeMode: "buy",
         paymentMethod: "card",
         acceptAgreement: false,
@@ -416,6 +423,22 @@ const transactionApp = new Vue({
            
         },
 
+        async fetchAllOpenTickets() {
+            const res = await fetch(`${baseURL}${this.userTicket}${this.userProfile._id}`, {
+                mode: "cors"
+            });
+            if (res) {
+                const result = await res.json();
+                this.myOpenTickets = JSON.parse(JSON.stringify(result.result));
+                console.log("my open tickets");
+                console.log(this.myOpenTickets);
+            }
+            else {
+                console.log("no open tickets");
+            }
+           
+        },
+
 
 
         // async fetchUserBanks() {
@@ -451,6 +474,32 @@ const transactionApp = new Vue({
                 console.log(result);
                 this.fetchUserAccounts();
                 console.log(this.userSelectedBankAccount);
+            }
+        },
+
+        async postTicket() {
+            console.log("trying to work");
+            console.log(this.ticketMessage, this.ticketSubject, this.ticketType, this.userProfile._id)
+            const requestBody = {
+                subject: this.ticketSubject,
+                priority: this.ticketPriority,
+                type: this.ticketType,
+                message: this.ticketMessage,
+                userId: this.userProfile._id,
+                token: getToken()
+            };
+            const res = await fetch(`${baseURL}${this.saveTicket}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(requestBody)
+            });
+            if (res) {
+                const result = await res.json();
+                alert("Your ticket has been successfully saved!")
+                console.log(result);
+            
             }
         },
 
@@ -699,6 +748,7 @@ const transactionApp = new Vue({
         this.fetchNoOfFailedTransactions();
         this.fetchBuyTransactionLogs();
         this.fetchSellTransactionLogs();
+        this.fetchAllOpenTickets();
         
         // this.fetchUserBanks();
     }

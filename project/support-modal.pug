@@ -14,21 +14,23 @@
                   .input-group-prepend
                     span.input-group-text
                       i.fas.fa-comment
-                  input.form-control(placeholder='$1000' type='text')
+                  input.form-control(placeholder='$1000' v-model='ticketSubject' type='text')
               .form-group
                 label Select Priority
-                select.custom-select
+                select.custom-select(v-model="ticketPriority")
                   option Low
                   option Medium
                   option High
               .form-group
                 label Select Type
-                select.custom-select
+                select.custom-select(v-model="ticketType")
                   option Technical
                   option Account
               .form-group
                 label.form-control-label(for='exampleFormControlTextarea1') Message
-                textarea#exampleFormControlTextarea1.form-control(rows='3')
+                textarea#exampleFormControlTextarea1.form-control(rows='3' v-model='ticketMessage')
               .row.justify-content-center.mt-5
-                button.btn.btn-icon.btn-success
+                button.btn.btn-primary(type='button' @click="postTicket()")
                   span.btn-inner--text Open Ticket
+                //- button.btn.btn-icon.btn-success(type='button' @click="postTicket()")
+                  

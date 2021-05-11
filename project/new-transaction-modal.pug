@@ -186,3 +186,38 @@
                             .text-center
                                 button.btn.btn-primary.my-4(type='button' data-dismiss="modal" @click="addBankAccount()" :disabled="!acceptAgreement || !accountIsUnique") Add Account
                                 button.btn.btn-danger.my-4(type='button' data-dismiss="modal" data-toggle='modal' data-target='#xf-details-2') Cancel
+
+#modal-support.modal.fade(tabindex='-1' role='dialog' aria-labelledby='modal-form' aria-hidden='true')
+  .modal-dialog.modal-.modal-dialog-centered.modal-md(role='document')
+    .modal-content
+      .modal-body.p-0
+        .card.bg-secondary.border-0.mb-0
+          .card-header.bg-transparent.pb-5
+            h3.text-center
+              | Support Ticket
+          .card-body.px-lg-5.py-lg-5
+            form(role='form')
+              .form-group.mb-3
+                label Subject
+                .input-group.input-group-merge.input-group-alternative
+                  .input-group-prepend
+                    span.input-group-text
+                      i.fas.fa-comment
+                  input.form-control(placeholder='$1000' v-model='ticketSubject' type='text')
+              .form-group
+                label Select Priority
+                select.custom-select(v-model="ticketPriority")
+                  option Low
+                  option Medium
+                  option High
+              .form-group
+                label Select Type
+                select.custom-select(v-model="ticketType")
+                  option Technical
+                  option Account
+              .form-group
+                label.form-control-label(for='exampleFormControlTextarea1') Message
+                textarea#exampleFormControlTextarea1.form-control(rows='3' v-model='ticketMessage')
+              .row.justify-content-center.mt-5
+                button.btn.btn-primary(type='button' @click="postTicket()")
+                  span.btn-inner--text Open Ticket
