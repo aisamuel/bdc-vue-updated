@@ -128,7 +128,7 @@
                                 label Select Account Currency
                                 select.custom-select(v-model="userSelectedBankAccount.currencyType" placeholder='Select Currency')
                                     //- select#myaccount-1.custom-select(v-model="userSelectedBankAccount.cu")
-                                    option(value='NGN') NGN
+                                    //- option(label='currency')
                                     option(v-for="exchangeRate in exchangeRates" :value="exchangeRate.currency") {{exchangeRate.currency}}
                                 //- option(label='Currency')
                                 //- option NGN
@@ -186,6 +186,7 @@
                             .text-center
                                 button.btn.btn-primary.my-4(type='button' data-dismiss="modal" @click="addBankAccount()" :disabled="!acceptAgreement || !accountIsUnique") Add Account
                                 button.btn.btn-danger.my-4(type='button' data-dismiss="modal" data-toggle='modal' data-target='#xf-details-2') Cancel
+<<<<<<< HEAD
 
 #modal-support.modal.fade(tabindex='-1' role='dialog' aria-labelledby='modal-form' aria-hidden='true')
   .modal-dialog.modal-.modal-dialog-centered.modal-md(role='document')
@@ -221,3 +222,5 @@
               .row.justify-content-center.mt-5
                 button.btn.btn-primary(type='button' @click="postTicket()")
                   span.btn-inner--text Open Ticket
+=======
+>>>>>>> leeko-latest-update
