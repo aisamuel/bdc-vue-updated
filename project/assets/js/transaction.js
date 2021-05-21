@@ -453,6 +453,7 @@ const transactionApp = new Vue({
         // },
 
         async addBankAccount() {
+            console.log(this.userSelectedBankAccount.currencyType),
             console.log(this.userSelectedBankAccount);
             const requestBody = {
                 accountNumber: this.userSelectedBankAccount.accountNumber,

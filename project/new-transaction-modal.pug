@@ -128,7 +128,7 @@
                                 label Select Account Currency
                                 select.custom-select(v-model="userSelectedBankAccount.currencyType" placeholder='Select Currency')
                                     //- select#myaccount-1.custom-select(v-model="userSelectedBankAccount.cu")
-                                    //- option(label='currency')
+                                    option(value='NGN') NGN
                                     option(v-for="exchangeRate in exchangeRates" :value="exchangeRate.currency") {{exchangeRate.currency}}
                                 //- option(label='Currency')
                                 //- option NGN
