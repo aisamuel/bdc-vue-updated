@@ -233,22 +233,6 @@ const transactionApp = new Vue({
         },
         convertCurrencySell(toNaira = true) {
             console.log("convert currency")
-<<<<<<< HEAD
-            if (toNaira) {
-                this.amountInNaira = Math.round((this.selectedCurrency.rateToNaira * this.amountInCurrency) * 100) / 100;
-            } else {
-                this.amountInCurrency = Math.round((this.amountInNaira / this.selectedCurrency.rateToNaira) * 100) /100;
-            }
-        },
-        convertCurrencyBuy(toNaira = true) {
-            console.log("convert currency sell")
-            if (toNaira) {
-                this.amountInNaira = Math.round((this.selectedCurrency.rateFromNaira * this.amountInCurrency) * 100) / 100;
-            } else {
-                this.amountInCurrency = Math.round((this.amountInNaira / this.selectedCurrency.rateFromNaira) * 100) /100;
-            }
-        },
-=======
 
         // NGN thousand Formatter
 
@@ -457,7 +441,6 @@ const transactionApp = new Vue({
             } 
         },
   
->>>>>>> leeko-latest-update
         switchMode(mode = "buy") {
             this.activeMode = mode;
             console.log("switching mode", mode);
