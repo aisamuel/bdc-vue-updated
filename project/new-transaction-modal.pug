@@ -128,7 +128,7 @@
                                 label Select Account Currency
                                 select.custom-select(v-model="userSelectedBankAccount.currencyType" placeholder='Select Currency')
                                     //- select#myaccount-1.custom-select(v-model="userSelectedBankAccount.cu")
-                                    option(value='NGN') NGN
+                                    //- option(label='currency')
                                     option(v-for="exchangeRate in exchangeRates" :value="exchangeRate.currency") {{exchangeRate.currency}}
                                 //- option(label='Currency')
                                 //- option NGN
@@ -222,5 +222,3 @@
               .row.justify-content-center.mt-5
                 button.btn.btn-primary(type='button' @click="postTicket()")
                   span.btn-inner--text Open Ticket
-=======
->>>>>>> 0ef8087 (the updates i did)
