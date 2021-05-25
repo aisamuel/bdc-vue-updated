@@ -20,37 +20,40 @@
                     th.sort(scope='col' data-sort='Timer') Timer
                     //- th(scope='col') Action
                 tbody.list
-                  tr(v-for='transactionLog in buyTransactionLogs' v-cloak)
-                    td.budget
-                      | {{ transactionLog.created_date }}
-                      //- | {{ format_date(transactionLog.created_date) }}
-                    td.budget
-                      | Buying {{ ' ' + transactionLog.recieve.recieveCurrency }}
-                    td.budget
-                      | {{ transactionLog.transDetails.refference }}
-                    td {{ transactionLog.recieve.recieveCurrency + ' ' + transactionLog.recieve.recieveAmount }}
-                    td
-                      span.badge.badge-dot.mr-4
-                        i.bg-success
-                        span.status {{ transactionLog.status }}
-                    td 0 Days Left
-                    td.text-right
-                      .dropdown
-                        a.btn.btn-sm.btn-icon-only.text-light(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                          i.fas.fa-ellipsis-v
-                        .dropdown-menu.dropdown-menu-right.dropdown-menu-arrow
-                          a.dropdown-item(href='#') Action
-                          a.dropdown-item(href='#') Another action
-                          a.dropdown-item(href='#') Something else here
+                  //- tr(v-for='transactionLog in buyTransactionLogs' v-cloak)
+                  //-   td.budget
+                  //-     | {{ transactionLog.created_date }}
+                  //-     //- | {{ format_date(transactionLog.created_date) }}
+                  //-   td.budget
+                  //-     | Buying {{ ' ' + transactionLog.recieve.recieveCurrency }}
+                  //-   td.budget
+                  //-     | {{ transactionLog.transDetails.refference }}
+                  //-   td {{ transactionLog.recieve.recieveCurrency + ' ' + transactionLog.recieve.recieveAmount }}
+                  //-   td
+                  //-     span.badge.badge-dot.mr-4
+                  //-       i.bg-success
+                  //-       span.status {{ transactionLog.status }}
+                  //-   td 0 Days Left
+                  //-   td.text-right
+                  //-     .dropdown
+                  //-       a.btn.btn-sm.btn-icon-only.text-light(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                  //-         i.fas.fa-ellipsis-v
+                  //-       .dropdown-menu.dropdown-menu-right.dropdown-menu-arrow
+                  //-         a.dropdown-item(href='#') Action
+                  //-         a.dropdown-item(href='#') Another action
+                  //-         a.dropdown-item(href='#') Something else here
                   tr(v-for='transactionLog in sellTransactionLogs' v-cloak)
                     td.budget
                       | {{ transactionLog.created_date }}
                       //- | {{ format_date(transactionLog.created_date) }}
+                    td.budget(v-if="transactionLog.pay")
+                      | {{transactionLog.Type}} {{ ' ' + transactionLog.pay.payCurrency }}
+                    td.budget(v-if="transactionLog.give")
+                      | {{transactionLog.Type}} {{ ' ' + transactionLog.give.giveCurrency }}
                     td.budget
-                      | Selling {{ ' ' + transactionLog.pay.payCurrency }}
-                    td.budget
-                      | {{ transactionLog._id }}
-                    td {{ transactionLog.pay.payCurrency + ' ' + transactionLog.pay.payAmount }}
+                      | {{ transactionLog.transDetails.refference }}
+                    td(v-if="transactionLog.pay") {{ transactionLog.pay.payCurrency + ' ' + transactionLog.pay.payAmount }}
+                    td(v-if="transactionLog.give") {{ transactionLog.give.giveCurrency + ' ' + transactionLog.give.giveAmount }}
                     td
                       span.badge.badge-dot.mr-4
                         i.bg-success

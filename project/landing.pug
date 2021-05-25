@@ -19,7 +19,7 @@ include head.pug
                 span
                 span
         ul.navbar-nav.mr-auto
-          li.nav-item
+          li.nav-item(v-if='userProfile')
             a.nav-link(href='/new-transaction')
               span.nav-link-inner--text Dashboard
           li.nav-item

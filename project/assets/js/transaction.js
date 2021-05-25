@@ -312,6 +312,7 @@ const transactionApp = new Vue({
         buyTransURL: "trans/buy/",
         sellTransURL: "trans-sell/sell",
         buyTransLogURL: "trans/all-buy/",
+        allUserTransLogURL: "trans-logs/user-logs/",
         sellTransLogURL: "trans-sell/all-sell/",
         noOfTrans: "trans-logs/user-trans-logs?uid=",
         saveTicket: "tickets/open-tickets",
@@ -363,12 +364,12 @@ const transactionApp = new Vue({
         },
 
         async fetchSellTransactionLogs() {
-            const res = await fetch(`${baseURL}${this.sellTransLogURL}${this.userProfile._id}`, {
+            const res = await fetch(`${baseURL}${this.allUserTransLogURL}${this.userProfile._id}`, {
                 mode: "cors"
             });
             if (res) {
                 const result = await res.json();
-                this.sellTransactionLogs = JSON.parse(JSON.stringify(result.result));
+                this.sellTransactionLogs = JSON.parse(JSON.stringify(result));
                 console.log(this.sellTransactionLogs);
             }
         },
