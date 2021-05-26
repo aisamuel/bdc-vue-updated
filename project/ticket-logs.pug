@@ -16,6 +16,7 @@
                     th.sort(scope='col' data-sort='Activity') Type
                     th.sort(scope='col' data-sort='ID') Priority
                     th.sort(scope='col' data-sort='Amount') Created
+                    th.sort(scope='col' data-sort='Amount') Active
                     th.sort(scope='col' data-sort='Status') Updated
                     th.sort(scope='col' data-sort='Timer') Message
                     //- th(scope='col') Action
@@ -29,6 +30,7 @@
                     td.budget
                       | {{ ticket.priority }}
                     td {{ ticket.created_date }}
+                    td {{ticket.active}}
                     td {{ticket.updated}}
                     td {{ticket.message}}
                   
