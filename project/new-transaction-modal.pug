@@ -30,13 +30,13 @@
                                     .col.mr--2
                                         h3.mb-0 Amount to be Paid 
                                     .col-auto
-                                        span {{Number(amountInNaira).toLocaleString()}} NGN 
+                                        span {{amountInNaira}} NGN 
                             li.list-group-item.px-0
                                 .row.align-items-center
                                     .col.mr--2
                                         h3.mb-0  Amount to Recieve
                                     .col-auto
-                                        span {{Number(amountInCurrency).toLocaleString()}} {{selectedCurrency.currency}}
+                                        span {{amountInCurrency}} {{selectedCurrency.currency}}
                             br
                         .mb-4
                         .row.justify-content-center.mt-5
