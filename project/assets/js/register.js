@@ -45,7 +45,9 @@ const registerApp = new Vue({
       if(res) {
         const result = await res.json();
 
-        if(result && result.message === "success") {
+        if(result && result.message) {
+          console.log(result);
+          alert(result.message);
           setTimeout(() => {
             window.location.href = "/login";
           }, 4000)
