@@ -267,6 +267,7 @@ const transactionApp = new Vue({
                 bankName: "Zenith Bank"
             },
         ],
+        admin: "admin",
         bdcFilteredAccount: [],
         userBankAccounts: [],
         exchangeRates: [],
@@ -290,6 +291,8 @@ const transactionApp = new Vue({
         noOfFailedTrans: [],
         myOpenTickets: [],
         // userBanks: [],
+        ticket_id: "",
+        ticket_message: "",
         buyTransactionLogs: [],
         no_of_buy_trans: 1,
         sellTransactionLogs: [],
@@ -303,6 +306,7 @@ const transactionApp = new Vue({
         withBank: false,
         // mode: "buy",
         randomString: "",
+        addCommentURL: "tickets/add-comment/",
         bankAccountsURL: "reg/accounts",
         getBanksURL: "reg/user-banks/",
         exchangeRatesURL: "fx/all-currency/",
@@ -423,6 +427,11 @@ const transactionApp = new Vue({
             }
            
         },
+        selectTicket(id, message) {
+            this.ticket_message = message
+            this.ticket_id = id
+            console.log(this.ticket_id)
+        },
 
         async fetchAllOpenTickets() {
             const res = await fetch(`${baseURL}${this.userTicket}${this.userProfile._id}`, {
@@ -476,7 +485,7 @@ const transactionApp = new Vue({
                 console.log(result);
                 this.fetchUserAccounts();
                 console.log(this.userSelectedBankAccount);
-            }
+            } 
         },
 
         async postTicket() {
@@ -486,8 +495,9 @@ const transactionApp = new Vue({
                 subject: this.ticketSubject,
                 priority: this.ticketPriority,
                 type: this.ticketType,
-                message: this.ticketMessage,
+                comment: this.ticketMessage,
                 userId: this.userProfile._id,
+                sender: this.userProfile.lname,
                 token: getToken()
             };
             const res = await fetch(`${baseURL}${this.saveTicket}`, {
@@ -499,9 +509,14 @@ const transactionApp = new Vue({
             });
             if (res) {
                 const result = await res.json();
-                alert("Your ticket has been successfully saved!")
+                if(result.message) {
+                    alert(result.message)
+                }
                 console.log(result);
             
+            } else {
+                alert(result.errors)
+                console.log("ticket not saved");
             }
         },
 
@@ -616,6 +631,29 @@ const transactionApp = new Vue({
                 this.userBankAccounts = result;
             }
         },
+        async commentOnTicket() {
+            const requestBody = {
+                sender: this.userProfile.lname,
+                comment: this.comment,
+                // token: getToken()
+            };
+            const res = await fetch(`${baseURL}${this.addCommentURL}${this.ticket_id}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(requestBody)
+            });
+            if (res) {
+                const result = await res.json();
+                console.log(result);
+                // this.buyTransactionAccount();
+                // this.fetchSellTransactionLogs();
+                this.ticket_message = result.message.message
+                // this.ticket_message = 
+                // this.fetchUserAccounts();
+            }
+        }, 
 
         filterbdc() {
             this.bdcFilteredAccount = [];

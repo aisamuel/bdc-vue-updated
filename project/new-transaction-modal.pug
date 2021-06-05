@@ -187,6 +187,35 @@
                                 button.btn.btn-primary.my-4(type='button' data-dismiss="modal" @click="addBankAccount()" :disabled="!acceptAgreement || !accountIsUnique") Add Account
                                 button.btn.btn-danger.my-4(type='button' data-dismiss="modal" data-toggle='modal' data-target='#xf-details-2') Cancel
 
+#modal-comment.modal.fade(tabindex='-1' role='dialog' aria-labelledby='modal-form' aria-hidden='true')
+  .modal-dialog.modal-.modal-dialog-centered.modal-md(role='document' style='\
+padding-top: inherit;\
+')
+    .modal-content
+        .modal-body.p-0
+            .card.bg-secondary.border-0.mb-0
+            .card-header.bg-transparent
+                .text-center.text-muted.mb-4
+                h3 Comments
+            .card-body.px-lg-5.py-lg-5
+                div(v-for='ticket in ticket_message' v-cloak)
+                    
+                    span(v-if="ticket.sender == admin")
+                        strong {{ticket.sender}}
+                        |  {{ticket.comment}}
+                        
+                    span(v-else='ticket.sender != admin', style='float: right;')
+                        |  {{ticket.comment}} 
+                        strong {{ticket.sender}}
+                    br
+                    
+                form(role='form')
+                
+                .form-group
+                    label.form-control-label(for='exampleFormControlTextarea1')
+                    textarea#exampleFormControlTextarea1.form-control(rows='3' v-model='comment')
+                .text-center
+                    button.btn.btn-primary.my-4(type='button' @click='commentOnTicket()') Send
 
 #modal-support.modal.fade(tabindex='-1' role='dialog' aria-labelledby='modal-form' aria-hidden='true')
   .modal-dialog.modal-.modal-dialog-centered.modal-md(role='document')

@@ -18,8 +18,8 @@
                     th.sort(scope='col' data-sort='Amount') Created
                     th.sort(scope='col' data-sort='Amount') Active
                     th.sort(scope='col' data-sort='Status') Updated
-                    th.sort(scope='col' data-sort='Timer') Message
-                    //- th(scope='col') Action
+                    //- th.sort(scope='col' data-sort='Timer') Messages
+                    th(scope='col') Action
                 tbody.list
                   tr(v-for='ticket in myOpenTickets' v-cloak)
                     td.budget
@@ -32,7 +32,14 @@
                     td {{ ticket.created_date }}
                     td {{ticket.active}}
                     td {{ticket.updated}}
-                    td {{ticket.message}}
+                    //- td {{ticket.message}}
+                    td.text-right
+                          .dropdown
+                            a.btn.btn-sm.btn-icon-only.text-light(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                              i.fas.fa-ellipsis-v
+                            .dropdown-menu.dropdown-menu-right.dropdown-menu-arrow
+                              a.dropdown-item(href='#' type='button' data-toggle='modal' @click="selectTicket(ticket._id, ticket.message)" data-target='#modal-comment') Comment
+                  
                   
           .card-footer.py-4
             nav(aria-label='...')
@@ -53,3 +60,5 @@
                   a.page-link(href='#')
                     i.fas.fa-angle-right
                     span.sr-only Next
+
+
