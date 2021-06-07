@@ -343,7 +343,17 @@ const transactionApp = new Vue({
             });
             if (res) {
                 const result = await res.json();
-                if (result) this.exchangeRates = result;
+                if (result) {
+
+                    result.map(option=>{
+                        console.log(option.disabled)
+                        if(!option.disabled) {
+                            this.exchangeRates.push(option)
+                        }
+                        
+                    })
+                    // this.exchangeRates = result;
+                }
                 this.selectedCurrency = this.exchangeRates[1];
                 //TODO selling rates and buying rates should come from DB
                 this.sellingRates = JSON.parse(JSON.stringify(this.exchangeRates));
