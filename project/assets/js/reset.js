@@ -5,6 +5,8 @@ const loginApp = new Vue({
       password: "",
       newPassWord: "",
       userProfile: {},
+      passwordFieldType: 'password',
+      passwordFieldType2: 'password',
       isLoading: false,
       loginURL: `${baseURL}reg/login/`,
       resetURL: `${baseURL}reg/changePass/`,
@@ -54,6 +56,14 @@ const loginApp = new Vue({
         setTimeout(() => {
           this.errorMessage = "";
         }, this.errorTimeOut);
+      },
+
+      switchVisibility() {
+        this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password'
+      },
+
+      switchVisibilityTwo() {
+        this.passwordFieldType2 = this.passwordFieldType2 === 'password' ? 'text' : 'password'
       }
     },
     mounted: function() {
