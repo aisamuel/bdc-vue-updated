@@ -1,5 +1,5 @@
 // const baseURL = "https://bcd-backend.herokuapp.com/";
-const baseURL = "http://bedece-v2.herokuapp.com/";
+const baseURL = "https://bedece-v2.herokuapp.com/";
 // const baseURL = "https://bdc313-test.herokuapp.com/";
 // const baseURL = "http://9887d0942ef2.ngrok.io/";
 const getUserProfile = () => {
